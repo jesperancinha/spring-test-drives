@@ -1,22 +1,16 @@
 package org.jesperancinha.sftd.flash214.transactions.dto;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Value;
 
-@Value
-@AllArgsConstructor(onConstructor_ = @JsonCreator)
-public class CarDto {
+public record CarDto(
     @JsonProperty("id")
-    Long id;
+    Long id,
     @JsonProperty("model")
-    String model;
+    String model,
     @JsonProperty("brand")
-    String brand;
+    String brand,
     @JsonProperty("carYear")
-    Integer carYear;
+    Integer carYear,
     @JsonProperty("movieAppearances")
-    String[] movieAppearances;
-
-}
+    String[] movieAppearances
+) {}

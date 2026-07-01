@@ -1,21 +1,18 @@
 package org.jesperancinha.sftd.flash44.handler.mapping;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
-@Value
 @Builder
-@AllArgsConstructor(onConstructor_ = @JsonCreator)
-public class SpringBeanMappedInstance {
+@Jacksonized
+public record SpringBeanMappedInstance(
     @JsonProperty("name")
-    String name;
+    String name,
 
     @JsonProperty("order")
-    Integer order;
+    Integer order,
 
     @JsonProperty("type")
-    String type;
-}
+    String type
+) {}

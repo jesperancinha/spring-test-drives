@@ -1,25 +1,21 @@
 package org.jesperancinha.sftd.flash310.jsoncomponent.dto;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
-@Value
 @Builder
-@AllArgsConstructor(onConstructor_ = @JsonCreator)
-public class Guitar {
-
+@Jacksonized
+public record Guitar(
     @JsonProperty("brand")
-    String brand;
+    String brand,
 
     @JsonProperty("model")
-    String model;
+    String model,
 
     @JsonProperty("value")
-    Long value;
+    Long value,
 
     @JsonProperty("currency")
-    String currency;
-}
+    String currency
+) {}

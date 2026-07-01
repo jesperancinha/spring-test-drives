@@ -1,31 +1,20 @@
 package org.jesperancinha.sftd.flash215.beanpostprocessor.bean;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.List;
 
-@Value
 @Builder
-@AllArgsConstructor(onConstructor_ = @JsonCreator)
-public class Cheese {
-
+@Jacksonized
+public record Cheese(
     @JsonProperty("name")
-    String name;
+    String name,
 
     @JsonProperty("url")
-    String url;
+    String url,
 
-    @JsonProperty(value = "checks")
-    List<String> checks;
-
-    public Cheese() {
-        name = null;
-        url = null;
-        checks = null;
-    }
-
-}
+    @JsonProperty("checks")
+    List<String> checks
+) {}

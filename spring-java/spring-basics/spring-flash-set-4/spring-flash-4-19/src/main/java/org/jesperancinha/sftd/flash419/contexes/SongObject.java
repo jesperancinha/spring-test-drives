@@ -1,17 +1,14 @@
 package org.jesperancinha.sftd.flash419.contexes;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Value;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.List;
 
-@Value
 @Builder
-@AllArgsConstructor(onConstructor_ = @JsonCreator)
-public class SongObject {
+@Jacksonized
+public record SongObject(
     @JsonProperty("allSongs")
-    List<String> allSongs;
-}
+    List<String> allSongs
+) {}
