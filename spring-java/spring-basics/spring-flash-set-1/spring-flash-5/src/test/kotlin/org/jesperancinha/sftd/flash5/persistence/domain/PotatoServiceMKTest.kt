@@ -20,11 +20,9 @@ import java.util.*
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [PotatoService::class])
 @MockkBean(PotatoRepository::class)
-class PotatoServiceMKTest(
-    @Autowired
-    val potatoService: PotatoService,
-    @Autowired
-    val potatoRepository: PotatoRepository
+class PotatoServiceMKTest @Autowired constructor(
+    private val potatoService: PotatoService,
+    private val potatoRepository: PotatoRepository
 ) : WordSpec() {
 
     override suspend fun beforeEach(testCase: TestCase) {

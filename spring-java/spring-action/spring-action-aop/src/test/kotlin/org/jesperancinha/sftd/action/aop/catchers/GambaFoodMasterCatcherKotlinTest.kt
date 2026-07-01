@@ -19,13 +19,13 @@ import java.util.stream.IntStream
 @ContextConfiguration(classes = [GambaFoodCatcher::class, BonitoCatcher::class, MackerelCatcher::class, MegaTunaCatcher::class, SardineCatcher::class, ShrimpCatcher::class, TunaCatcher::class, GambaAspect::class, MasterAspect::class, BonitoAspect::class, BonitoAspect2::class, BonitoAspect3::class, BonitoAspect4::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class GambaFoodMasterCatcherKotlinTest @Autowired constructor(
-    val gambaFoodCatcher: GambaFoodCatcher,
-    val bonitoCatcher: BonitoCatcher,
-    val mackerelCatcher: MackerelCatcher,
-    val megaTunaCatcher: MegaTunaCatcher,
-    val sardineCatcher: SardineCatcher,
-    val shrimpCatcher: ShrimpCatcher,
-    val tunaCatcher: TunaCatcher,
+    private val gambaFoodCatcher: GambaFoodCatcher,
+    private val bonitoCatcher: BonitoCatcher,
+    private val mackerelCatcher: MackerelCatcher,
+    private val megaTunaCatcher: MegaTunaCatcher,
+    private val sardineCatcher: SardineCatcher,
+    private val shrimpCatcher: ShrimpCatcher,
+    private val tunaCatcher: TunaCatcher,
 ) {
     @MockkBean(relaxed = true)
     lateinit var gambaService: GambaService

@@ -12,8 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("prod")
-internal class SpringFlash28LauncherProdKotlinTest(
-    @Autowired
+internal class SpringFlash28LauncherProdKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
     @Test

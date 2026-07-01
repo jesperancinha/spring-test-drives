@@ -14,9 +14,8 @@ import org.springframework.transaction.annotation.Transactional
 @DataJpaTest
 @MockkBean(PotatoService::class)
 @Transactional
-class PotatoRepositoryMKTest(
-    @Autowired
-    val potatoRepository: PotatoRepository
+class PotatoRepositoryMKTest @Autowired constructor(
+    private val potatoRepository: PotatoRepository
 ) : WordSpec() {
 
     init {

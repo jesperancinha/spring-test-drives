@@ -25,9 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
     initializers = [AbstractTestContainersKotlinIT.DockerPostgresDataInitializer::class]
 )
 internal class AlbumControllerKotlinTest @Autowired constructor(
-    @Autowired
     private val mockMvc: MockMvc,
-    @Autowired
     private val albumService: AlbumService
 ) {
 

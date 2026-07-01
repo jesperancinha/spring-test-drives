@@ -12,7 +12,7 @@ import org.springframework.http.HttpMethod.POST
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class SpringFlash4KotlinTestRestTemplateLauncherTest @Autowired constructor(
-    val testRestTemplate: TestRestTemplate
+    private val testRestTemplate: TestRestTemplate
 ) {
     @Test
     @Throws(Exception::class)

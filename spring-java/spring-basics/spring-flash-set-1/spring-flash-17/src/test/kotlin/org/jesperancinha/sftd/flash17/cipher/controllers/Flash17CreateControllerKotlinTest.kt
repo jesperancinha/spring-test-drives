@@ -34,7 +34,6 @@ import javax.sql.DataSource
 )
 @AutoConfigureMockMvc
 internal class Flash17CreateControllerKotlinTest @Autowired constructor(
-    @Autowired
     private val mockMvc: MockMvc,
 ) {
 

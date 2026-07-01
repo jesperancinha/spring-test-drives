@@ -23,9 +23,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ContextConfiguration(classes = [HarvestingAspect::class, HarvestingService::class, Fisher::class, Shrimper::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class HarvestingAspectKotlinTest @Autowired constructor(
-    @Autowired
     private val fisher: Fisher,
-    @Autowired
     private val shrimper: Shrimper,
 ) {
     @MockkBean(relaxed = true)

@@ -8,8 +8,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest
-internal class SpringFlash220LauncherMvcKotlinTest(
-    @Autowired
+internal class SpringFlash220LauncherMvcKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
 

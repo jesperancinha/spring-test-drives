@@ -27,9 +27,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @MockkBean(AlbumRepository::class)
 @ContextConfiguration(classes = [AlbumServiceImpl::class])
 internal class AlbumServiceImplKotlinTest @Autowired constructor(
-    @Autowired
     private val albumRepository: AlbumRepository,
-    @Autowired
     private val albumService: AlbumServiceImpl
 ) {
 

@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class ProductControllerKotlinTRTTest @Autowired constructor(
-    @Autowired
     private val testRestTemplate: TestRestTemplate
 ) {
     @BeforeEach

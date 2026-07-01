@@ -18,8 +18,7 @@ import org.springframework.jdbc.core.ResultSetExtractor
 import org.springframework.jdbc.core.RowMapper
 
 @SpringBootTest
-internal class SpringFlash26LauncherKotlinTest(
-    @Autowired
+internal class SpringFlash26LauncherKotlinTest @Autowired constructor(
     private val springFlash26Launcher: SpringFlash26Launcher
 ) {
     @SpykBean

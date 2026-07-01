@@ -19,7 +19,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ContextConfiguration(classes = [GambaFoodCatcher::class, GambaAspect::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class GambaFoodCatcherKotlinTest @Autowired constructor(
-    @Autowired
     private val gambaFoodCatcher: GambaFoodCatcher,
 ) {
     @MockkBean(relaxed = true)

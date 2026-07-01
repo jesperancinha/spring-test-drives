@@ -17,8 +17,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-internal class Flash27HealthIndicatorKotlinTest(
-    @Autowired
+internal class Flash27HealthIndicatorKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
     @Test

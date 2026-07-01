@@ -20,7 +20,6 @@ import java.util.*
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ImportResource("classpath:WEB-INF/beans.xml")
 internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
-    @Autowired
     private val testRestTemplate: TestRestTemplate
 ) {
     @Test

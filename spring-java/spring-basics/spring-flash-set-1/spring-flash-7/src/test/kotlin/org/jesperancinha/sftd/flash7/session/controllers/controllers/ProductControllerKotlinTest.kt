@@ -22,7 +22,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @WebMvcTest(controllers = [ProductController::class])
 internal class ProductControllerKotlinTest @Autowired constructor(
-    @Autowired
     private val mockMvc: MockMvc
 ) {
 

@@ -11,7 +11,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 @WebMvcTest(Flash20Controller::class)
 @ImportResource("classpath:WEB-INF/beans.xml")
 internal class Flash20ControllerKotlinTest @Autowired constructor(
-    @Autowired
     private val mockMvc: MockMvc
 ) {
 

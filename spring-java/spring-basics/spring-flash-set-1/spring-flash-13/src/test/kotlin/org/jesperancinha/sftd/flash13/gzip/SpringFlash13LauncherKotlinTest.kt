@@ -10,8 +10,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest
 @ContextConfiguration(classes = [SpringFlash13Launcher::class])
-internal class SpringFlash13LauncherKotlinTest(
-    @Autowired
+internal class SpringFlash13LauncherKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
 

@@ -31,7 +31,6 @@ import java.time.LocalDateTime
 @Testcontainers
 @ContextConfiguration(initializers = [SpringFlash24LauncherKotlinTest.Initializer::class])
 internal class SpringFlash24LauncherKotlinTest @Autowired constructor(
-    @Autowired
     private val springFlash24Launcher: SpringFlash24Launcher
 ) {
     @SpykBean

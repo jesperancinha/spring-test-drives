@@ -26,9 +26,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 )
 @ContextConfiguration(classes = [BonitoCatcher::class, CodCatcher::class, BonitoAspect::class, BonitoAspect2::class, BonitoAspect3::class, CodAspect::class, Bonito1Service::class, Bonito2Service::class, Bonito3Service::class, CodService::class])
 internal class JeorgActionAOPLauncherExtensionKotlinTest @Autowired constructor(
-    @Autowired
     private val bonitoCatcher: BonitoCatcher,
-    @Autowired
     private val codCatcher: CodCatcher,
 ) {
     @Test

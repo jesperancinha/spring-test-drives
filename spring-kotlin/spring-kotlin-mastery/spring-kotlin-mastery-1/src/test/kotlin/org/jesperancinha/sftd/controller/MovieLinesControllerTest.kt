@@ -11,9 +11,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 
 @WebMvcTest
-internal class MovieLinesControllerTest(
-    @Autowired
-    val mockMvc: MockMvc
+internal class MovieLinesControllerTest @Autowired constructor(
+    private val mockMvc: MockMvc
 ) {
     private val objectMapper: ObjectMapper = ObjectMapper()
 

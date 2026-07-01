@@ -27,8 +27,7 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @DirtiesContext(classMode = ClassMode.BEFORE_CLASS)
 @Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-internal class CarRepositoryKotlinTest(
-    @Autowired
+internal class CarRepositoryKotlinTest @Autowired constructor(
     private val carRepository: CarRepository
 ) {
 

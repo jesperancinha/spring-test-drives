@@ -17,8 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [MegaTunaCatcher::class, TunaAspect::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-internal class MegaTunaCatcherKotlinTest(
-    @Autowired
+internal class MegaTunaCatcherKotlinTest @Autowired constructor(
     private val megaTunaCatcher: MegaTunaCatcher
 ) {
     @MockkBean(relaxed = true)

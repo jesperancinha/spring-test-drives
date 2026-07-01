@@ -17,7 +17,7 @@ import org.springframework.validation.BindingResult
 
 @SpringBootTest
 internal class JSONControllerFormTest @Autowired constructor(
-    val jsonControllerForm: JSONControllerForm
+    private val jsonControllerForm: JSONControllerForm
 ) {
 
     @MockkBean(relaxed = true)

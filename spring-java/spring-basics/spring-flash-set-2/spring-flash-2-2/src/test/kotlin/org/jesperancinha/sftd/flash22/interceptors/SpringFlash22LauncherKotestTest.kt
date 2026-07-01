@@ -16,8 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest(controllers = [SpringFlash22Launcher::class])
-internal class SpringFlash22LauncherKotestTest(
-    @Autowired
+internal class SpringFlash22LauncherKotestTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
 

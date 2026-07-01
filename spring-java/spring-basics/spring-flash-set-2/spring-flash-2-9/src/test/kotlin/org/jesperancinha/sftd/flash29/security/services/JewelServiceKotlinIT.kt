@@ -20,8 +20,7 @@ import org.springframework.security.authentication.AuthenticationCredentialsNotF
 import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-internal class JewelServiceKotlinIT(
-    @Autowired
+internal class JewelServiceKotlinIT @Autowired constructor(
     private val jewelService: JewelService
 ) {
 

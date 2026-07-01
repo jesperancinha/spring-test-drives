@@ -15,7 +15,6 @@ import java.util.*
 
 @SpringBootTest
 internal class JewelServiceGetKotlinIT @Autowired constructor(
-    @Autowired
     private val jewelService: JewelService
 ) {
 

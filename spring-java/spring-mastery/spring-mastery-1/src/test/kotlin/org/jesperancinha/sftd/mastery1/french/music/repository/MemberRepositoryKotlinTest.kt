@@ -20,9 +20,7 @@ import java.time.LocalDate
 @DataJpaTest
 @ExtendWith(SpringExtension::class)
 internal class MemberRepositoryKotlinTest @Autowired constructor(
-    @Autowired
     private val memberRepository: MemberRepository,
-    @Autowired
     private val artistRepository: ArtistRepository,
 ) {
     @MockkBean(relaxed = true)

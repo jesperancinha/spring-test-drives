@@ -22,7 +22,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ImportResource("classpath:bean.xml")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class BonitoCatcher4KotlinTest @Autowired constructor(
-    @Autowired
     private val bonitoCatcher: BonitoCatcher,
 ) {
     @MockkBean(relaxed = true)

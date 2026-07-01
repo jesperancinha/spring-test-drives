@@ -19,7 +19,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 
 @WebMvcTest(controllers = [SpringFlash6Launcher::class])
 internal class SpringFlash6KotlinLauncherTest @Autowired constructor(
-    @Autowired
     private val mockMvc: MockMvc
 ) {
 

@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class SpringFlash18LauncherKotlinTest @Autowired constructor(
-    val applicationContext: ApplicationContext
+    private val applicationContext: ApplicationContext
 ) {
     @Test
     fun `should start application and initialize application context`() {

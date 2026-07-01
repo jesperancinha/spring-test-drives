@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 internal class Flash15TypeSafeConfigurationKotlinTest @Autowired constructor(
-    @Autowired
     private val flash15TypeSafeConfiguration: Flash15TypeSafeConfiguration,
 ) {
 

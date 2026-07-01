@@ -23,8 +23,7 @@ import org.springframework.test.context.jdbc.Sql.ExecutionPhase
 @ComponentScan("org.jesperancinha.sftd.flash214.transactions")
 @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = ["classpath:schema.sql"])
 @DirtiesContext(classMode = ClassMode.BEFORE_CLASS)
-internal class SpringFlash214LauncherKotlinTest(
-    @Autowired
+internal class SpringFlash214LauncherKotlinTest @Autowired constructor(
     private val carRepository: CarRepository
 ) : AbstractTestContainerTest() {
 

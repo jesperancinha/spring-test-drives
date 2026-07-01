@@ -20,8 +20,8 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [SpaceRocketConfig::class], loader = AnnotationConfigContextLoader::class)
 class SpaceRocketServiceIntegrationKotlinTest @Autowired constructor(
-    val spaceRocketService: SpaceRocketService,
-    val spaceRocketRepository: SpaceRocketRepository,
+    private val spaceRocketService: SpaceRocketService,
+    private val spaceRocketRepository: SpaceRocketRepository,
 ) {
 
     @BeforeEach

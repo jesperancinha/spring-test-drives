@@ -22,8 +22,7 @@ import java.util.concurrent.TimeUnit
 @ComponentScan("org.jesperancinha.sftd.flash214.transactions", "org.jesperancinha.sftd.flash214.transactions.services")
 @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = ["classpath:schema.sql"])
 @DirtiesContext(classMode = ClassMode.BEFORE_CLASS)
-internal class CarReadUncommittedDAOKotlinTest (
-    @Autowired
+internal class CarReadUncommittedDAOKotlinTest @Autowired constructor(
     private val carReadUncommittedDAO: CarReadUncommittedDAO
 ): AbstractTestContainerTest() {
     @BeforeEach

@@ -10,7 +10,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [Flash15TraditionalConfiguration::class])
 internal class Flash15TraditionalConfigurationKotlinTest @Autowired constructor(
-    @Autowired
     private val flash15TraditionalConfiguration: Flash15TraditionalConfiguration,
 ) {
 

@@ -33,7 +33,7 @@ class StarterApplication {
 
 @SpringBootTest
 class LateinitComponentTest @Autowired constructor(
-    val mycomponent: MyComponent,
+    private val mycomponent: MyComponent,
 ) {
 
     @Test

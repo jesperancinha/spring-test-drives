@@ -21,7 +21,6 @@ import org.springframework.boot.test.context.SpringBootTest
 //@ContextConfiguration(classes = JewelServiceImpl.class)
 @SpringBootTest
 internal class JewelServiceGetAllKotlinIT @Autowired constructor(
-    @Autowired
     private val jewelService: JewelService
 ) {
 

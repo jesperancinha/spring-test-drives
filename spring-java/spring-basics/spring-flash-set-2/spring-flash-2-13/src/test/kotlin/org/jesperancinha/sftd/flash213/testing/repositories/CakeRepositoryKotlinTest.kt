@@ -23,8 +23,7 @@ import java.util.*
 // expected at least 1 bean which qualifies as autowire candidate. Dependency annotations:
 // {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 
-class CakeRepositoryKotlinTest(
-    @Autowired
+class CakeRepositoryKotlinTest @Autowired constructor(
     private val cakeRepository: CakeRepository
 ) {
 

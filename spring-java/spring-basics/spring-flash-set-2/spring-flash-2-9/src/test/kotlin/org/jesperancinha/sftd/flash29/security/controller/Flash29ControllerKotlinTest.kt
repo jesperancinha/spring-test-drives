@@ -30,7 +30,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
     Flash29ConfigurationAdapter::class
 )
 internal class Flash29ControllerKotlinTest @Autowired constructor(
-    @Autowired
     private val mockMvc: MockMvc
 ) {
     @MockkBean(relaxed = true)

@@ -22,7 +22,6 @@ import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class JewelServiceUpdateKotlinIT @Autowired constructor(
-    @Autowired
     private val jewelService: JewelService
 ) {
     @MockkBean(relaxed = true)

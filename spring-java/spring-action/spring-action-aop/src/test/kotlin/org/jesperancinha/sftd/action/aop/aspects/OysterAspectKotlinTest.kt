@@ -20,7 +20,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ContextConfiguration(classes = [OysterAspect::class, OysterService::class, OysterPicker::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class OysterAspectKotlinTest @Autowired constructor(
-    @Autowired
     private val oysterPicker: OysterPicker,
 ) {
 

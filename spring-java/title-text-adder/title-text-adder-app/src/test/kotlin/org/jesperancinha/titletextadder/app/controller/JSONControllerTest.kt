@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 internal class JSONControllerTest @Autowired constructor(
-    val jsonController: JSONController
+    private val jsonController: JSONController
 ) {
     @Test
     fun `show title in json form`() {

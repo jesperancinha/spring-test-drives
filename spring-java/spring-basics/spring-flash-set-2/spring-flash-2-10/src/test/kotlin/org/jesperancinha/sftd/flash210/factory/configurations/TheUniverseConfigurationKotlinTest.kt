@@ -10,7 +10,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [TheUniverseConfiguration::class])
 internal class TheUniverseConfigurationKotlinTest @Autowired constructor(
-    @Autowired
     private val material1: Material
 ) {
 

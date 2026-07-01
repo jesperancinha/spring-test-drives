@@ -19,7 +19,6 @@ import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest
 internal class JewelServiceDeleteKotlinIT @Autowired constructor(
-    @Autowired
     private val jewelService: JewelService
 ){
     @MockkBean(relaxed = true)

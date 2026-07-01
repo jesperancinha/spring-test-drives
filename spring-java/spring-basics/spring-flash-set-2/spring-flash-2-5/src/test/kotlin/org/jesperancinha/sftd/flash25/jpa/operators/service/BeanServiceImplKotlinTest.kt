@@ -17,7 +17,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @MockkBean(value = [BeanRepository::class], relaxed = true)
 @TestPropertySource("classpath:application.properties")
 internal class BeanServiceImplKotlinTest @Autowired constructor(
-    @Autowired
     private val beanService: BeanServiceImpl,
     private val applicationContext: ConfigurableApplicationContext
 ) {

@@ -13,8 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @SpringBootTest
 @AutoConfigureMockMvc
-internal class CheeseControllerKotlinTest(
-    @Autowired
+internal class CheeseControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
 
