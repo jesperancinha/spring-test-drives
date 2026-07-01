@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-5-17</artifactId>
+    <name>Spring Test Drives :: Spring Flash 5 17</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

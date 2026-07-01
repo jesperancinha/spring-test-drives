@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>configurable-tomato-contexts</artifactId>
+    <name>Spring Test Drives :: Configurable Tomato Contexts</name>
 
     <dependencies>
         <dependency>

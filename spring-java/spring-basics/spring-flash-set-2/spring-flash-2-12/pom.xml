@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-2-12</artifactId>
+    <name>Spring Test Drives :: Spring Flash 2 12</name>
 
     <dependencies>
         <dependency>

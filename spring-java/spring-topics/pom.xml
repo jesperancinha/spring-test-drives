@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-topics</artifactId>
+    <name>Spring Test Drives :: Spring Topics</name>
     <modules>
         <module>spring-topic-container</module>
     </modules>

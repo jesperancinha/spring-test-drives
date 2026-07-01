@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-action-mvc</artifactId>
+    <name>Spring Test Drives :: Spring Action Mvc</name>
 
     <packaging>pom</packaging>
 

@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-java</artifactId>
+    <name>Spring Test Drives :: Spring Java</name>
     <packaging>pom</packaging>
     <modules>
         <module>spring-app-legacy</module>

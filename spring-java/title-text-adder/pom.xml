@@ -8,8 +8,7 @@
     </parent>
 
     <artifactId>title-text-adder</artifactId>
-
-    <name>TTA::Parent</name>
+    <name>Spring Test Drives :: Title Text Adder</name>
     <modules>
         <module>title-text-adder-api</module>
         <module>title-text-adder-app</module>

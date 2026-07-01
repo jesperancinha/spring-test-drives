@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-3-2</artifactId>
+    <name>Spring Test Drives :: Spring Flash 3 2</name>
 
     <dependencies>
         <dependency>
@@ -142,7 +143,6 @@
     <repositories>
         <repository>
             <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
             <url>https://repo.spring.io/snapshot</url>
             <releases>
                 <enabled>false</enabled>

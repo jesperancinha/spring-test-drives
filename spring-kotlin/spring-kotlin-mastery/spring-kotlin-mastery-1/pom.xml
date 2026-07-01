@@ -8,7 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>spring-kotlin-mastery-1</artifactId>
-    <name>spring-kotlin-mastery-1</name>
+    <name>Spring Test Drives :: Spring Kotlin Mastery 1</name>
     <description>Demo project for Spring Boot</description>
     <dependencies>
         <dependency>

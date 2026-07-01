@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-set-1</artifactId>
+    <name>Spring Test Drives :: Spring Flash Set 1</name>
 
     <modules>
         <module>spring-flash-4</module>

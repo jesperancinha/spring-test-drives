@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-3-20</artifactId>
+    <name>Spring Test Drives :: Spring Flash 3 20</name>
 
     <dependencies>
         <dependency>

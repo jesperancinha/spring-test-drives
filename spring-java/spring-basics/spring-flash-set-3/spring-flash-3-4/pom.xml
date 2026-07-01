@@ -7,6 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>spring-flash-3-4</artifactId>
+    <name>Spring Test Drives :: Spring Flash 3 4</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 

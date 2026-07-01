@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-app-old</artifactId>
+    <name>Spring Test Drives :: Spring App Old</name>
 
     <modules>
         <module>spring-test-drives-spring-boot</module>

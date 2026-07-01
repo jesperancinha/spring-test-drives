@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-action-actuator</artifactId>
+    <name>Spring Test Drives :: Spring Action Actuator</name>
 
     <dependencies>
         <dependency>

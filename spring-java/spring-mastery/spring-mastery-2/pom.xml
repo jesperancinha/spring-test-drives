@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-mastery-2</artifactId>
+    <name>Spring Test Drives :: Spring Mastery 2</name>
 
     <dependencies>
         <dependency>

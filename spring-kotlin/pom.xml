@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-kotlin</artifactId>
+    <name>Spring Test Drives :: Spring Kotlin</name>
     <modules>
         <module>spring-kotlin-mastery</module>
         <module>mix-service</module>

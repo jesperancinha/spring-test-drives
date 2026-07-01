@@ -9,9 +9,8 @@
     </parent>
 
     <artifactId>title-text-adder-api</artifactId>
+    <name>Spring Test Drives :: Title Text Adder Api</name>
     <packaging>war</packaging>
-
-    <name>title-text-adder-api Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
     <build>

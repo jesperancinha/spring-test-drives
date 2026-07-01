@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-kotlin-mastery</artifactId>
+    <name>Spring Test Drives :: Spring Kotlin Mastery</name>
 
     <packaging>pom</packaging>
 

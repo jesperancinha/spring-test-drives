@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-17</artifactId>
+    <name>Spring Test Drives :: Spring Flash 17</name>
 
     <dependencies>
         <dependency>

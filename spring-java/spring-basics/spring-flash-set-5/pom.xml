@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-flash-set-5</artifactId>
+    <name>Spring Test Drives :: Spring Flash Set 5</name>
     <modules>
         <module>spring-flash-5-1</module>
         <module>configurable-tomato-contexts</module>
