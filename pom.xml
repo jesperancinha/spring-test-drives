@@ -4,13 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jesperancinha.sftd</groupId>
-    <artifactId>jeorg-spring-test-drives</artifactId>
+    <artifactId>spring-test-drives</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <modules>
-        <module>jeorg-spring</module>
-        <module>jeorg-spring-kotlin</module>
-        <module>xml-based-services</module>
+        <module>spring-java</module>
+        <module>spring-kotlin</module>
     </modules>
 
     <name>JSTD :: Spring Test Drives</name>

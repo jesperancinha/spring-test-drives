@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-flash</artifactId>
+        <groupId>org.jesperancinha.sftd</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-flash-set-1</artifactId>
+
+    <modules>
+        <module>spring-flash-4</module>
+        <module>spring-flash-5</module>
+        <module>spring-flash-6</module>
+        <module>spring-flash-7</module>
+        <module>spring-flash-8</module>
+        <module>spring-flash-9</module>
+        <module>spring-flash-10</module>
+        <module>spring-flash-11</module>
+        <module>spring-flash-12</module>
+        <module>spring-flash-13</module>
+        <module>spring-flash-14</module>
+        <module>spring-flash-15</module>
+        <module>spring-flash-16</module>
+        <module>spring-flash-17</module>
+        <module>spring-flash-18</module>
+        <module>spring-flash-19</module>
+        <module>spring-flash-20</module>
+    </modules>
+
+    <packaging>pom</packaging>
+</project>

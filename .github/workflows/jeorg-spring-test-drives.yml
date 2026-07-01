@@ -1,4 +1,4 @@
-name: JEORG_SPRING_TD jeorg-spring-test-drives
+name: JEORG_SPRING_TD spring-test-drives
 
 on:
   pull_request:

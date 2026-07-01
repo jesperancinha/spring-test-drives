@@ -13,7 +13,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-kotlin-5/jeorg-spring-kotlin-mastery
+        - cd spring-kotlin-5/spring-kotlin-mastery
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -27,7 +27,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-flash/jeorg-spring-flash-set-1
+        - cd spring-5/spring-flash/spring-flash-set-1
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -41,7 +41,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-flash/jeorg-spring-flash-set-2
+        - cd spring-5/spring-flash/spring-flash-set-2
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -55,7 +55,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-flash/jeorg-spring-flash-set-3
+        - cd spring-5/spring-flash/spring-flash-set-3
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -69,7 +69,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-flash/jeorg-spring-flash-set-4
+        - cd spring-5/spring-flash/spring-flash-set-4
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -83,7 +83,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-flash/jeorg-spring-flash-set-5
+        - cd spring-5/spring-flash/spring-flash-set-5
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -97,7 +97,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-action
+        - cd spring-5/spring-action
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -111,7 +111,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-app-old
+        - cd spring-5/spring-app-old
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -125,7 +125,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-apps
+        - cd spring-5/spring-apps
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -139,7 +139,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-mastery
+        - cd spring-5/spring-mastery
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
@@ -153,7 +153,7 @@ jobs:
         - .autoconf
         - $HOME/.m2
       install:
-        - cd jeorg-spring-5/jeorg-spring-topics
+        - cd spring-5/spring-topics
         - mvn dependency:resolve
       script:
         - mvn clean install -Dconsolerizer.show=false
