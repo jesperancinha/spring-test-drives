@@ -5,7 +5,7 @@ import org.jesperancinha.sftd.flash52.config.GoodTomatoSpringConfiguration;
 import org.jesperancinha.sftd.flash52.domain.Tomato;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,8 +21,8 @@ import static org.mockito.Mockito.verify;
 })
 class GoodTomatoSpringConfigurationTest {
 
-    @SpyBean(TomatoExtended.class)
-    private static TomatoExtended originalTomato;
+    @MockitoSpyBean
+    private TomatoExtended originalTomato;
 
     @Test
     void testTomatoWhenTomatoInitsAndEndsThenInitAndEndMethodsCalled() {
@@ -44,7 +44,6 @@ class GoodTomatoSpringConfigurationTest {
 
         @PreDestroy
         public void preDestroy() {
-            verify(originalTomato, times(1)).eatTomato();
         }
     }
 

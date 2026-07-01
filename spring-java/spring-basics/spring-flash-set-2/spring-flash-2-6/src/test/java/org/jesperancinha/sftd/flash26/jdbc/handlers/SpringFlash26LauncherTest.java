@@ -7,7 +7,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.jdbc.UncategorizedSQLException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class SpringFlash26LauncherTest {
 
-    @SpyBean
+    @MockitoSpyBean
     private JdbcTemplate jdbcTemplate;
 
     @Autowired

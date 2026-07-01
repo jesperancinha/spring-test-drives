@@ -8,7 +8,7 @@ import org.mockito.Captor;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.SpyBean;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -35,7 +35,7 @@ import static org.mockito.Mockito.verify;
 @ContextConfiguration(initializers = {SpringFlash24LauncherTest.Initializer.class})
 class SpringFlash24LauncherTest {
 
-    @SpyBean
+    @MockitoSpyBean
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
