@@ -12,7 +12,7 @@
         <module>spring-kotlin</module>
     </modules>
 
-    <name>JSTD :: Spring Test Drives</name>
+    <name>Spring Test Drives :: Spring Test Drives</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>xml-based-services</artifactId>
-    <name>JSTD :: Xml based services</name>
+    <name>Spring Test Drives :: Xml based services</name>
     <packaging>pom</packaging>
     <modules>
         <module>bean-registration-1</module>

@@ -1,4 +1,4 @@
-# JSTD :: Xml based services
+# Spring Test Drives :: Xml based services
 
 ## About me
 

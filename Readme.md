@@ -121,13 +121,13 @@ The examples presented in this repo need to use a docker-engine/docker-machine i
 
 This is because they make use of the [testcontainers](https://www.testcontainers.org/) project.
 
-I tested this using Docker Desktop for mac and on an ubuntu-unity machine. As long as the docker-machine/docker-engine is running, the maven build shoud also work.
+I tested this using Docker Desktop for Mac and on an ubuntu-unity machine. As long as the docker-machine/docker-engine is running, the maven build should also work.
 
 Using embedded alternatives revealed to be quite cumbersome, inefficient and slow.
 
-For more info on docker desktop please check their [website](https://www.docker.com/).
+For more info on docker desktop, please check their [website](https://www.docker.com/).
 
-For learning how to install docker in ubuntu please check their [website](https://docs.docker.com/engine/install/ubuntu/).
+To learn how to install docker in ubuntu, please check their [website](https://docs.docker.com/engine/install/ubuntu/).
 
 When this is ready, just run:
 

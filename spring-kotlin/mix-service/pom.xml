@@ -9,7 +9,7 @@
     </parent>
     <artifactId>mix-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>JSTD :: Mix Service</name>
+    <name>Spring Test Drives :: Mix Service</name>
     <description>mix-service</description>
     <url/>
     <licenses>
