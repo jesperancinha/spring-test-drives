@@ -3,7 +3,7 @@ name: spring-integration-test-wiring
 description: Conventions for dependency injection and mocking in Spring Boot integration tests in this project. Use this whenever writing, reviewing, or refactoring integration test classes (anything annotated @SpringBootTest, or under src/test that talks to a real Spring context), especially when deciding how to wire dependencies or mock collaborators. Also consult this before adding @Autowired, @MockBean, @MockitoBean, or field injection in any test class.
 ---
 
-# Spring Boot Integration Test Wiring for all projects with tests developped in Kotlin
+# Spring Boot Integration Test Wiring for all projects with tests developed in Kotlin
 
 Rules for how dependencies get injected and mocked in this project's integration tests. Apply these whenever creating a
 new integration test class or reviewing/editing an existing one.
@@ -49,6 +49,7 @@ Notes:
 - If a test only needs one or two collaborators, still use the constructor — don't fall back to field injection "just
   for this one."
 - If the `@Autowired constructor` pattern is already in use, make sure that all injected params are `private val`, but also remove `@Autowire` if they have it.
+- For all beans using any of the annotations `@MockitoBean`, `@MockBean`, `@SpyBean`, `@MockkBean`, `@MockkSpyBean`, or others, and injected with `lateinit`, please put them with the correct annotation in the constructor as well
 
 ## 2. Test class checklist
 
