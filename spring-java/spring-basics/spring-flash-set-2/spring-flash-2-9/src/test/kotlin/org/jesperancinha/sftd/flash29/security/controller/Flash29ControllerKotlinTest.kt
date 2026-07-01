@@ -30,14 +30,12 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
     Flash29ConfigurationAdapter::class
 )
 internal class Flash29ControllerKotlinTest @Autowired constructor(
-    private val mockMvc: MockMvc
+    private val mockMvc: MockMvc,
+    @MockkBean(relaxed = true)
+    private val jewelService: JewelService,
+    @MockkBean(relaxed = true)
+    private val jewelRepository: JewelRepository,
 ) {
-    @MockkBean(relaxed = true)
-    lateinit var jewelService: JewelService
-
-    @MockkBean(relaxed = true)
-    lateinit var jewelRepository: JewelRepository
-
     private val objectMapper = ObjectMapper()
 
 

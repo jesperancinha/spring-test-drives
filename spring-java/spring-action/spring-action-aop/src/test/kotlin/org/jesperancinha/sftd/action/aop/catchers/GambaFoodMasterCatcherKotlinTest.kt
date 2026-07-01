@@ -26,30 +26,23 @@ internal class GambaFoodMasterCatcherKotlinTest @Autowired constructor(
     private val sardineCatcher: SardineCatcher,
     private val shrimpCatcher: ShrimpCatcher,
     private val tunaCatcher: TunaCatcher,
+    @MockkBean(relaxed = true)
+    private val gambaService: GambaService,
+    @MockkBean(relaxed = true)
+    private val masterService: MasterService,
+    @MockkBean(relaxed = true)
+    private val tunaService: TunaService,
+    @MockkBean(relaxed = true)
+    private val codService: CodService,
+    @MockkBean(relaxed = true)
+    private val bonito1Service: Bonito1Service,
+    @MockkBean(relaxed = true)
+    private val bonito2Service: Bonito2Service,
+    @MockkBean(relaxed = true)
+    private val bonito3Service: Bonito3Service,
+    @MockkBean(relaxed = true)
+    private val bonito4Service: Bonito4Service,
 ) {
-    @MockkBean(relaxed = true)
-    lateinit var gambaService: GambaService
-
-    @MockkBean(relaxed = true)
-    lateinit var masterService: MasterService
-
-    @MockkBean(relaxed = true)
-    lateinit var tunaService: TunaService
-
-    @MockkBean(relaxed = true)
-    lateinit var codService: CodService
-
-    @MockkBean(relaxed = true)
-    lateinit var bonito1Service: Bonito1Service
-
-    @MockkBean(relaxed = true)
-    lateinit var bonito2Service: Bonito2Service
-
-    @MockkBean(relaxed = true)
-    lateinit var bonito3Service: Bonito3Service
-
-    @MockkBean(relaxed = true)
-    lateinit var bonito4Service: Bonito4Service
 
     @Test
     fun testCatchWithNetWhenCallingMasterAnnotatedMethodThenTriggerTheRightAdvices() {

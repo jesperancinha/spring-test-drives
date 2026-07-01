@@ -25,9 +25,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 internal class HarvestingAspectKotlinTest @Autowired constructor(
     private val fisher: Fisher,
     private val shrimper: Shrimper,
-) {
     @MockkBean(relaxed = true)
-    lateinit var harvestingService: HarvestingService
+    private val harvestingService: HarvestingService,
+) {
 
     @Test
     fun testAnyHarvesterWhenCall3HarversterTypesNSubsThenTriggerAdvices() {

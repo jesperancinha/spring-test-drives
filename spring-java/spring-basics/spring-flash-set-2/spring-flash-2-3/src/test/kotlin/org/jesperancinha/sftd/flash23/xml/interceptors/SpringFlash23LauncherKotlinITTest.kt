@@ -18,11 +18,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 @WebMvcTest(SpringFlash23Launcher::class)
 @ImportResource("classpath:WEB-INF/beans.xml")
 internal class SpringFlash23LauncherKotlinITTest @Autowired constructor(
-    private val mockMvc: MockMvc
-) {
-
+    private val mockMvc: MockMvc,
     @SpykBean
-    lateinit var feelingLoveBean: FeelingLoveBean
+    private val feelingLoveBean: FeelingLoveBean,
+) {
 
     @Test
     fun main() {

@@ -16,11 +16,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest(controllers = [SpringFlash22Launcher::class])
 internal class SpringFlash22LauncherITKotestTest @Autowired constructor(
-    private val mockMvc: MockMvc
-) {
-
+    private val mockMvc: MockMvc,
     @SpykBean
-    lateinit var feelingLoveBean: FeelingLoveBean
+    private val feelingLoveBean: FeelingLoveBean,
+) {
 
     @Test
     fun main() {

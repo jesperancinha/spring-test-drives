@@ -22,9 +22,9 @@ import java.time.LocalDate
 internal class MemberRepositoryKotlinTest @Autowired constructor(
     private val memberRepository: MemberRepository,
     private val artistRepository: ArtistRepository,
-) {
     @MockkBean(relaxed = true)
-    lateinit var mastery1Configuration: Mastery1Configuration
+    private val mastery1Configuration: Mastery1Configuration,
+) {
 
     @BeforeEach
     fun setUp() {

@@ -21,10 +21,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class OysterAspectKotlinTest @Autowired constructor(
     private val oysterPicker: OysterPicker,
-) {
-
     @MockkBean(relaxed = true)
-    lateinit var oysterService: OysterService
+    private val oysterService: OysterService,
+) {
 
     @Test
     fun testOysterProcessing() {

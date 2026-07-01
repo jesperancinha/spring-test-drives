@@ -18,13 +18,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ContextConfiguration(classes = [MegaTunaCatcher::class, TunaAspect::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class MegaTunaCatcherKotlinTest @Autowired constructor(
-    private val megaTunaCatcher: MegaTunaCatcher
+    private val megaTunaCatcher: MegaTunaCatcher,
+    @MockkBean(relaxed = true)
+    private val tunaService: TunaService,
+    @MockkBean(relaxed = true)
+    private val bonito4Service: Bonito4Service,
 ) {
-    @MockkBean(relaxed = true)
-    lateinit var tunaService: TunaService
-
-    @MockkBean(relaxed = true)
-    lateinit var bonito4Service: Bonito4Service
 
     @Test
     fun catchWithNet() {

@@ -31,10 +31,10 @@ import java.time.LocalDateTime
 @Testcontainers
 @ContextConfiguration(initializers = [SpringFlash24LauncherKotlinTest.Initializer::class])
 internal class SpringFlash24LauncherKotlinTest @Autowired constructor(
-    private val springFlash24Launcher: SpringFlash24Launcher
-) {
+    private val springFlash24Launcher: SpringFlash24Launcher,
     @SpykBean
-    lateinit var jdbcTemplate: JdbcTemplate
+    private val jdbcTemplate: JdbcTemplate,
+) {
 
     internal class Initializer : ApplicationContextInitializer<ConfigurableApplicationContext> {
         override fun initialize(configurableApplicationContext: ConfigurableApplicationContext) {

@@ -20,9 +20,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class GambaFoodCatcherKotlinTest @Autowired constructor(
     private val gambaFoodCatcher: GambaFoodCatcher,
-) {
     @MockkBean(relaxed = true)
-    lateinit var gambaService: GambaService
+    private val gambaService: GambaService,
+) {
 
     @Test
     fun testCatchWithNetWhenCallingThenTriggerAllMatchingBeforeAdvices() {

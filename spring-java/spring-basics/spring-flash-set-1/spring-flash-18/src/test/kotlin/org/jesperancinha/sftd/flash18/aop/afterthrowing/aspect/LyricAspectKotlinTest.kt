@@ -20,11 +20,10 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDO
  */
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class LyricAspectKotlinTest @Autowired constructor(
-    private val lyricsService: LyricsService
-) {
-
+    private val lyricsService: LyricsService,
     @MockkBean(relaxed = true)
-    lateinit var joinPointService: JoinPointService
+    private val joinPointService: JoinPointService,
+) {
 
     /**
      * Tests the Advices that are supposed to respond to method [LyricsService.resultLyric1]

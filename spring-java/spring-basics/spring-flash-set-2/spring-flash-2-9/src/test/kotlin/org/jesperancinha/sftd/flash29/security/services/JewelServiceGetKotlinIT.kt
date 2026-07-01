@@ -15,11 +15,10 @@ import java.util.*
 
 @SpringBootTest
 internal class JewelServiceGetKotlinIT @Autowired constructor(
-    private val jewelService: JewelService
-) {
-
+    private val jewelService: JewelService,
     @MockkBean
-    lateinit var jewelRepository: JewelRepository
+    private val jewelRepository: JewelRepository,
+) {
 
     @BeforeEach
     fun setUp() {

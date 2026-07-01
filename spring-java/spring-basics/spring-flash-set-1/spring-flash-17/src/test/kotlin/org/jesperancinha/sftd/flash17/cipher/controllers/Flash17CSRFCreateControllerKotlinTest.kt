@@ -35,14 +35,12 @@ import javax.sql.DataSource
     Flash17CSRFConfigurationAdapter::class
 )
 internal class Flash17CSRFCreateControllerKotlinTest @Autowired constructor(
-    private val mockMvc: MockMvc
-) {
-
+    private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)
-    lateinit var jdbcUserDetailsManager: JdbcUserDetailsManager
-
+    private val jdbcUserDetailsManager: JdbcUserDetailsManager,
     @SpykBean(BCryptPasswordEncoder::class)
-    lateinit var passwordEncoder: PasswordEncoder
+    private val passwordEncoder: PasswordEncoder,
+) {
 
     @Test
     @WithMockUser(roles = ["ADMIN"])

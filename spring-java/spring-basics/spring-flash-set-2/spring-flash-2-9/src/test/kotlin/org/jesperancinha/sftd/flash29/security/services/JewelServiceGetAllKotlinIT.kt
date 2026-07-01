@@ -21,11 +21,10 @@ import org.springframework.boot.test.context.SpringBootTest
 //@ContextConfiguration(classes = JewelServiceImpl.class)
 @SpringBootTest
 internal class JewelServiceGetAllKotlinIT @Autowired constructor(
-    private val jewelService: JewelService
-) {
-
+    private val jewelService: JewelService,
     @MockkBean(relaxed = true)
-    lateinit var jewelRepository: JewelRepository
+    private val jewelRepository: JewelRepository,
+) {
 
     @BeforeEach
     fun setUp() {

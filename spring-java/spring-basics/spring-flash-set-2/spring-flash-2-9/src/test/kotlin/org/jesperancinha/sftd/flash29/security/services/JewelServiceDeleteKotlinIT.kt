@@ -19,11 +19,10 @@ import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest
 internal class JewelServiceDeleteKotlinIT @Autowired constructor(
-    private val jewelService: JewelService
-){
+    private val jewelService: JewelService,
     @MockkBean(relaxed = true)
-    lateinit var jewelRepository: JewelRepository
-
+    private val jewelRepository: JewelRepository,
+) {
     @Test
     fun testDeleteJewel_whenCallingWithoutAuthentication_thenFail() {
         val jewel = JewelDto.builder().jewelType(PEARL).guardian("ThunderKitten").build()

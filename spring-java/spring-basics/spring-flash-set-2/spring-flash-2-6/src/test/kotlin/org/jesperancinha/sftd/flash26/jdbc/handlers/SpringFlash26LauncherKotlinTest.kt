@@ -19,10 +19,10 @@ import org.springframework.jdbc.core.RowMapper
 
 @SpringBootTest
 internal class SpringFlash26LauncherKotlinTest @Autowired constructor(
-    private val springFlash26Launcher: SpringFlash26Launcher
-) {
+    private val springFlash26Launcher: SpringFlash26Launcher,
     @SpykBean
-    lateinit var jdbcTemplate: JdbcTemplate
+    private val jdbcTemplate: JdbcTemplate,
+) {
 
     @BeforeEach
     fun setUp() {

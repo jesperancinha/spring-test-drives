@@ -17,11 +17,10 @@ import org.springframework.validation.BindingResult
 
 @SpringBootTest
 internal class JSONControllerFormTest @Autowired constructor(
-    private val jsonControllerForm: JSONControllerForm
-) {
-
+    private val jsonControllerForm: JSONControllerForm,
     @MockkBean(relaxed = true)
-    lateinit var solrTitleDao: SolrTitleDao
+    private val solrTitleDao: SolrTitleDao,
+) {
 
     @Test
     fun `should show form`() {

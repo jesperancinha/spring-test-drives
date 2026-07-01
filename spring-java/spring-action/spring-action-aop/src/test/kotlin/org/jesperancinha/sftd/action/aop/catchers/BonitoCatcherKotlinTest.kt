@@ -21,9 +21,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 internal class BonitoCatcherKotlinTest @Autowired constructor(
     private val bonitoCatcher: BonitoCatcher,
-) {
     @MockkBean(relaxed = true)
-    lateinit var bonito2Service: Bonito2Service
+    private val bonito2Service: Bonito2Service,
+) {
 
     @Test
     fun testCatchWithNetWhenCalledThenTriggerAllAdvices() {

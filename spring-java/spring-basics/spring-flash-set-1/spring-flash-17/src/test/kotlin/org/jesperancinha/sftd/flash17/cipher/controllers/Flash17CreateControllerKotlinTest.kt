@@ -35,13 +35,11 @@ import javax.sql.DataSource
 @AutoConfigureMockMvc
 internal class Flash17CreateControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
-) {
-
     @MockkBean(relaxed = true)
-    lateinit var jdbcUserDetailsManager: JdbcUserDetailsManager
-
+    private val jdbcUserDetailsManager: JdbcUserDetailsManager,
     @SpykBean(BCryptPasswordEncoder::class)
-    lateinit var passwordEncoder: PasswordEncoder
+    private val passwordEncoder: PasswordEncoder,
+) {
 
     @Test
     @Throws(Exception::class)

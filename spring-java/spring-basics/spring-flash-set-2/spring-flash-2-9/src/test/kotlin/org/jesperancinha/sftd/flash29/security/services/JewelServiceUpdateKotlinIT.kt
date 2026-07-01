@@ -22,11 +22,10 @@ import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class JewelServiceUpdateKotlinIT @Autowired constructor(
-    private val jewelService: JewelService
-) {
+    private val jewelService: JewelService,
     @MockkBean(relaxed = true)
-    lateinit var jewelRepository: JewelRepository
-
+    private val jewelRepository: JewelRepository,
+) {
     @BeforeEach
     fun setup(){
         every { jewelRepository.save(any()) } returns Jewel

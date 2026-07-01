@@ -26,11 +26,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
 )
 internal class AlbumControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
-    private val albumService: AlbumService
-) {
-
+    private val albumService: AlbumService,
     @MockkBean(relaxed = true)
-    lateinit var albumRepository: AlbumRepository
+    private val albumRepository: AlbumRepository,
+) {
 
     @Test
     fun testCreateAlbumRollBackWhenCallCreateAlbumThenCreateAndRollback() {
