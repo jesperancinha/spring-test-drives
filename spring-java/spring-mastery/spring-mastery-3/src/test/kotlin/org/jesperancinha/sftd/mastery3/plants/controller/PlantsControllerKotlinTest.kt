@@ -19,13 +19,12 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PlantsControllerKotlinTest(
-    @Autowired
-    private val mockMvc: MockMvc
-) {
+class PlantsControllerKotlinTest @Autowired constructor(
+    private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)
-    lateinit var plantService: PlantService
-    
+    private val  plantService: PlantService
+) {
+
     private val objectMapper = ObjectMapper()
     @Test
     @Throws(Exception::class)

@@ -30,7 +30,7 @@ public class PlantDaoTest {
     public void testGetFilteredList() {
         final var plants = plantDao.getExamplePlants();
         assertThat(plants).hasSize(1);
-        assertThat(plants.get(0)).isEqualTo(Plant.builder()
+        assertThat(plants.getFirst()).isEqualTo(Plant.builder()
                 .name("Yucca")
                 .owner("Joao")
                 .scientificName("Yucca filamentosa")

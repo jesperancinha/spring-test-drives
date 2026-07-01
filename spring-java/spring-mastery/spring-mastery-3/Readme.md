@@ -13,6 +13,9 @@ Topics covered:
 5.  `@Timeout`
 6.  `@PostFilter`
 
+The idea of this module is to explore the `PropertySourcesPlaceholderConfigurer` and how we can add properties using a custom file in Spring.
+It also explores other concepts like transaction management, bean naming, array injection, and some annotations like `@Timeout` and `@PostFilter`.
+
 ## Endpoints
 
 ## Command line requests
