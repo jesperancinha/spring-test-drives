@@ -31,7 +31,7 @@ public class Flash311AuthenticationProvider implements AuthenticationProvider {
                 new SimpleGrantedAuthority(
                         userOptional.orElseThrow(() ->
                                 new BadCredentialsException(String.format("User %s cannot be authenticated!", username)))
-                                .getRole()));
+                                .role()));
         return new UsernamePasswordAuthenticationToken(username, password, grantedAuthorities);
     }
 

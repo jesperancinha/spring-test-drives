@@ -37,11 +37,11 @@ public class TicketService {
 
     private Ticket toData(TicketDto ticketDto) {
         return Ticket.builder()
-                .id(ticketDto.getId())
-                .localDateTime(ticketDto.getLocalDateTime())
-                .artist(ticketDto.getArtist())
-                .uuid(ticketDto.getUuid())
-                .show(ticketDto.getShow())
+                .id(ticketDto.id())
+                .localDateTime(ticketDto.localDateTime())
+                .artist(ticketDto.artist())
+                .uuid(ticketDto.uuid())
+                .show(ticketDto.show())
                 .build();
     }
 

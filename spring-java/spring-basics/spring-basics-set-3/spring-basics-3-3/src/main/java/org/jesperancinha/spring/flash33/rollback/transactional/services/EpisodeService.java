@@ -80,8 +80,8 @@ public class EpisodeService {
 
     private Episode toData(EpisodeDto episodeDto) {
         return Episode.builder()
-                .id(episodeDto.getId())
-                .name(episodeDto.getName())
+                .id(episodeDto.id())
+                .name(episodeDto.name())
                 .build();
     }
 }

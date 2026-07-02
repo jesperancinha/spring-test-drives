@@ -25,7 +25,7 @@ public class TicketController {
             final TicketDto ticket) {
         final TicketDto ticket1 = ticketService.createTicket(ticket);
         Consolerizer.printRainbowTitleLn("Created ticket %s", ticket1);
-        return ticket1.getUuid();
+        return ticket1.uuid();
     }
 
     @PostMapping("/no-around")
@@ -34,6 +34,6 @@ public class TicketController {
             final TicketDto ticket) {
         final TicketDto ticket1 = ticketService.createTicketNoAround(ticket);
         Consolerizer.printRainbowTitleLn("Created ticket %s", ticket1);
-        return ticket1.getUuid();
+        return ticket1.uuid();
     }
 }

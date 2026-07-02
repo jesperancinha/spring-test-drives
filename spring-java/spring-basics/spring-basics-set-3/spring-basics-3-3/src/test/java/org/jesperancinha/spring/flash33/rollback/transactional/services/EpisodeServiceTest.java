@@ -37,7 +37,7 @@ class EpisodeServiceTest {
                 .isThrownBy(() -> episodeService.createEpisode(episodeDto));
 
         verify(episodeRepository, times(1))
-                .save(Episode.builder().id(1L).name(episodeDto.getName()).build());
+                .save(Episode.builder().id(1L).name(episodeDto.name()).build());
         verifyNoMoreInteractions(episodeRepository);
     }
 
@@ -49,7 +49,7 @@ class EpisodeServiceTest {
                 .isThrownBy(() -> episodeService.createEpisodeExceptionRollback(episodeDto));
 
         verify(episodeRepository, times(1))
-                .save(Episode.builder().id(1L).name(episodeDto.getName()).build());
+                .save(Episode.builder().id(1L).name(episodeDto.name()).build());
         verifyNoMoreInteractions(episodeRepository);
     }
 
@@ -61,7 +61,7 @@ class EpisodeServiceTest {
                 .isThrownBy(() -> episodeService.createEpisodeExceptionNoRollback(episodeDto));
 
         verify(episodeRepository, times(1))
-                .save(Episode.builder().id(1L).name(episodeDto.getName()).build());
+                .save(Episode.builder().id(1L).name(episodeDto.name()).build());
     }
 
     @Test
@@ -72,7 +72,7 @@ class EpisodeServiceTest {
                 .isThrownBy(() -> episodeService.createEpisodeMixRollback(episodeDto));
 
         verify(episodeRepository, times(1))
-                .save(Episode.builder().id(1L).name(episodeDto.getName()).build());
+                .save(Episode.builder().id(1L).name(episodeDto.name()).build());
     }
 
     @Test
@@ -83,13 +83,13 @@ class EpisodeServiceTest {
                 .isThrownBy(() -> episodeService.createEpisodeMixNoRollback(episodeDto));
 
         verify(episodeRepository, times(1))
-                .save(Episode.builder().id(1L).name(episodeDto.getName()).build());
+                .save(Episode.builder().id(1L).name(episodeDto.name()).build());
     }
 
     @Test
     void testGetEpisodeByIdWhenGetById1ThenGetEpisode1() {
         final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
-        when(episodeRepository.findById(1L)).thenReturn(Optional.of(Episode.builder().id(1L).name(episodeDto.getName()).build()));
+        when(episodeRepository.findById(1L)).thenReturn(Optional.of(Episode.builder().id(1L).name(episodeDto.name()).build()));
 
         final var resultEpisodeDto = episodeService.getEpisodeById(1L);
 
@@ -100,7 +100,7 @@ class EpisodeServiceTest {
     @Test
     void getAllEpisodes() {
         final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
-        final var episodes = List.of(Episode.builder().id(1L).name(episodeDto.getName()).build());
+        final var episodes = List.of(Episode.builder().id(1L).name(episodeDto.name()).build());
         when(episodeRepository.findAll()).thenReturn(episodes);
 
         final var resultEpisodeDtos = episodeService.getAllEpisodes();
@@ -114,13 +114,13 @@ class EpisodeServiceTest {
     void getAllEpisodesMoreCompleteExampleTest() {
         final var videoName = "Useless videos";
         final var episodeDto = EpisodeDto.builder().id(1L).name(videoName).build();
-        final var episodes = List.of(Episode.builder().id(1L).name(episodeDto.getName()).build());
+        final var episodes = List.of(Episode.builder().id(1L).name(episodeDto.name()).build());
         when(episodeRepository.findAll()).thenReturn(episodes);
 
         final var resultEpisodeDtos = episodeService.getAllEpisodes();
 
         assertThat(resultEpisodeDtos).isEqualTo(List.of(episodeDto));
-        assertThat(episodeDto.getName()).isEqualTo(videoName);
+        assertThat(episodeDto.name()).isEqualTo(videoName);
         verify(episodeRepository, times(1)).findAll();
         verifyNoMoreInteractions(episodeRepository);
     }

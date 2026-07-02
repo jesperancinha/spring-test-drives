@@ -43,7 +43,7 @@ class EpisodeServiceIT {
         assertThat(episode).isNotNull();
         assertThat(episode.getId()).isNotNull();
         assertThat(episode.getId()).isBetween(1L, 10L);
-        assertThat(episode.getName()).isEqualTo(episodeDto.getName());
+        assertThat(episode.getName()).isEqualTo(episodeDto.name());
     }
 
     @Test
@@ -74,7 +74,7 @@ class EpisodeServiceIT {
         assertThat(episode).isNotNull();
         assertThat(episode.getId()).isNotNull();
         assertThat(episode.getId()).isBetween(1L, 10L);
-        assertThat(episode.getName()).isEqualTo(episodeDto.getName());
+        assertThat(episode.getName()).isEqualTo(episodeDto.name());
     }
 
     @Test
@@ -105,7 +105,7 @@ class EpisodeServiceIT {
         assertThat(episode).isNotNull();
         assertThat(episode.getId()).isNotNull();
         assertThat(episode.getId()).isBetween(1L, 10L);
-        assertThat(episode.getName()).isEqualTo(episodeDto.getName());
+        assertThat(episode.getName()).isEqualTo(episodeDto.name());
     }
 
     @Test
@@ -116,8 +116,8 @@ class EpisodeServiceIT {
         final var resultEpisodeDto = episodeService.getEpisodeById(savedEpisode.getId());
 
         assertThat(resultEpisodeDto).isNotNull();
-        assertThat(resultEpisodeDto.getId()).isEqualTo(savedEpisode.getId());
-        assertThat(resultEpisodeDto.getName()).isEqualTo(savedEpisode.getName());
+        assertThat(resultEpisodeDto.id()).isEqualTo(savedEpisode.getId());
+        assertThat(resultEpisodeDto.name()).isEqualTo(savedEpisode.getName());
     }
 
     @Test
@@ -129,9 +129,9 @@ class EpisodeServiceIT {
 
         assertThat(resultEpisodeDtos).isNotNull();
         assertThat(resultEpisodeDtos).hasSize(1);
-        final var episodeDto = resultEpisodeDtos.get(0);
+        final var episodeDto = resultEpisodeDtos.getFirst();
         assertThat(episodeDto).isNotNull();
-        assertThat(episodeDto.getId()).isEqualTo(savedEpisode.getId());
-        assertThat(episodeDto.getName()).isEqualTo(savedEpisode.getName());
+        assertThat(episodeDto.id()).isEqualTo(savedEpisode.getId());
+        assertThat(episodeDto.name()).isEqualTo(savedEpisode.getName());
     }
 }

@@ -23,8 +23,8 @@ public class SpringFlash418Launcher {
     public boolean checkEighties(
             @RequestBody
             final Song song) {
-        if (song.getHitDate().isAfter(LocalDate.of(1980, 1, 1))
-                && song.getHitDate().isBefore(LocalDate.of(1990, 1, 1))) {
+        if (song.hitDate().isAfter(LocalDate.of(1980, 1, 1))
+                && song.hitDate().isBefore(LocalDate.of(1990, 1, 1))) {
             ConsolerizerComposer
                     .out(" ")
                     .blue("This song is an eighties music:")

@@ -38,13 +38,13 @@ class CheeseControllerTest {
         final var contentAsString = mvcResult.getResponse().getContentAsString();
         final var cheeses = objectMapper.readValue(contentAsString, Cheese[].class);
         final var camembert = cheeses[0];
-        assertThat(camembert.getName()).isEqualTo(expectedCheeses.get(0).getName());
-        assertThat(camembert.getUrl()).isEqualTo(expectedCheeses.get(0).getUrl());
+        assertThat(camembert.name()).isEqualTo(expectedCheeses.getFirst().name());
+        assertThat(camembert.url()).isEqualTo(expectedCheeses.getFirst().url());
         final var brie = cheeses[1];
-        assertThat(brie.getName()).isEqualTo(expectedCheeses.get(1).getName());
-        assertThat(brie.getUrl()).isEqualTo(expectedCheeses.get(1).getUrl());
+        assertThat(brie.name()).isEqualTo(expectedCheeses.get(1).name());
+        assertThat(brie.url()).isEqualTo(expectedCheeses.get(1).url());
         final var saoJorge = cheeses[2];
-        assertThat(saoJorge.getName()).isEqualTo(expectedCheeses.get(2).getName());
-        assertThat(saoJorge.getUrl()).isEqualTo(expectedCheeses.get(2).getUrl());
+        assertThat(saoJorge.name()).isEqualTo(expectedCheeses.get(2).name());
+        assertThat(saoJorge.url()).isEqualTo(expectedCheeses.get(2).url());
     }
 }
