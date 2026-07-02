@@ -3,8 +3,10 @@ package org.jesperancinha.spring.flash17.cipher.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
@@ -37,17 +39,15 @@ public class Flash17ConfigurationAdapter {
         GREEN.printGenericLn("When we assign our SimpleGrantedAuthority to our Authentication, we give it a role as parameter");
         GREEN.printGenericLn("The role is an extended name. In our case it will be ROLE_ADMIN");
 
-        return http
-                .userDetailsService(jdbcUserDetailsManager)
-                .authorizeRequests()
-                .requestMatchers(new AntPathRequestMatcher("/open/**"))
-                .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/**")).hasRole("ADMIN")
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .and().csrf().disable().build();
+        return http.userDetailsService(jdbcUserDetailsManager)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/open/**").permitAll()
+                        .requestMatchers("/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
+                .formLogin(Customizer.withDefaults())
+                .csrf(AbstractHttpConfigurer::disable)
+                .build();
     }
 
 }

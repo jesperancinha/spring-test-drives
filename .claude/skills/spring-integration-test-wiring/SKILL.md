@@ -8,11 +8,12 @@ description: Conventions for dependency injection and mocking in Spring Boot int
 Rules for how dependencies get injected and mocked in this project's integration tests. Apply these whenever creating a
 new integration test class or reviewing/editing an existing one.
 
-## 1. Constructor injection only — no field injection
+## 1. Constructor injection only — no field injection (only for Kotlin files .kt)
 
 Integration test classes must wire their dependencies through the constructor, never through `@Autowired` fields.
 This skill applies to all modules and submodules of the whole project. This means that all tests made in Kotlin are a
-subject of this skill.
+subject of this skill. Only Kotlin files, the ones with the .kt extension should be subject to this change. No other
+files should be affected.
 
 **Do:**
 
@@ -41,7 +42,8 @@ class JeorgActionAOPLauncherExtAOPTest() {
 
 Notes:
 
-- For every file that ends in IT or Test, make sure that if they need `@Autowire` annotated fields or params, that they
+- For every file with extension .kt that ends in IT or Test, make sure that if they need `@Autowire` annotated fields or
+  params, that they
   get injected via the mentioned above `@Autowired constructor` pattern.
 - JUnit 5 + Spring's `TestConstructor` support allows constructor injection in test classes the same way it works in
   production beans. If the project hasn't set `spring.test.constructor.autowire.mode=all` in
@@ -61,6 +63,8 @@ Notes:
 All old security configurations need to be updated
 
 For java this means that we should migrate as en example from something like this:
+
+### Example 1
 
 ```java
 public class Flash16ConfigurationAdapter {
@@ -94,7 +98,52 @@ public class Flash16ConfigurationAdapter {
 }
 ```
 
-## 3. Test class checklist
+### Example 2
+
+Migrate from this:
+
+```java
+public class Flash17ConfigurationAdapter {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http
+                .userDetailsService(jdbcUserDetailsManager)
+                .authorizeRequests()
+                .requestMatchers(new AntPathRequestMatcher("/open/**"))
+                .permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/**")).hasRole("ADMIN")
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .and().csrf().disable().build();
+    }
+}
+```
+
+to this
+
+```shell
+public class Flash17ConfigurationAdapter {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http.userDetailsService(jdbcUserDetailsManager)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/open/**").permitAll()
+                        .requestMatchers("/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
+                .formLogin(Customizer.withDefaults())
+                .csrf(AbstractHttpConfigurer::disable)
+                .build();
+}
+```
+
+## 3. Remove all unused imports
+
+If you find unused imports, please remove them. This is a good practice to keep the code clean and maintainable.
+
+## 4. Test class checklist
 
 Before submitting/reviewing an integration test class, confirm:
 
@@ -102,3 +151,4 @@ Before submitting/reviewing an integration test class, confirm:
 - [ ] Constructor is annotated `@Autowired` (unless project-wide `TestConstructor` autowire mode is configured)
 - [ ] No `@Autowired` on fields
 - [ ] Use the new Spring configuration for security
+- [ ] New Spring versions don't use `AntPathRequestMatcher` anymore. Make sure none is used
