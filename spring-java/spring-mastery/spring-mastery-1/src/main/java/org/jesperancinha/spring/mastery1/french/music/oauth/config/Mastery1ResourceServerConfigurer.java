@@ -8,8 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableResourceServer
@@ -39,23 +39,15 @@ public class Mastery1ResourceServerConfigurer extends ResourceServerConfigurerAd
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .requestMatchers(new AntPathRequestMatcher("/open/**"))
-                .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/artist/**"))
-                .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/member/**"))
-                .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/auditevents/**"))
-                .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/concerts/**"))
-                .authenticated()
-                .and()
-                .exceptionHandling()
-                .accessDeniedHandler(new OAuth2AccessDeniedHandler())
-                .and()
-                .csrf()
-                .disable();
+        http.authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/open/**").permitAll()
+                        .requestMatchers("/artist/**").permitAll()
+                        .requestMatchers("/member/**").permitAll()
+                        .requestMatchers("/auditevents/**").permitAll()
+                        .requestMatchers("/concerts/**").authenticated()
+                )
+                .exceptionHandling(handling -> handling.accessDeniedHandler(new OAuth2AccessDeniedHandler()))
+                .csrf(AbstractHttpConfigurer::disable);
     }
 
 }

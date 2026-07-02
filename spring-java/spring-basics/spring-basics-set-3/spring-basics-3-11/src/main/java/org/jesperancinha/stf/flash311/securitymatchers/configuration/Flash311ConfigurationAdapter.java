@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.GREEN;
 
@@ -22,20 +21,16 @@ public class Flash311ConfigurationAdapter {
         GREEN.printGenericLn("The same goes to all other roles like ROLE_BLUE");
         return http
                 .authenticationProvider(new Flash311AuthenticationProvider())
-                .authorizeRequests()
-                .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("RED")
-                .requestMatchers(new AntPathRequestMatcher("/user/**")).hasRole("BLUE")
-                .requestMatchers(new AntPathRequestMatcher("/"))
-                .authenticated()
-                .requestMatchers(new AntPathRequestMatcher("/normal/**"))
-                .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/static/test.html", HttpMethod.GET.toString()))
-                .authenticated()
-                .requestMatchers(new AntPathRequestMatcher("/static/index.html", HttpMethod.GET.toString()))
-                .permitAll()
-                .and()
-                .formLogin().defaultSuccessUrl("/static/index.html", true)
-                .and().build();
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/admin/**").hasRole("RED")
+                        .requestMatchers("/user/**").hasRole("BLUE")
+                        .requestMatchers("/").authenticated()
+                        .requestMatchers("/normal/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/static/test.html").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/static/index.html").permitAll()
+                )
+                .formLogin(form -> form.defaultSuccessUrl("/static/index.html", true))
+                .build();
     }
 
 }
