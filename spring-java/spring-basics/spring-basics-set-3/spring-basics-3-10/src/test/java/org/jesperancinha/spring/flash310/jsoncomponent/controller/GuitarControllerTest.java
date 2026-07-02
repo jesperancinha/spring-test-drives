@@ -26,7 +26,7 @@ class GuitarControllerTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(content()
-                        .string("[\"Guitar(brand=Fender, model=75TH Anni Com Strat MN 2BB, value=2400, currency=EUR)\",\"Guitar(brand=Jackson, model=Jackson JS Series Dinky JS32Q DKA Trans Purple Burst, value=500, currency=EUR)\"]"));
+                        .string("[\"Guitar[brand=Fender, model=75TH Anni Com Strat MN 2BB, value=2400, currency=EUR]\",\"Guitar[brand=Jackson, model=Jackson JS Series Dinky JS32Q DKA Trans Purple Burst, value=500, currency=EUR]\"]"));
     }
 
     @Test
