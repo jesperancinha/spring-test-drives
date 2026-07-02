@@ -1,10 +1,10 @@
-# spring-flash
+# spring-basics
 
 ## Introduction
 
 All of these modules are fast-track learning modules about Spring. Flash in this case comes from flash-back or memory. You can look at this as a collection of moments in time to learn spring.
 
-1.  [spring-flash-set-1](./spring-flash-set-1) - Set 1 of 20 Flash modules
+1.  [spring-basics-set-1](./spring-basics-set-1) - Set 1 of 20 Flash modules
 
 `PropertyEditorRegistrar`, `registerCustomEditors`, `PropertyEditorSupport`, `CustomEditorConfigurer`,
 `MethodInterceptor`, `Interceptor`, `Advice`, `ProxyFaxtory`, `addAdvice`, `setTarget`,
@@ -27,7 +27,7 @@ All of these modules are fast-track learning modules about Spring. Flash in this
 `@Override`, `@Transactional`, `propagation`, `Propagation.REQUIRES_NEW`, `rollbackFor`, `RuntimeException.class`,
 `mvc:annotation-driven`, `mvc:cors`, `mvc:mapping`
 
-2.  [spring-flash-set-2](./spring-flash-set-2) - Set 2 of 20 Flash modules
+2.  [spring-basics-set-2](./spring-basics-set-2) - Set 2 of 20 Flash modules
 
 `WebServerFactoryCustomizer`, `ConfigurableServletWebServerFactory`,
 `WebMvcConfigurer`, `InterceptorRegistry`, `addInterceptors`,
@@ -57,7 +57,7 @@ All of these modules are fast-track learning modules about Spring. Flash in this
 `IgnoreCase`, `findBy<>Not`, `deleteBy<>`
 `@ConfigurationProperties`
 
-3.  [spring-flash-set-3](./spring-flash-set-3) - Set 3 of 20 Flash modules
+3.  [spring-basics-set-3](./spring-basics-set-3) - Set 3 of 20 Flash modules
 
 `destroy`, `afterPropertiesSet`, `DisposableBean`, `InitializingBean`
 `RowCallbackHandler`,
@@ -82,7 +82,7 @@ All of these modules are fast-track learning modules about Spring. Flash in this
 `FileSystemXmlApplicationContext`, `ClassPathXmlApplicationContext`
 `@Profile({,})`
 
-4.  [spring-flash-set-4](./spring-flash-set-4) - Set 4 of 20 Flash modules
+4.  [spring-basics-set-4](./spring-basics-set-4) - Set 4 of 20 Flash modules
 
 `@Scope`, `prototype`,
 `<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>`,
@@ -105,7 +105,7 @@ All of these modules are fast-track learning modules about Spring. Flash in this
 `TestApplicationContext`, `ApplicationContext`, `WebApplicationContext`,
 `@Rollback`, `@Commit`
 
-5.  [spring-flash-set-5](./spring-flash-set-5) - Set 5 of 20 Flash modules (coming soon...)
+5.  [spring-basics-set-5](./spring-basics-set-5) - Set 5 of 20 Flash modules (coming soon...)
 
 `@Component`, `@Controller`, `@Indexed`, `@Repository`, `@Service`,
 `DelegatingFilterProxyRegistrationBean`, `DelegatingFilterProxy`,

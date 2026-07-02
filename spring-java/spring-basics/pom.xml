@@ -9,14 +9,14 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-flash</artifactId>
-    <name>Spring Test Drives :: Spring Flash</name>
+    <artifactId>spring-basics</artifactId>
+    <name>Spring Test Drives :: Spring Basics</name>
     <modules>
-        <module>spring-flash-set-1</module>
-        <module>spring-flash-set-2</module>
-        <module>spring-flash-set-3</module>
-        <module>spring-flash-set-4</module>
-        <module>spring-flash-set-5</module>
+        <module>spring-basics-set-1</module>
+        <module>spring-basics-set-2</module>
+        <module>spring-basics-set-3</module>
+        <module>spring-basics-set-4</module>
+        <module>spring-basics-set-5</module>
     </modules>
 
     <packaging>pom</packaging>
