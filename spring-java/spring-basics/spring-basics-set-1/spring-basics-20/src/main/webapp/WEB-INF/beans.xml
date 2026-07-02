@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="org.jesperancinha.sftd.flash20.cors"/>
+    <context:component-scan base-package="org.jesperancinha.spring.flash20.cors"/>
     <mvc:annotation-driven/>
     <mvc:cors>
         <mvc:mapping path="/protected"

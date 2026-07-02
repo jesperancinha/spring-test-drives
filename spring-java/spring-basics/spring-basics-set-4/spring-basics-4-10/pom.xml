@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-basics-set-4</artifactId>
-        <groupId>org.jesperancinha.sftd</groupId>
+        <groupId>org.jesperancinha.spring</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -158,7 +158,7 @@
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <version>${spring-boot.version}</version>
                         <configuration>
-                            <mainClass>org.jesperancinha.sftd.flash410.SpringFlash410Encoder</mainClass>
+                            <mainClass>org.jesperancinha.spring.flash410.SpringFlash410Encoder</mainClass>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -176,7 +176,7 @@
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <version>${spring-boot.version}</version>
                         <configuration>
-                            <mainClass>org.jesperancinha.sftd.flash410.SpringFlash410Launcher</mainClass>
+                            <mainClass>org.jesperancinha.spring.flash410.SpringFlash410Launcher</mainClass>
                         </configuration>
                     </plugin>
                 </plugins>

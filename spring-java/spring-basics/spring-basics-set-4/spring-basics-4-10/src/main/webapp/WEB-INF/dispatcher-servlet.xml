@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="org.jesperancinha.sftd.flash410.*"/>
+    <context:component-scan base-package="org.jesperancinha.spring.flash410.*"/>
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">

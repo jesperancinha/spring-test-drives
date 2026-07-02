@@ -11,13 +11,13 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="org.jesperancinha.sftd.flash23.xml.interceptors"/>
+    <context:component-scan base-package="org.jesperancinha.spring.flash23.xml.interceptors"/>
     <mvc:annotation-driven/>
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/"/>
             <mvc:exclude-mapping path="/open"/>
-            <bean class="org.jesperancinha.sftd.flash23.xml.interceptors.interceptors.FeelingLoveInterceptor"/>
+            <bean class="org.jesperancinha.spring.flash23.xml.interceptors.interceptors.FeelingLoveInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>

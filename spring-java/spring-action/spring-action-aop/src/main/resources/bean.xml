@@ -9,9 +9,9 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!--    <context:component-scan base-package="org.jesperancinha.sftd.action.aop"/>-->
+    <!--    <context:component-scan base-package="org.jesperancinha.spring.action.aop"/>-->
 
-    <bean id="bonitoAspect4" class="org.jesperancinha.sftd.action.aop.aspects.BonitoAspect4"/>
+    <bean id="bonitoAspect4" class="org.jesperancinha.spring.action.aop.aspects.BonitoAspect4"/>
 
     <aop:aspectj-autoproxy proxy-target-class="true">
         <aop:include name="bonitoAspect4"/>
@@ -20,9 +20,9 @@
     <aop:config>
         <aop:aspect ref="bonitoAspect4">
             <aop:before
-                    pointcut="execution(public org.jesperancinha.sftd.action.aop.model.Bonito org.jesperancinha.sftd.action.aop.catchers.BonitoCatcher.catchWithClaws())"
+                    pointcut="execution(public org.jesperancinha.spring.action.aop.model.Bonito org.jesperancinha.spring.action.aop.catchers.BonitoCatcher.catchWithClaws())"
                     method="waitPrivatelyForFishCatch"/>
-            <aop:before pointcut="execution(public * org.jesperancinha.sftd.action.aop.catchers.BonitoCatcher.catch*())"
+            <aop:before pointcut="execution(public * org.jesperancinha.spring.action.aop.catchers.BonitoCatcher.catch*())"
                         method="beforeAnyCatch"/>
         </aop:aspect>
     </aop:config>

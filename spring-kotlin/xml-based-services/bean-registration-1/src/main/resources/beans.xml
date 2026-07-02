@@ -22,15 +22,15 @@
             p:propertyEditorRegistrars-ref="propertyRegistrarList"/>
 
     <util:list id="propertyRegistrarList">
-        <bean class="org.jesperancinha.sftd.topic.container.converters.CitrusRegistrar">
+        <bean class="org.jesperancinha.spring.topic.container.converters.CitrusRegistrar">
         </bean>
     </util:list>
 
-    <bean id="limeId" class="org.jesperancinha.sftd.topic.container.converters.Lime">
+    <bean id="limeId" class="org.jesperancinha.spring.topic.container.converters.Lime">
         <constructor-arg index="0" value="56"/>
     </bean>
 
-    <bean id="limeBasket" class="org.jesperancinha.sftd.topic.container.converters.LimeBasket"
+    <bean id="limeBasket" class="org.jesperancinha.spring.topic.container.converters.LimeBasket"
           p:citrus1-ref="limeId"
           p:citrus2="lemon-234"/>
 </beans>

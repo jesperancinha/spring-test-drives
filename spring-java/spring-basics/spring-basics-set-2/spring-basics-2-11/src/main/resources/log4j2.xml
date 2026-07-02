@@ -24,7 +24,7 @@
     </Appenders>
     <Loggers>
 
-        <Logger name="org.jesperancinha.sftd.flash211.logs" additivity="false">
+        <Logger name="org.jesperancinha.spring.flash211.logs" additivity="false">
             <AppenderRef ref="FILEOUT"/>
             <AppenderRef ref="STDOUT"/>
         </Logger>

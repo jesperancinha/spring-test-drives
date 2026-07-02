@@ -12,7 +12,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>org.jesperancinha.sftd.flash34.annotation.web.configuration.WebConfig</param-value>
+        <param-value>org.jesperancinha.spring.flash34.annotation.web.configuration.WebConfig</param-value>
     </context-param>
 
     <listener>
@@ -30,7 +30,7 @@
         </init-param>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>org.jesperancinha.sftd.flash34.annotation.web.configuration.WebConfig</param-value>
+            <param-value>org.jesperancinha.spring.flash34.annotation.web.configuration.WebConfig</param-value>
         </init-param>
     </servlet>
 

@@ -5,7 +5,7 @@
 <body>
 <h1>Explore Form parameters</h1>
 
-<%--@elvariable id="music" type="org.jesperancinha.sftd.flash11.form.Music"--%>
+<%--@elvariable id="music" type="org.jesperancinha.spring.flash11.form.Music"--%>
 <%--<form:form method = "POST" action="/req" commandName="music">--%>
 <form:form method="POST" action="/req" modelAttribute="music">
     <form:label path="artist">Artist:</form:label>

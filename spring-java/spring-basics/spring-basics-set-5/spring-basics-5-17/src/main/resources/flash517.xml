@@ -4,7 +4,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="goldFish" class="org.jesperancinha.sftd.flash517.context.Fish">
+    <bean id="goldFish" class="org.jesperancinha.spring.flash517.context.Fish">
         <constructor-arg name="name" value="Gold Fish"/>
     </bean>
 

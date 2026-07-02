@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="org.jesperancinha.sftd.flash313.bean.mapping.controllers"/>
+    <context:component-scan base-package="org.jesperancinha.spring.flash313.bean.mapping.controllers"/>
     <mvc:annotation-driven/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,8 +22,8 @@
     <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
     <bean name="/beatenGeneration.html"
-          class="org.jesperancinha.sftd.flash313.bean.mapping.controllers.GenerationController"/>
+          class="org.jesperancinha.spring.flash313.bean.mapping.controllers.GenerationController"/>
 
     <bean name="/love.html"
-          class="org.jesperancinha.sftd.flash313.bean.mapping.controllers.LoveController"/>
+          class="org.jesperancinha.spring.flash313.bean.mapping.controllers.LoveController"/>
 </beans>
