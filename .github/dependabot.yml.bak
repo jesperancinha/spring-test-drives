@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "yearly"
+    groups:
+      postgresql:
+        patterns:
+          - "*postgresql*"
+      maven:
+        patterns:
+          - "*maven*"
+      kotlin:
+        patterns:
+          - "*kotlin*"
+      jackson:
+        patterns:
+          - "jackson*"
+          - "*jackson*"

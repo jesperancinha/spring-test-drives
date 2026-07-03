@@ -43,11 +43,11 @@ João Esperancinha, 2021/04/21
 
 ### Communication 2
 
-The [jeorg-spring-test-drives](https://github.com/jesperancinha/jeorg-spring-test-drives) repository has reached a
+The [spring-test-drives](https://github.com/jesperancinha/spring-test-drives) repository has reached a
 colossal size.	  
 Therefore, it is not feasible to continue developing on this repo for new developments.   
 You can consider this repo as basic overall round overview of important Spring technology developments for your day to
 day work. However, this is only the beginning of the road into your Spring journey. We will continue on this in a new
-repo called [Spring Master 5 Test Drives](https://github.com/jesperancinha/jeorg-spring-master-5-test-drives).
+repo called [Spring Master 5 Test Drives](https://github.com/jesperancinha/spring-master-5-test-drives).
 
 João Esperancinha, 2021/05/21
