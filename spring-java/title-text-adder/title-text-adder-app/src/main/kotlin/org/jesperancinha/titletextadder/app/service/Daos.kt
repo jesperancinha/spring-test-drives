@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestTemplate
+import org.springframework.web.client.getForEntity
 import java.net.URI
 import java.util.*
 
@@ -25,7 +26,7 @@ class SolrTitleDao {
             try {
                 val url =
                     URI("$GET_URL/$filter")
-                restTemplate.getForEntity(url, Array<String>::class.java)
+                restTemplate.getForEntity<Array<String>>(url)
             }catch (ex: HttpClientErrorException) {
                 println(ex)
                 ResponseEntity.ok(arrayOf("Server is reachable"))

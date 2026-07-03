@@ -4,7 +4,6 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.MockitoAnnotations.initMocks
 import org.mockito.MockitoAnnotations.openMocks
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -39,7 +38,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint, but in the ok it should get an error message`() {
         testRestTemplate
-            .getForEntity("/tulips/ok", String::class.java)
+            .getForEntity<String>("/tulips/ok")
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()
