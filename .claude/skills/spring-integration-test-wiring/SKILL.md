@@ -143,7 +143,39 @@ public class Flash17ConfigurationAdapter {
 
 If you find unused imports, please remove them. This is a good practice to keep the code clean and maintainable.
 
-## 4. Test class checklist
+## 4. Replace initMocks with OpenMocks
+
+### Example 1
+
+When finding this:
+
+```kotlin
+initMocks(testRestTemplate)
+```
+
+Replace with:
+
+```kotlin
+openMocks(testRestTemplate)
+```
+
+Also replace imports from `import org.mockito.MockitoAnnotations.initMocks` to `import org.mockito.MockitoAnnotations.openMocks`
+
+## 5 When using Kotlin code make sure to use the kotlin extensions for parsing
+
+### Example 1
+
+When finding this:
+
+```kotlin
+    .getForEntity<String>("/tulips")
+```
+replace with:
+```kotlin
+    .getForEntity("/tulips", String::class.java)
+```
+
+## 6. Test class checklist
 
 Before submitting/reviewing an integration test class, confirm:
 
