@@ -44,3 +44,6 @@ codecov.yml
 
 # Processes
 .attach_pid*
+
+# Junie
+.output*

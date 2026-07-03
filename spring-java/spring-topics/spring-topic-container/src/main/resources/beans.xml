@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="flower1" class="org.jesperancinha.spring.topic.container.beans.Flower">
+        <property name="name" value="Tulip"/>
+        <property name="height" value="1"/>
+    </bean>
+
+    <bean id="flower2" class="org.jesperancinha.spring.topic.container.beans.Flower">
+        <property name="name" value="Rose"/>
+        <property name="height" value="2"/>
+    </bean>
+
+    <bean id="kidneyBean" class="org.jesperancinha.spring.topic.container.beans.Bean">
+        <constructor-arg name="name" value="Kidney Bean"/>
+        <constructor-arg name="scientificName" value="Phaseolus vulgaris"/>
+        <constructor-arg name="mainColor" value="red"/>
+    </bean>
+
+    <bean id="scarletBean" class="org.jesperancinha.spring.topic.container.beans.Bean">
+        <constructor-arg index="0" value="Phaseolus coccineus"/>
+        <constructor-arg index="1" value="Scarlet Runner Bean"/>
+        <constructor-arg index="2" value="Purple"/>
+    </bean>
+
+    <bean id="blackBean" class="org.jesperancinha.spring.topic.container.beans.Bean">
+        <constructor-arg type="java.lang.String" value="Phaseolus vulgaris"/>
+        <constructor-arg type="java.lang.String" value="Black Bean"/>
+        <constructor-arg type="java.lang.String" value="Black"/>
+    </bean>
+
+    <bean id="blackBeanRead" class="org.jesperancinha.spring.topic.container.beans.BeanOnlyRead">
+        <constructor-arg type="java.lang.String" value="Phaseolus vulgaris"/>
+        <constructor-arg type="java.lang.String" value="Black Bean"/>
+        <constructor-arg type="java.lang.String" value="Black"/>
+    </bean>
+</beans>

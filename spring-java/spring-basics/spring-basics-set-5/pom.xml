@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-basics</artifactId>
+        <groupId>org.jesperancinha.spring</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-basics-set-5</artifactId>
+    <name>Spring Test Drives :: Spring Flash Set 5</name>
+    <modules>
+        <module>spring-basics-5-1</module>
+        <module>configurable-tomato-contexts</module>
+        <module>spring-basics-5-5</module>
+        <module>spring-basics-5-6</module>
+        <module>spring-basics-5-7</module>
+        <module>spring-basics-5-8</module>
+        <module>spring-basics-5-9</module>
+        <module>spring-basics-5-10</module>
+        <module>spring-basics-5-11</module>
+        <module>spring-basics-5-12</module>
+        <module>spring-basics-5-13</module>
+        <module>spring-basics-5-14</module>
+        <module>spring-basics-5-15</module>
+        <module>spring-basics-5-16</module>
+        <module>spring-basics-5-17</module>
+    </modules>
+
+    <packaging>pom</packaging>
+</project>

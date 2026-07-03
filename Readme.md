@@ -3,24 +3,24 @@
 ---
 
 
-[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Spring%20Test%20Drives&color=informational)](https://github.com/jesperancinha/jeorg-spring-test-drives)
+[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Spring%20Test%20Drives&color=informational)](https://github.com/jesperancinha/spring-test-drives)
 [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
-[![CircleCI](https://circleci.com/gh/jesperancinha/jeorg-spring-test-drives.svg?style=svg)](https://circleci.com/gh/jesperancinha/jeorg-spring-test-drives)
-[![Build status](https://ci.appveyor.com/api/projects/status/wksvhmqaq0sd8505?svg=true)](https://ci.appveyor.com/project/jesperancinha/jeorg-spring-test-drives)
-[![jeorg-spring-test-drives](https://github.com/jesperancinha/jeorg-spring-test-drives/actions/workflows/jeorg-spring-test-drives.yml/badge.svg)](https://github.com/jesperancinha/jeorg-spring-test-drives/actions/workflows/jeorg-spring-test-drives.yml)
+[![CircleCI](https://circleci.com/gh/jesperancinha/spring-test-drives.svg?style=svg)](https://circleci.com/gh/jesperancinha/spring-test-drives)
+[![Build status](https://ci.appveyor.com/api/projects/status/wksvhmqaq0sd8505?svg=true)](https://ci.appveyor.com/project/jesperancinha/spring-test-drives)
+[![spring-test-drives](https://github.com/jesperancinha/spring-test-drives/actions/workflows/spring-test-drives.yml/badge.svg)](https://github.com/jesperancinha/spring-test-drives/actions/workflows/spring-test-drives.yml)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d14f60a58bd456fb1084860b5a46871)](https://www.codacy.com/gh/jesperancinha/jeorg-spring-test-drives/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/jeorg-spring-test-drives&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/b9097b8c-40f8-48bf-beb3-2007803b4bad)](https://codebeat.co/projects/github-com-jesperancinha-jeorg-spring-test-drives-master)
-[![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/jeorg-spring-test-drives/badge.svg)](https://snyk.io/test/github/jesperancinha/jeorg-spring-test-drives)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d14f60a58bd456fb1084860b5a46871)](https://www.codacy.com/gh/jesperancinha/spring-test-drives/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/spring-test-drives&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/b9097b8c-40f8-48bf-beb3-2007803b4bad)](https://codebeat.co/projects/github-com-jesperancinha-spring-test-drives-master)
+[![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/spring-test-drives/badge.svg)](https://snyk.io/test/github/jesperancinha/spring-test-drives)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/9d14f60a58bd456fb1084860b5a46871)](https://www.codacy.com/gh/jesperancinha/jeorg-spring-test-drives/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/jeorg-spring-test-drives&utm_campaign=Badge_Coverage)
-[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/jeorg-spring-test-drives/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/jeorg-spring-test-drives?branch=master)
-[![codecov](https://codecov.io/gh/jesperancinha/jeorg-spring-test-drives/branch/master/graph/badge.svg?token=08TJV16VKG)](https://codecov.io/gh/jesperancinha/jeorg-spring-test-drives)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/9d14f60a58bd456fb1084860b5a46871)](https://www.codacy.com/gh/jesperancinha/spring-test-drives/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/spring-test-drives&utm_campaign=Badge_Coverage)
+[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/spring-test-drives/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/spring-test-drives?branch=master)
+[![codecov](https://codecov.io/gh/jesperancinha/spring-test-drives/branch/master/graph/badge.svg?token=08TJV16VKG)](https://codecov.io/gh/jesperancinha/spring-test-drives)
 
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/jeorg-spring-test-drives.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/jeorg-spring-test-drives.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/jeorg-spring-test-drives.svg)](#)
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/spring-test-drives.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/spring-test-drives.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/spring-test-drives.svg)](#)
 
 ## Technologies used
 
@@ -36,15 +36,15 @@ See [Log Book](./LogBook.md) for further details.
 
 #### Stable releases
 
--   [0.0.0](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/0.0.0) - [d8700ab7d597fb825cbfc1fca30c2153ef5141ea](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/0.0.0) - Spring boot 2.7.0 / JDK 11
--   [1.0.0](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/1.0.0) - [395d79e218595e57365c7ad9723c2aa20ad77881](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/1.0.0) - Spring boot 2.7.5 / JDK 17
--   [2.0.0](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/2.0.0) - [179ec86df1033b9d551621173751bd60590da775](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/2.0.0) - Spring boot 3.0.0 / JDK 17
--   [3.0.0](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/3.0.0) - [49d0d3863ff7079c473b2a8bfe285c7735a71f9c](https://github.com/jesperancinha/jeorg-spring-test-drives/tree/3.0.0) - Spring boot 3.0.2 / JDK 19
+-   [0.0.0](https://github.com/jesperancinha/spring-test-drives/tree/0.0.0) - [d8700ab7d597fb825cbfc1fca30c2153ef5141ea](https://github.com/jesperancinha/spring-test-drives/tree/0.0.0) - Spring boot 2.7.0 / JDK 11
+-   [1.0.0](https://github.com/jesperancinha/spring-test-drives/tree/1.0.0) - [395d79e218595e57365c7ad9723c2aa20ad77881](https://github.com/jesperancinha/spring-test-drives/tree/1.0.0) - Spring boot 2.7.5 / JDK 17
+-   [2.0.0](https://github.com/jesperancinha/spring-test-drives/tree/2.0.0) - [179ec86df1033b9d551621173751bd60590da775](https://github.com/jesperancinha/spring-test-drives/tree/2.0.0) - Spring boot 3.0.0 / JDK 17
+-   [3.0.0](https://github.com/jesperancinha/spring-test-drives/tree/3.0.0) - [49d0d3863ff7079c473b2a8bfe285c7735a71f9c](https://github.com/jesperancinha/spring-test-drives/tree/3.0.0) - Spring boot 3.0.2 / JDK 19
 
 ## Contents
 
-1.  [Spring](./jeorg-spring-5) - Test drives for the Spring 5 Frawework (Bare minimum focus given to Spring Boot)
-2.  [Spring Kotlin](./jeorg-spring-kotlin-5) - Test drives for the Spring 5 Frawework in Kotlin (Bare minimum focus given to Spring Boot)
+1.  [Spring](./spring-5) - Test drives for the Spring 5 Frawework (Bare minimum focus given to Spring Boot)
+2.  [Spring Kotlin](./spring-kotlin-5) - Test drives for the Spring 5 Frawework in Kotlin (Bare minimum focus given to Spring Boot)
 3.  [Spring XML based services](./xml-based-services) - A collection of old services still based one way or the other on xml. 
 
 ## Specs
@@ -121,13 +121,13 @@ The examples presented in this repo need to use a docker-engine/docker-machine i
 
 This is because they make use of the [testcontainers](https://www.testcontainers.org/) project.
 
-I tested this using Docker Desktop for mac and on an ubuntu-unity machine. As long as the docker-machine/docker-engine is running, the maven build shoud also work.
+I tested this using Docker Desktop for Mac and on an ubuntu-unity machine. As long as the docker-machine/docker-engine is running, the maven build should also work.
 
 Using embedded alternatives revealed to be quite cumbersome, inefficient and slow.
 
-For more info on docker desktop please check their [website](https://www.docker.com/).
+For more info on docker desktop, please check their [website](https://www.docker.com/).
 
-For learning how to install docker in ubuntu please check their [website](https://docs.docker.com/engine/install/ubuntu/).
+To learn how to install docker in ubuntu, please check their [website](https://docs.docker.com/engine/install/ubuntu/).
 
 When this is ready, just run:
 

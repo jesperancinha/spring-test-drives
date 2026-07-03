@@ -1,0 +1,5 @@
+org.springframework.context.ApplicationListener=\
+  org.jesperancinha.spring.flash515.factories.events.SpringApplicationEventListener,\
+  org.jesperancinha.spring.flash515.factories.events.ApplicationEventListener,\
+  org.jesperancinha.spring.flash515.factories.events.RedTulipEventListener,\
+  org.jesperancinha.spring.flash515.factories.events.YellowTulipSpringEventListener
