@@ -20,8 +20,8 @@ files should be affected.
 ```kotlin
 @SpringBootTest
 class JeorgActionAOPLauncherExtAOPTest @Autowired constructor(
-    private val bonitoCatcher: BonitoCatcher,
-    private val codCatcher: CodCatcher
+  private val bonitoCatcher: BonitoCatcher,
+  private val codCatcher: CodCatcher
 ) {
 }
 ```
@@ -174,8 +174,46 @@ replace with:
 ```kotlin
     .getForEntity<String>("/tulips")
 ```
+## 6. Migrate `@MockBean` annotations
 
-## 6. Test class checklist
+The annotation `@MockBean` is deprecated and its usage needs to be replaced by `@MockitoBean`
+
+### Example 1
+
+On a class level, replace this:
+
+```java
+@MockBean(Planet.class)
+private MyService myService;
+```  
+with this:
+
+```java
+@MockitoBean(types = Planet.class)
+private MyService myService;
+```
+
+### Example 2
+
+Replace also the usages of `import org.springframework.boot.test.mock.mockito.MockBean;` with `import org.springframework.test.context.bean.override.mockito.MockitoBean;`
+
+
+### Example 3
+The beans that are declared are like this:
+
+```java
+@MockBean
+private BankCompanyBankRepository bankCompanyBankRepository;
+```
+
+should be replaced to something like:
+
+```java
+@MockitoBean
+private BankCompanyBankRepository bankCompanyBankRepository;
+```
+
+## 7. Test class checklist
 
 Before submitting/reviewing an integration test class, confirm:
 
