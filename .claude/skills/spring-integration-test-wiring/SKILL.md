@@ -168,11 +168,11 @@ Also replace imports from `import org.mockito.MockitoAnnotations.initMocks` to `
 When finding this:
 
 ```kotlin
-    .getForEntity<String>("/tulips")
+    .getForEntity("/tulips", String::class.java)
 ```
 replace with:
 ```kotlin
-    .getForEntity("/tulips", String::class.java)
+    .getForEntity<String>("/tulips")
 ```
 
 ## 6. Test class checklist
