@@ -11,9 +11,9 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 internal class Mastery2PortugueseMusicLauncherKotlinTest @Autowired constructor(
-    @Value("\${server.port}")
+    @param:Value($$"${server.port}")
     private val localServerPort: Long,
-    @Value("\${local.management.port}")
+    @param:Value($$"${local.management.port}")
     private val portActuatorPort: Long,
 ) {
 
