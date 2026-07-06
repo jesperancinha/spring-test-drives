@@ -55,7 +55,8 @@ class BankCompanyLauncherOtherPropertiesKotlinTest {
 }
 ```
 
-The same code should be applied to annotation `@Autowired`, but only for non-test classes and only in kotlin files.
+The same should be applied to annotation `@Autowired`, but only for non-test classes and only in kotlin files.
+The same should be applied to annotation `@JsonProperty`, but only in kotlin files.
 
 ## 3. Checklist
 
