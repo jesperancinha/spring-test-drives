@@ -21,7 +21,7 @@ class MixServiceApplication(
     private val mySingletonComponent: MySingletonComponent,
     private val test: Test
 ) : ApplicationRunner {
-    override fun run(args: ApplicationArguments?) {
+    override fun run(args: ApplicationArguments) {
         notificationService.notifyByEmail()
         notificationService.notifyBySMS()
 

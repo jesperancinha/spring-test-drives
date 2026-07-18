@@ -26,6 +26,7 @@
         <commons.lang3>3.4</commons.lang3>
         <guava.version>33.5.0-jre</guava.version>
         <consolerizer.version>2.2.3</consolerizer.version>
+        <jspecify.version>1.0.0</jspecify.version>
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
 
         <!-- Databases -->
@@ -266,6 +267,11 @@
                 <groupId>org.jesperancinha.console</groupId>
                 <artifactId>consolerizer</artifactId>
                 <version>${consolerizer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jspecify</groupId>
+                <artifactId>jspecify</artifactId>
+                <version>${jspecify.version}</version>
             </dependency>
             <!-- This Dependency is added as a workaround for the following issue -->
             <!--- https://github.com/Kotlin/kotlinx.coroutines/issues/3334 -->

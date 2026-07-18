@@ -7,7 +7,7 @@ import org.springframework.boot.runApplication
 import java.io.File
 
 @SpringBootApplication
-open class JeorgSpringKotlinMastery1Application : CommandLineRunner {
+class JeorgSpringKotlinMastery1Application : CommandLineRunner {
     override fun run(vararg args: String?) {
         ConsolerizerComposer.out(" ")
             .ln()

@@ -1,6 +1,5 @@
 package org.jesperancinha.spring.flash25.jpa.operators.service;
 
-import com.ninjasquad.springmockk.MockkBean;
 import org.jesperancinha.spring.flash25.jpa.operators.repos.BeanRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

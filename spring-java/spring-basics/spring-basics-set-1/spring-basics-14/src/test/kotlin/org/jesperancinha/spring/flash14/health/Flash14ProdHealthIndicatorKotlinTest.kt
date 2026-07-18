@@ -30,7 +30,7 @@ internal class Flash14ProdHealthIndicatorKotlinTest @Autowired constructor(
 ) {
     private val restTemplate by lazy { RestTemplate() }
 
-    @LocalServerPort
+    @field:LocalServerPort
     private val port: Long? = null
 
     @Test

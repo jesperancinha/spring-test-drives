@@ -22,7 +22,7 @@ import org.springframework.test.context.TestPropertySource
 internal class BeanServiceImplPreSpringBootKotlinTest @Autowired constructor(
     private val beanService: BeanServiceImpl,
     private val beanRepository: BeanRepository,
-    @Value("\${spring.datasource.url}")
+    @param:Value($$"${spring.datasource.url}")
     private val dataSourceUrl: String,
     private val publisher: ApplicationEventPublisher,
     private val applicationContext: ConfigurableApplicationContext

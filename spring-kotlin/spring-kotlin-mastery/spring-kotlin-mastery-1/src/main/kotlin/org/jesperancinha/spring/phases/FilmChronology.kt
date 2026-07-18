@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 @Component
 class FilmChronology : BeanPostProcessor {
 
-    @Value("\${management.endpoint.health.enabled}")
+    @field:Value($$"${management.endpoint.health.enabled}")
     lateinit var healthEnabled: String;
 
 
