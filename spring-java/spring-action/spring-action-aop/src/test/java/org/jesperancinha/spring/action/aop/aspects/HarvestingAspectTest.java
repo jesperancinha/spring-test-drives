@@ -7,7 +7,6 @@ import org.jesperancinha.spring.action.aop.fishing.Shrimper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,6 +18,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @ExtendWith({SpringExtension.class})
 @ContextConfiguration(classes = {
@@ -28,6 +28,7 @@ import static org.mockito.Mockito.*;
         Shrimper.class
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class HarvestingAspectTest {
 
     @MockitoBean
@@ -39,11 +40,9 @@ class HarvestingAspectTest {
     @Autowired
     private Shrimper shrimper;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
-    @Captor
-    private ArgumentCaptor<Shrimper> shrimperArgumentCaptor;
+        private final ArgumentCaptor<Shrimper> shrimperArgumentCaptor = ArgumentCaptor.forClass(Shrimper.class);
 
     @Test
     void testAnyHarvesterWhenCall3HarversterTypesNSubsThenTriggerAdvices() {

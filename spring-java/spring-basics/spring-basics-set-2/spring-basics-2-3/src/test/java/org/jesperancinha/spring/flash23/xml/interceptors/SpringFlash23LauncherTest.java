@@ -3,9 +3,8 @@ package org.jesperancinha.spring.flash23.xml.interceptors;
 import org.jesperancinha.spring.flash23.xml.interceptors.beans.FeelingLoveBean;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -19,9 +18,11 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.test.annotation.DirtiesContext;
 
 @WebMvcTest(controllers = SpringFlash23Launcher.class)
 @ImportResource("classpath:WEB-INF/beans.xml")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class SpringFlash23LauncherTest {
 
     @Autowired
@@ -30,14 +31,11 @@ class SpringFlash23LauncherTest {
     @MockitoBean
     private FeelingLoveBean feelingLoveBean;
 
-    @Captor
-    private ArgumentCaptor<Object> objectArgumentCaptor;
+        private final ArgumentCaptor<Object> objectArgumentCaptor = ArgumentCaptor.forClass(Object.class);
 
-    @Captor
-    private ArgumentCaptor<ModelAndView> modelAndViewArgumentCaptor;
+        private final ArgumentCaptor<ModelAndView> modelAndViewArgumentCaptor = ArgumentCaptor.forClass(ModelAndView.class);
 
-    @Captor
-    private ArgumentCaptor<Exception> exceptionArgumentCaptor;
+        private final ArgumentCaptor<Exception> exceptionArgumentCaptor = ArgumentCaptor.forClass(Exception.class);
 
     @Test
     void main() {

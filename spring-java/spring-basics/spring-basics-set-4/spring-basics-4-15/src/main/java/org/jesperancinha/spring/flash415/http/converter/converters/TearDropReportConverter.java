@@ -1,7 +1,7 @@
 package org.jesperancinha.spring.flash415.http.converter.converters;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.exc.MismatchedInputException;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.exc.MismatchedInputException;
 import org.jesperancinha.console.consolerizer.common.ConsolerizerColor;
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
 import org.jesperancinha.spring.flash415.http.converter.domain.TearDrop;

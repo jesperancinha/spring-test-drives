@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.annotation.DirtiesContext
 
 /**
  * The [EnableAspectJAutoProxy] annotation is not strictly necessary when using [org.springframework.boot.autoconfigure.SpringBootApplication].
@@ -27,6 +28,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
     "org.jesperancinha.spring.action.aop.aspects"
 )
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class JeorgActionAOPLauncherExtAOPKotlinTest @Autowired constructor(
     private val bonitoCatcher: BonitoCatcher,
     private val codCatcher: CodCatcher,

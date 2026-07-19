@@ -15,7 +15,6 @@ import org.jesperancinha.spring.flash37.aop.detail.repository.TicketRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -26,12 +25,14 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {
         TicketConfiguration.class, TicketService.class,
         TicketAspectAfter.class, TicketAspectAround.class, TicketAspectBefore.class,
 })
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class TicketServiceTest {
 
     @Autowired
@@ -49,11 +50,9 @@ public class TicketServiceTest {
     @MockitoBean
     private TicketBeforeBean ticketBeforeBean;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
-    @Captor
-    private ArgumentCaptor<ProceedingJoinPoint> proceedingJoinPointArgumentCaptor;
+        private final ArgumentCaptor<ProceedingJoinPoint> proceedingJoinPointArgumentCaptor = ArgumentCaptor.forClass(ProceedingJoinPoint.class);
 
     /**
      * In this unit test, only the around and after advices are executed by the aspect at the respective cutpoints.

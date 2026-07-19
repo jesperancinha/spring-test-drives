@@ -6,7 +6,6 @@ import org.jesperancinha.spring.action.aop.beans.Bonito4Service;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.ImportResource;
@@ -16,6 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @ExtendWith({SpringExtension.class})
 @ContextConfiguration(classes = {
@@ -24,6 +24,7 @@ import static org.mockito.Mockito.*;
 })
 @ImportResource("classpath:bean.xml")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class BonitoCatcher4Test {
 
     @MockitoBean
@@ -32,8 +33,7 @@ class BonitoCatcher4Test {
     @Autowired
     private BonitoCatcher bonitoCatcher;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
     @Test
     void testCatchWithNetwhenCalledThenTriggerAllAdvices() {

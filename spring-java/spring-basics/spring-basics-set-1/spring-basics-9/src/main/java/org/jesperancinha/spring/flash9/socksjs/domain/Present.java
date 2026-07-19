@@ -14,10 +14,7 @@ public class Present {
 
     private final String[] HELLOS = new String[]{"Hi there!", "Oh Hello!", "Hi!", "Hi! How are you?"};
 
-    @JsonCreator
-    public Present(
-            @JsonProperty("request")
-                    Request request) {
+    public Present(Request request) {
         if (Objects.nonNull(request)) {
             this.message = request.getMessage();
             this.localDateTime = request.getLocalDateTime();
@@ -29,6 +26,18 @@ public class Present {
             this.systemDateTime = null;
             this.response = null;
         }
+    }
+
+    @JsonCreator
+    public Present(
+            @JsonProperty("message") String message,
+            @JsonProperty("localDateTime") LocalDateTime localDateTime,
+            @JsonProperty("systemDateTime") LocalDateTime systemDateTime,
+            @JsonProperty("response") String response) {
+        this.message = message;
+        this.localDateTime = localDateTime;
+        this.systemDateTime = systemDateTime;
+        this.response = response;
     }
 
     private String calculateResponse(String message) {

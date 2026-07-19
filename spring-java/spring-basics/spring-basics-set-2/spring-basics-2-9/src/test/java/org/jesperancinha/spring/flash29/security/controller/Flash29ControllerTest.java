@@ -1,6 +1,6 @@
 package org.jesperancinha.spring.flash29.security.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.spring.flash29.security.configuration.Flash29ConfigurationAdapter;
 import org.jesperancinha.spring.flash29.security.dto.JewelDto;
 import org.jesperancinha.spring.flash29.security.repository.JewelRepository;
@@ -8,9 +8,8 @@ import org.jesperancinha.spring.flash29.security.services.JewelService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -46,8 +45,7 @@ class Flash29ControllerTest {
     @MockitoBean
     private JewelRepository jewelRepository;
 
-    @Captor
-    private ArgumentCaptor<JewelDto> jewelDtoArgumentCaptor;
+        private final ArgumentCaptor<JewelDto> jewelDtoArgumentCaptor = ArgumentCaptor.forClass(JewelDto.class);
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

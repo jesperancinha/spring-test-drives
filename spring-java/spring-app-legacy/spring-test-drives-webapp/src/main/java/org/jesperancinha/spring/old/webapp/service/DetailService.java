@@ -4,6 +4,9 @@ import org.jesperancinha.spring.old.webapp.model.DetailEntity;
 import org.jesperancinha.spring.old.webapp.repository.DetailRepository;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.beans.Transient;
 
 @Service
 public class DetailService {

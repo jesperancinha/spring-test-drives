@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.test.context.ActiveProfiles
+import org.springframework.transaction.annotation.Transactional
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -18,27 +19,29 @@ class DetailLayer2ServiceKotlinTest @Autowired constructor(
     private val detailService: DetailService,
     private val detailRepository: DetailRepository
 ) {
+
+    lateinit var element: DetailEntity
+
     @BeforeEach
+    @Transactional
     fun setUp() {
         detailRepository.deleteAll()
-        addOneElement()
+        element = addOneElement()
     }
 
-    private fun addOneElement() {
-        val detailEntity = DetailEntity.builder().id(1).name(NAME_1).city(CITY_1).build()
-        detailRepository.save(detailEntity)
-    }
+    private fun addOneElement() = detailRepository.save(DetailEntity.builder().name(NAME_1).city(CITY_1).build())
+
 
     @Test
     fun `should ged details by id`() {
-        detailService.findDetailById(1)
+        detailService.findDetailById(element.id)
             .shouldNotBeNull()
             .apply {
                 name shouldBe NAME_1
                 city.shouldBeNull()
             }
         detailRepository.deleteAll()
-        detailRepository.findByIdOrNull(1)
+        detailRepository.findByIdOrNull(element.id)
             .shouldBeNull()
         detailService.findDetailById(1)
             .shouldNotBeNull()
@@ -46,14 +49,14 @@ class DetailLayer2ServiceKotlinTest @Autowired constructor(
                 name shouldBe NAME_1
                 city.shouldBeNull()
             }
-        addOneElement()
-        detailRepository.findByIdOrNull(1)
+        element = addOneElement()
+        detailRepository.findByIdOrNull(element.id)
             .shouldNotBeNull()
             .apply {
                 name shouldBe NAME_1
                 city.shouldBeNull()
             }
-        detailRepository.findByIdOrNull(1)
+        detailRepository.findByIdOrNull(element.id)
             .shouldNotBeNull()
             .apply {
                 name shouldBe NAME_1

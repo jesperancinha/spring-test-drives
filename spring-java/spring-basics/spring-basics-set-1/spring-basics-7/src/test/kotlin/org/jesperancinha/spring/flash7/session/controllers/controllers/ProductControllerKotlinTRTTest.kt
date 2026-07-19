@@ -6,13 +6,14 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.MockitoAnnotations.openMocks
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.resttestclient.TestRestTemplate
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.boot.test.web.client.TestRestTemplate
-import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.http.HttpStatus
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@AutoConfigureTestRestTemplate
 internal class ProductControllerKotlinTRTTest @Autowired constructor(
     private val testRestTemplate: TestRestTemplate
 ) {
@@ -25,7 +26,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint`(): Unit {
         testRestTemplate
-            .getForEntity<String>("/tulips")
+            .getForEntity("/tulips", String::class.java)
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()
@@ -38,7 +39,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint, but in the ok it should get an error message`() {
         testRestTemplate
-            .getForEntity<String>("/tulips/ok")
+            .getForEntity("/tulips/ok", String::class.java)
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()

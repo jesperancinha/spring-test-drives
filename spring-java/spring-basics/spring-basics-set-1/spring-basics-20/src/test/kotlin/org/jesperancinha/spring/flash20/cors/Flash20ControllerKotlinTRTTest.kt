@@ -5,10 +5,10 @@ import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.resttestclient.TestRestTemplate
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.boot.test.web.client.TestRestTemplate
-import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.context.annotation.ImportResource
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 import java.util.*
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@AutoConfigureTestRestTemplate
 @ImportResource("classpath:WEB-INF/beans.xml")
 internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     private val testRestTemplate: TestRestTemplate
@@ -26,7 +27,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should retrieve sentence in cors unprotected website`() {
-        testRestTemplate.getForEntity<String>("/cors")
+        testRestTemplate.getForEntity("/cors", String::class.java)
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -54,7 +55,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should never fail in the always endpoint`() {
-        testRestTemplate.getForEntity<String>("/always")
+        testRestTemplate.getForEntity("/always", String::class.java)
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -80,7 +81,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should show sentence in protected website when calling from localhost`() {
-        testRestTemplate.getForEntity<String>("/protected")
+        testRestTemplate.getForEntity("/protected", String::class.java)
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body

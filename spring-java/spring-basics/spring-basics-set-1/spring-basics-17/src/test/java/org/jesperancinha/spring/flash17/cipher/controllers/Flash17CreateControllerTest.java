@@ -4,10 +4,9 @@ import com.ninjasquad.springmockk.MockkBean;
 import org.jesperancinha.spring.flash17.cipher.configuration.Flash17ConfigurationAdapter;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ActiveProfiles("prod")
 @WebMvcTest({Flash17CreateController.class, Flash17Controller.class})
-@MockkBean(classes = {DataSource.class})
+@MockkBean(types = {DataSource.class})
 @Import(Flash17ConfigurationAdapter.class)
 @AutoConfigureMockMvc
 class Flash17CreateControllerTest {
@@ -39,11 +38,9 @@ class Flash17CreateControllerTest {
     @MockitoBean
     private JdbcUserDetailsManager jdbcUserDetailsManager;
 
-    @Captor
-    private ArgumentCaptor<UserDetails> argumentCaptor;
+    private final ArgumentCaptor<UserDetails> argumentCaptor = ArgumentCaptor.forClass(UserDetails.class);
 
-    @Captor
-    private ArgumentCaptor<String> passwordCaptor;
+    private final ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
 
     @MockitoSpyBean
     private PasswordEncoder passwordEncoder;

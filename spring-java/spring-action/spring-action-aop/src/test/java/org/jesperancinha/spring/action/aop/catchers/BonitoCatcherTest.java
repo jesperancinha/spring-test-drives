@@ -3,12 +3,13 @@ package org.jesperancinha.spring.action.aop.catchers;
 import org.aspectj.lang.JoinPoint;
 import org.jesperancinha.spring.action.aop.aspects.BonitoAspect2;
 import org.jesperancinha.spring.action.aop.beans.Bonito2Service;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -22,6 +23,7 @@ import static org.mockito.Mockito.*;
         BonitoAspect2.class
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class BonitoCatcherTest {
 
     @MockitoBean
@@ -30,8 +32,7 @@ class BonitoCatcherTest {
     @Autowired
     private BonitoCatcher bonitoCatcher;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+    private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
     @Test
     void testCatchWithNetWhenCalledThenTriggerAllAdvices() {

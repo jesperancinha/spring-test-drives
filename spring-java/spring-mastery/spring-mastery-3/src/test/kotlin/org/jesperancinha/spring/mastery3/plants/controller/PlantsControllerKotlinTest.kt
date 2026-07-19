@@ -1,6 +1,6 @@
 package org.jesperancinha.spring.mastery3.plants.controller
 
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
 import io.kotest.matchers.shouldBe
 import io.mockk.slot
@@ -10,7 +10,7 @@ import org.jesperancinha.spring.mastery3.plants.model.Plant
 import org.jesperancinha.spring.mastery3.plants.service.PlantService
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType.*
 import org.springframework.test.web.servlet.MockMvc

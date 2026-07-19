@@ -5,10 +5,9 @@ import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
 import org.jesperancinha.spring.flash17.cipher.configuration.Flash17CSRFConfigurationAdapter;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ActiveProfiles("test")
 @WebMvcTest({Flash17CSRFCreateController.class, Flash17Controller.class})
-@MockkBean(classes = {DataSource.class})
+@MockkBean(types = {DataSource.class})
 @AutoConfigureMockMvc
 @Import(Flash17CSRFConfigurationAdapter.class)
 class Flash17CSRFCreateControllerTest {
@@ -41,11 +40,9 @@ class Flash17CSRFCreateControllerTest {
     @MockitoBean
     private JdbcUserDetailsManager jdbcUserDetailsManager;
 
-    @Captor
-    private ArgumentCaptor<UserDetails> argumentCaptor;
+    private final ArgumentCaptor<UserDetails> argumentCaptor = ArgumentCaptor.forClass(UserDetails.class);
 
-    @Captor
-    private ArgumentCaptor<String> passwordCaptor;
+    private final ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
 
     @MockitoSpyBean
     private PasswordEncoder passwordEncoder;

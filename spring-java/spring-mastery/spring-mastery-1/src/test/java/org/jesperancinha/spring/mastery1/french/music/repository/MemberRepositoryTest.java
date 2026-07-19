@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -29,6 +29,8 @@ class MemberRepositoryTest {
     @Autowired
     private ArtistRepository artistRepository;
 
+    private Member savedMember;
+
     @BeforeEach
     public void setUp() {
         artistRepository.deleteAll();
@@ -36,12 +38,12 @@ class MemberRepositoryTest {
         final Member member = new Member();
         member.setName("Celine Dion");
         member.setJoinDate(LocalDate.ofYearDay(1981, 1));
-        memberRepository.save(member);
+        savedMember = memberRepository.save(member);
     }
 
     @Test
     void testGetOneWhenFindOneThenMatch() {
-        final Member member = memberRepository.getOne(1L);
+        final Member member = memberRepository.findById(savedMember.getId()).orElse(null);
         assertThat(member).isNotNull();
         assertThat(member.getName()).isEqualTo("Celine Dion");
         assertThat(member.getId()).isGreaterThanOrEqualTo(1L);
@@ -51,7 +53,7 @@ class MemberRepositoryTest {
     void testFindAllByNameLikeWhenFindAllThenGetAll() {
         final List<Member> members = memberRepository.findAllByNameLike("%Dion%");
         assertThat(members).hasSize(1);
-        final Member member = members.get(0);
+        final Member member = members.getFirst();
         assertThat(member).isNotNull();
         assertThat(member.getName()).isEqualTo("Celine Dion");
         final LocalDate joinDate = member.getJoinDate();

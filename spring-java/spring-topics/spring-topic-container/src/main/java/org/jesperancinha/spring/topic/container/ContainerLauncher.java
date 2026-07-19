@@ -1,7 +1,6 @@
 package org.jesperancinha.spring.topic.container;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.console.consolerizer.console.ConsolerizerGraphs;
 import org.jesperancinha.spring.topic.container.beans.Bean;
 import org.jesperancinha.spring.topic.container.beans.BeanOnlyRead;
@@ -21,7 +20,7 @@ public class ContainerLauncher {
             "  \"scientificName\" : \"Phaseolus vulgaris\"\n" +
             "}";
 
-    public static void main(String[] args) throws JsonProcessingException {
+    public static void main(String[] args) {
         BRIGHT_MAGENTA.printGenericTitleLn("Runtime Started");
 
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("./beans.xml");

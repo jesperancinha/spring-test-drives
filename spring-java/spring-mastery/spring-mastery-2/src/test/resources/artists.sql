@@ -1,2 +1,2 @@
-insert into artist(id, name, nationality)
-values (10, 'Radio Macau', 'Portuguese');
+insert into artist(name, nationality)
+values ('Radio Macau', 'Portuguese');

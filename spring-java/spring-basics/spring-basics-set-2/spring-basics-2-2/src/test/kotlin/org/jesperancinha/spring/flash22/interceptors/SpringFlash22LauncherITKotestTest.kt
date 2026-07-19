@@ -1,6 +1,6 @@
 package org.jesperancinha.spring.flash22.interceptors
 
-import com.ninjasquad.springmockk.SpykBean
+import com.ninjasquad.springmockk.MockkSpyBean
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -9,15 +9,17 @@ import io.mockk.verify
 import org.jesperancinha.spring.flash22.interceptors.beans.FeelingLoveBean
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
+import org.springframework.context.annotation.Import
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest(controllers = [SpringFlash22Launcher::class])
+@Import(FeelingLoveBean::class)
 internal class SpringFlash22LauncherITKotestTest @Autowired constructor(
     private val mockMvc: MockMvc,
-    @SpykBean
+    @MockkSpyBean
     private val feelingLoveBean: FeelingLoveBean,
 ) {
 

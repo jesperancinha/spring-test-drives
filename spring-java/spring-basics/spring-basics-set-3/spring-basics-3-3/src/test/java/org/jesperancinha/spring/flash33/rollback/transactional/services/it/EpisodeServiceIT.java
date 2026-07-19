@@ -110,7 +110,7 @@ class EpisodeServiceIT {
 
     @Test
     void testGetEpisodeById_whenGetById1_thenGetEpisode1() {
-        final var episode = Episode.builder().id(1L).name("The eyes see more").build();
+        final var episode = Episode.builder().name("The eyes see more").build();
         final var savedEpisode = episodeRepository.save(episode);
 
         final var resultEpisodeDto = episodeService.getEpisodeById(savedEpisode.getId());
@@ -122,7 +122,7 @@ class EpisodeServiceIT {
 
     @Test
     void testGetAllEpisodes_whenGetAll_thenListAllEpisodes() {
-        final var episode = Episode.builder().id(1L).name("The eyes see more").build();
+        final var episode = Episode.builder().name("The eyes see more").build();
         final var savedEpisode = episodeRepository.save(episode);
 
         final var resultEpisodeDtos = episodeService.getAllEpisodes();

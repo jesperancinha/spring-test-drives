@@ -6,7 +6,6 @@ import org.jesperancinha.spring.flash29.security.repository.JewelRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
@@ -19,8 +18,10 @@ import static org.jesperancinha.spring.flash29.security.services.JewelType.OPAL;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class JewelServiceUpdateIT {
 
     @Autowired
@@ -35,8 +36,7 @@ class JewelServiceUpdateIT {
         when(jewelRepository.save(any())).thenAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]);
     }
 
-    @Captor
-    private ArgumentCaptor<Jewel> jewelArgumentCaptor;
+        private final ArgumentCaptor<Jewel> jewelArgumentCaptor = ArgumentCaptor.forClass(Jewel.class);
 
     @Test
     void testUpdateJewel_whenNoAuthentication_thenFail() {
