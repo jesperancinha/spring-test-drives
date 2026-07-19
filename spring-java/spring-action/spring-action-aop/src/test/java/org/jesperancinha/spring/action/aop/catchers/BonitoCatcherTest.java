@@ -3,7 +3,6 @@ package org.jesperancinha.spring.action.aop.catchers;
 import org.aspectj.lang.JoinPoint;
 import org.jesperancinha.spring.action.aop.aspects.BonitoAspect2;
 import org.jesperancinha.spring.action.aop.beans.Bonito2Service;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
