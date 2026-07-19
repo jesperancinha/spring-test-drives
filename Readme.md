@@ -11,16 +11,15 @@
 [![spring-test-drives](https://github.com/jesperancinha/spring-test-drives/actions/workflows/spring-test-drives.yml/badge.svg)](https://github.com/jesperancinha/spring-test-drives/actions/workflows/spring-test-drives.yml)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9d14f60a58bd456fb1084860b5a46871)](https://www.codacy.com/gh/jesperancinha/spring-test-drives/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/spring-test-drives&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/b9097b8c-40f8-48bf-beb3-2007803b4bad)](https://codebeat.co/projects/github-com-jesperancinha-spring-test-drives-master)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/spring-test-drives/badge.svg)](https://snyk.io/test/github/jesperancinha/spring-test-drives)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/9d14f60a58bd456fb1084860b5a46871)](https://www.codacy.com/gh/jesperancinha/spring-test-drives/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/spring-test-drives&utm_campaign=Badge_Coverage)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/spring-test-drives/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/spring-test-drives?branch=master)
 [![codecov](https://codecov.io/gh/jesperancinha/spring-test-drives/branch/master/graph/badge.svg?token=08TJV16VKG)](https://codecov.io/gh/jesperancinha/spring-test-drives)
 
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/spring-test-drives.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/spring-test-drives.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/spring-test-drives.svg)](#)
+![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/spring-test-drives.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/spring-test-drives.svg)
+![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/spring-test-drives.svg)
 
 ## Technologies used
 
@@ -140,6 +139,19 @@ or
 ```shell
 mvn clean install
 ```
+
+---
+
+## Claude
+
+Prompt claude with the following:
+
+### Run all skills
+```text
+please run skills angular, annotations, docker, java, jee, jvm, kotlin, maven, parallel, readme, scripts, spring, spring-test on this project
+```
+
+---
 
 ## Resources
 

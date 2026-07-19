@@ -22,6 +22,7 @@ jobs:
           run:  mvn clean install jacoco:prepare-agent package jacoco:report
 
         - name: Coverage Reports
+          continue-on-error: true
           run: mvn omni-coveragereporter:report
           env:
              COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

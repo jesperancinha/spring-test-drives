@@ -51,7 +51,7 @@ internal class CarRepositoryKotlinTest @Autowired constructor(
 
     companion object {
         @Container
-        protected var postgreSQLContainer: PostgreSQLContainer<*> = PostgreSQLContainer("postgres:14")
+        protected val postgreSQLContainer: PostgreSQLContainer<*> = PostgreSQLContainer("postgres:14")
             .withUsername("postgres")
             .withPassword("admin")
             .withDatabaseName("db")

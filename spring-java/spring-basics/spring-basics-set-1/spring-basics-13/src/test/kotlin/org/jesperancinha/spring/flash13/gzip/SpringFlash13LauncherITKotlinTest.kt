@@ -17,7 +17,7 @@ internal class SpringFlash13LauncherITKotlinTest @Autowired constructor(
     private val restTemplate: TestRestTemplate,
 ) {
 
-    @LocalServerPort
+    @field:LocalServerPort
     var port: Long = -1L
 
     @Test

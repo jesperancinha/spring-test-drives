@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.context.annotation.ImportResource
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
@@ -25,7 +26,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should retrieve sentence in cors unprotected website`() {
-        testRestTemplate.getForEntity("/cors", String::class.java)
+        testRestTemplate.getForEntity<String>("/cors")
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -53,7 +54,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should never fail in the always endpoint`() {
-        testRestTemplate.getForEntity("/always", String::class.java)
+        testRestTemplate.getForEntity<String>("/always")
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -79,7 +80,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should show sentence in protected website when calling from localhost`() {
-        testRestTemplate.getForEntity("/protected", String::class.java)
+        testRestTemplate.getForEntity<String>("/protected")
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body

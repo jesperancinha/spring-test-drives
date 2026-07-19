@@ -1,7 +1,5 @@
 package org.jesperancinha.smtd.mixservice.configuration
 
-import com.ninjasquad.springmockk.MockkBean
-import io.mockk.every
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Component

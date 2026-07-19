@@ -19,7 +19,6 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.web.client.DefaultResponseErrorHandler
 import org.springframework.web.client.HttpServerErrorException
 import org.springframework.web.client.RestTemplate
-import java.io.IOException
 import java.net.URI
 import java.nio.charset.Charset
 
@@ -27,7 +26,7 @@ import java.nio.charset.Charset
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = [Flash14HealthIndicator::class])
 @EnableAutoConfiguration
 internal class Flash14HealthIndicatorKotlinTest {
-    @LocalServerPort
+    @field:LocalServerPort
     private val port: Long? = null
     private val restTemplate = RestTemplate()
     @Test
