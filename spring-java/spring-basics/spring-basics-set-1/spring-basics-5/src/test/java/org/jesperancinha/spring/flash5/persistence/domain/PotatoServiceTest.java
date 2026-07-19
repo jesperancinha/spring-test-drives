@@ -3,6 +3,7 @@ package org.jesperancinha.spring.flash5.persistence.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.Mockito.*;
 
 
@@ -41,6 +43,7 @@ class PotatoServiceTest {
     }
 
     @Test
+    @Execution(SAME_THREAD)
     void testCreatePotatoWhenCreatedThenCanCallFromDatabase() {
         final var newPotato = new Potato();
         newPotato.setForm("Kindest of them all");
@@ -63,6 +66,7 @@ class PotatoServiceTest {
     }
 
     @Test
+    @Execution(SAME_THREAD)
     void testGetAllPotatoesWhenListingThenGetAllFromDatabase() {
         final var newPotato1 = new Potato();
         newPotato1.setForm("Sweet");
