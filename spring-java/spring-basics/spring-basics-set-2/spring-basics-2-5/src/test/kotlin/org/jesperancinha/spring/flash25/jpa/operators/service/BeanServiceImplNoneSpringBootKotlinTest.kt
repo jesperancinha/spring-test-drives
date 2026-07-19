@@ -19,7 +19,7 @@ import org.springframework.test.context.TestPropertySource
 @TestPropertySource("classpath:beans.properties")
 internal class BeanServiceImplNoneSpringBootKotlinTest @Autowired constructor(
     private val beanService: BeanServiceImpl,
-    @Value("\${spring.datasource.url}")
+    @param:Value($$"${spring.datasource.url}")
     private val dataSourceUrl: String,
     private val beanRepository: BeanRepository,
     private val applicationContext: ConfigurableApplicationContext

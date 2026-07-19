@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 @Component
 class FilmChronologyFactory : BeanFactoryPostProcessor {
 
-    @Value("\${management.endpoint.health.enabled}")
+    @field:Value($$"${management.endpoint.health.enabled}")
     lateinit var healthEnabled: String
 
     override fun postProcessBeanFactory(beanFactory: ConfigurableListableBeanFactory) {

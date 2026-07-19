@@ -230,7 +230,7 @@ internal class SpringFlash24LauncherKotlinTest @Autowired constructor(
 
     companion object {
         @Container
-        var postgreSQLContainer: PostgreSQLContainer<*> = PostgreSQLContainer("postgres:14")
+        val postgreSQLContainer: PostgreSQLContainer<*> = PostgreSQLContainer("postgres:14")
             .withUsername("postgres")
             .withPassword("admin")
             .withDatabaseName("db")

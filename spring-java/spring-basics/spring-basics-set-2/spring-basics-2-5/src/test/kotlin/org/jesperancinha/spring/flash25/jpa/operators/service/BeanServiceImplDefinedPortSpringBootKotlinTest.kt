@@ -15,11 +15,11 @@ import org.springframework.test.context.TestPropertySource
 @TestPropertySource("classpath:beans-fixed.properties")
 internal class BeanServiceImplDefinedPortSpringBootKotlinTest @Autowired constructor(
     private val beanService: BeanServiceImpl,
-    @Value("\${spring.datasource.url}")
+    @param:Value($$"${spring.datasource.url}")
     private val dataSourceUrl: String,
     private val applicationContext: ConfigurableApplicationContext
 ) {
-    @LocalServerPort
+    @field:LocalServerPort
     var port: Long = -1
 
     @BeforeEach

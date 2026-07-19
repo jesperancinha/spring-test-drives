@@ -12,7 +12,7 @@ import org.jesperancinha.spring.flash7.session.handlers.ErrorFlower
 import org.jesperancinha.spring.flash7.session.handlers.MixErrorMessage
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.MockitoAnnotations.initMocks
+import org.mockito.MockitoAnnotations.openMocks
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.http.HttpStatus.NOT_FOUND
@@ -29,20 +29,22 @@ internal class ProductControllerKotlinTest @Autowired constructor(
 
     @BeforeEach
     fun setUp() {
-        initMocks(mockMvc)
+        openMocks(mockMvc)
     }
 
     @Test
     @Throws(Exception::class)
-    fun `should get tulips in the general endpoint`() = mockMvc
-        .perform(get("/tulips"))
-        .andExpect(status().isOk)
-        .andReturn()
-        .shouldNotBeNull()
-        .response
-        .shouldNotBeNull()
-        .contentAsString
-        .shouldNotBeNull() shouldBe "You just got a bunch of tulips!"
+    fun `should get tulips in the general endpoint`(): Unit {
+        mockMvc
+            .perform(get("/tulips"))
+            .andExpect(status().isOk)
+            .andReturn()
+            .shouldNotBeNull()
+            .response
+            .shouldNotBeNull()
+            .contentAsString
+            .shouldNotBeNull() shouldBe "You just got a bunch of tulips!"
+    }
 
     @Test
     @Throws(Exception::class)

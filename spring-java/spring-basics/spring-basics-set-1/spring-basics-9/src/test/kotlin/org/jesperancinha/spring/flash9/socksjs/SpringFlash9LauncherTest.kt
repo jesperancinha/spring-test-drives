@@ -55,7 +55,7 @@ internal class SpringFlash9LauncherTest @Autowired constructor(
             .build()
     }
 
-    @LocalServerPort
+    @field:LocalServerPort
     private val port: Long? = null
 
     @Test
