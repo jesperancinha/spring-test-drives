@@ -2,6 +2,8 @@ package org.jesperancinha.spring.flash23.xml.interceptors;
 
 import org.jesperancinha.spring.flash23.xml.interceptors.beans.FeelingLoveBean;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -23,6 +26,7 @@ import org.springframework.test.annotation.DirtiesContext;
 @WebMvcTest(controllers = SpringFlash23Launcher.class)
 @ImportResource("classpath:WEB-INF/beans.xml")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(SAME_THREAD)
 class SpringFlash23LauncherTest {
 
     @Autowired

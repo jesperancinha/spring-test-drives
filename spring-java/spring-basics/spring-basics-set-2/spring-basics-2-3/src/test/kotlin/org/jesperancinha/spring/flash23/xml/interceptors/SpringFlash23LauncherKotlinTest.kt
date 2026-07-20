@@ -9,6 +9,9 @@ import io.mockk.every
 import io.mockk.verify
 import org.jesperancinha.spring.flash23.xml.interceptors.beans.FeelingLoveBean
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.context.annotation.ImportResource
@@ -18,6 +21,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
 @WebMvcTest(controllers = [SpringFlash23Launcher::class])
 @ImportResource("classpath:WEB-INF/beans.xml")
+@Execution(SAME_THREAD)
 internal class SpringFlash23LauncherKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)
