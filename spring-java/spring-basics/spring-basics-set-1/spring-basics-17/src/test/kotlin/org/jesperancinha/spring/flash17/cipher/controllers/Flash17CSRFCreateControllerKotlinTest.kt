@@ -11,6 +11,8 @@ import io.mockk.verify
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer
 import org.jesperancinha.spring.flash17.cipher.configuration.Flash17CSRFConfigurationAdapter
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
@@ -22,7 +24,8 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager
 import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import javax.sql.DataSource
 
@@ -33,6 +36,7 @@ import javax.sql.DataSource
 @Import(
     Flash17CSRFConfigurationAdapter::class
 )
+@Execution(ExecutionMode.SAME_THREAD)
 internal class Flash17CSRFCreateControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)

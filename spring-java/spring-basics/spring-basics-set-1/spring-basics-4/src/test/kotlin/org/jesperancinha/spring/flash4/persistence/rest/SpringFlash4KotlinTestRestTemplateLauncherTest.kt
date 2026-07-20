@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.exchange
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.http.*
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod.POST
+import org.springframework.http.HttpStatus
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureTestRestTemplate
@@ -25,7 +28,7 @@ internal class SpringFlash4KotlinTestRestTemplateLauncherTest @Autowired constru
                 add("currentTime", "1999-12-01")
             }
         val entity = HttpEntity<String>(headers)
-        testRestTemplate.exchange("/", POST, entity, String::class.java)
+        testRestTemplate.exchange<String>("/", POST, entity)
             .shouldNotBeNull()
             .apply {
                 statusCode shouldBe HttpStatus.OK
@@ -42,7 +45,7 @@ internal class SpringFlash4KotlinTestRestTemplateLauncherTest @Autowired constru
                 add("currentTime", "1999-12-01 12:30:31")
             }
         val entity = HttpEntity<String>(headers)
-        testRestTemplate.exchange("/time", POST, entity, String::class.java)
+        testRestTemplate.exchange<String>("/time", POST, entity)
             .shouldNotBeNull()
             .apply {
                 statusCode shouldBe HttpStatus.OK
@@ -59,7 +62,7 @@ internal class SpringFlash4KotlinTestRestTemplateLauncherTest @Autowired constru
                 add("dollars", "150")
             }
         val entity = HttpEntity<String>(headers)
-        testRestTemplate.exchange("/dollars", POST, entity, String::class.java)
+        testRestTemplate.exchange<String>("/dollars", POST, entity)
             .shouldNotBeNull()
             .apply {
                 statusCode shouldBe HttpStatus.OK

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.exchange
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.server.LocalServerPort
@@ -32,9 +33,9 @@ internal class SpringFlash13LauncherITKotlinTest @Autowired constructor(
     fun `should get normal values when performing normal requests`() {
         val headers = HttpHeaders()
         val request = HttpEntity<Any>(headers)
-        val response = restTemplate.exchange(
+        val response = restTemplate.exchange<ByteArray>(
             "http://localhost:$port/flash13.styles.css.gz", GET,
-            request, ByteArray::class.java
+            request
         )
         val directGZipValueString = response.body?.let {
             GZIPInputStream(ByteArrayInputStream(it)).use { gzip -> gzip.readBytes().toString(Charsets.UTF_8) }
@@ -42,9 +43,9 @@ internal class SpringFlash13LauncherITKotlinTest @Autowired constructor(
         val headers2 = HttpHeaders()
         headers2["Accept-Encoding"] = "gzip, deflate"
         val request2 = HttpEntity<Any>(headers2)
-        val response2 = restTemplate.exchange(
+        val response2 = restTemplate.exchange<String>(
             "http://localhost:$port/flash13.styles.css", GET,
-            request2, String::class.java
+            request2
         )
         val gzipValueString = response2.body
         ConsolerizerComposer.outSpace()

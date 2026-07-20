@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.exchange
+import org.springframework.boot.resttestclient.getForEntity
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.context.annotation.ImportResource
@@ -14,9 +16,6 @@ import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
-import java.util.*
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureTestRestTemplate
@@ -27,7 +26,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should retrieve sentence in cors unprotected website`() {
-        testRestTemplate.getForEntity("/cors", String::class.java)
+        testRestTemplate.getForEntity<String>("/cors")
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -44,7 +43,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
             add("origin","http://thissiteissomethingcopletelydifferentlocalhost.com")
         }
         val entity = HttpEntity<String>(headers)
-        testRestTemplate.exchange("/cors", HttpMethod.GET, entity, String::class.java)
+        testRestTemplate.exchange<String>("/cors", HttpMethod.GET, entity)
             .apply {
                 statusCode shouldBe HttpStatus.FORBIDDEN
                 body
@@ -55,7 +54,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should never fail in the always endpoint`() {
-        testRestTemplate.getForEntity("/always", String::class.java)
+        testRestTemplate.getForEntity<String>("/always")
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -70,7 +69,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
             add("origin","http://thissiteissomethingcopletelydifferentlocalhost.com")
         }
         val entity = HttpEntity<String>(headers)
-        testRestTemplate.exchange("/always", HttpMethod.GET, entity, String::class.java)
+        testRestTemplate.exchange<String>("/always", HttpMethod.GET, entity)
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -81,7 +80,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should show sentence in protected website when calling from localhost`() {
-        testRestTemplate.getForEntity("/protected", String::class.java)
+        testRestTemplate.getForEntity<String>("/protected")
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body
@@ -97,7 +96,7 @@ internal class Flash20ControllerKotlinTRTTest @Autowired constructor(
             add("origin","http://thissiteissomethingcopletelydifferentlocalhost.com")
         }
         val entity = HttpEntity<String>(headers)
-        testRestTemplate.exchange("/protected", HttpMethod.GET, entity, String::class.java)
+        testRestTemplate.exchange<String>("/protected", HttpMethod.GET, entity)
             .apply {
                 statusCode shouldBe HttpStatus.FORBIDDEN
                 body

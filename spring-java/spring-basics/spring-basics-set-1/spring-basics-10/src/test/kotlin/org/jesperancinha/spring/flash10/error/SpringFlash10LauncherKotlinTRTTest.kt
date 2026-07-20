@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.getForEntity
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.test.context.ActiveProfiles
@@ -24,7 +25,7 @@ internal class SpringFlash10LauncherKotlinTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should go to error page when page gets called without authentication`() {
-        testRestTemplate.getForEntity("/", String::class.java)
+        testRestTemplate.getForEntity<String>("/")
             .shouldNotBeNull()
             .body
             .shouldNotBeNull()

@@ -4,6 +4,8 @@ import org.aspectj.lang.JoinPoint;
 import org.jesperancinha.spring.flash18.aop.afterthrowing.beans.JoinPointService;
 import org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +24,7 @@ import static org.mockito.Mockito.verify;
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(ExecutionMode.SAME_THREAD)
 class LyricAspectTest {
 
     @Autowired

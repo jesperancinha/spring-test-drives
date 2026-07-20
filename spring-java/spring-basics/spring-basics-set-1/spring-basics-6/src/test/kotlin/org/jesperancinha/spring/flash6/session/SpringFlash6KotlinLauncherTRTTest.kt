@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.getForEntity
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 
@@ -25,7 +26,7 @@ internal class SpringFlash6KotlinLauncherTRTTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun testShowSessionDetailsWhenCalledThenTopListWithNumbers() {
-        testRestTemplate.getForEntity("/", Array<Long>::class.java)
+        testRestTemplate.getForEntity<Array<Long>>("/")
             .shouldNotBeNull()
             .body
             .shouldNotBeNull()

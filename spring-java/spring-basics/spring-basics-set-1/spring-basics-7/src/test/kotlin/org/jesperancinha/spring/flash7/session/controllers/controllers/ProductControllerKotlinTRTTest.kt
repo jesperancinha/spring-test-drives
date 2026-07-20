@@ -8,6 +8,7 @@ import org.mockito.MockitoAnnotations.openMocks
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.getForEntity
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.http.HttpStatus
@@ -26,7 +27,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint`(): Unit {
         testRestTemplate
-            .getForEntity("/tulips", String::class.java)
+            .getForEntity<String>("/tulips")
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()
@@ -39,7 +40,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint, but in the ok it should get an error message`() {
         testRestTemplate
-            .getForEntity("/tulips/ok", String::class.java)
+            .getForEntity<String>("/tulips/ok")
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()
