@@ -19,6 +19,7 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.web.client.DefaultResponseErrorHandler
 import org.springframework.web.client.HttpServerErrorException
 import org.springframework.web.client.RestTemplate
+import org.springframework.web.client.exchange
 import java.net.URI
 import java.nio.charset.Charset
 
@@ -51,9 +52,9 @@ internal class Flash14HealthIndicatorKotlinTest {
             }
         }
        shouldThrow<HttpServerErrorException> {
-            restTemplate.exchange(
+            restTemplate.exchange<String>(
                 url, HttpMethod.GET,
-                request, String::class.java
+                request
             )
         }
     }

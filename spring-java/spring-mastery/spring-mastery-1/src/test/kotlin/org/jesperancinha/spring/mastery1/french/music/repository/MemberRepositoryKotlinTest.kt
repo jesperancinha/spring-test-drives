@@ -12,9 +12,10 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate
 
 @DataJpaTest
@@ -26,19 +27,22 @@ internal class MemberRepositoryKotlinTest @Autowired constructor(
     private val mastery1Configuration: Mastery1Configuration,
 ) {
 
+    lateinit var savedMember: Member
+
     @BeforeEach
+    @Transactional
     fun setUp() {
         artistRepository.deleteAll()
         memberRepository.deleteAll()
         val member = Member()
         member.name = "Celine Dion"
         member.joinDate = LocalDate.ofYearDay(1981, 1)
-        memberRepository.save(member)
+        savedMember = memberRepository.save(member)
     }
 
     @Test
     fun testGetOneWhenFindOneThenMatch() {
-        memberRepository.findByIdOrNull(1L)
+        memberRepository.findByIdOrNull(savedMember.id)
             .shouldNotBeNull()
             .apply {
                 name shouldBe "Celine Dion"

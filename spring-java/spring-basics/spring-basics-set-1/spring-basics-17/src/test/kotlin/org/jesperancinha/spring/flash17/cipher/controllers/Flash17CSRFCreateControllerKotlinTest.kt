@@ -1,7 +1,7 @@
 package org.jesperancinha.spring.flash17.cipher.controllers
 
 import com.ninjasquad.springmockk.MockkBean
-import com.ninjasquad.springmockk.SpykBean
+import com.ninjasquad.springmockk.MockkSpyBean
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -11,34 +11,37 @@ import io.mockk.verify
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer
 import org.jesperancinha.spring.flash17.cipher.configuration.Flash17CSRFConfigurationAdapter
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.context.annotation.Import
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.provisioning.JdbcUserDetailsManager
 import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import javax.sql.DataSource
 
 @ActiveProfiles("test")
 @WebMvcTest(Flash17CSRFCreateController::class, Flash17Controller::class)
-@MockkBean(classes = [DataSource::class])
+@MockkBean(types = [DataSource::class])
 @AutoConfigureMockMvc
 @Import(
     Flash17CSRFConfigurationAdapter::class
 )
+@Execution(ExecutionMode.SAME_THREAD)
 internal class Flash17CSRFCreateControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)
     private val jdbcUserDetailsManager: JdbcUserDetailsManager,
-    @SpykBean(BCryptPasswordEncoder::class)
+    @MockkSpyBean
     private val passwordEncoder: PasswordEncoder,
 ) {
 

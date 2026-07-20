@@ -18,8 +18,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.util.*
 
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes = [PotatoService::class])
-@MockkBean(PotatoRepository::class)
+@ContextConfiguration(classes = [PotatoService::class, PotatoRepository::class])
+@MockkBean(types = [PotatoRepository::class])
 class PotatoServiceMKTest @Autowired constructor(
     private val potatoService: PotatoService,
     private val potatoRepository: PotatoRepository

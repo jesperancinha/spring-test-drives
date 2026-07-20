@@ -6,7 +6,6 @@ import io.kotest.matchers.string.shouldContain
 import org.apache.commons.io.IOUtils
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment
@@ -20,14 +19,14 @@ import org.springframework.test.context.ActiveProfiles
 import org.springframework.web.client.DefaultResponseErrorHandler
 import org.springframework.web.client.HttpServerErrorException
 import org.springframework.web.client.RestTemplate
+import org.springframework.web.client.exchange
 import java.net.URI
 import java.nio.charset.Charset
 
 @ActiveProfiles("prod")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = [Flash14ProdHealthIndicator::class])
 @EnableAutoConfiguration
-internal class Flash14ProdHealthIndicatorKotlinTest @Autowired constructor(
-) {
+internal class Flash14ProdHealthIndicatorKotlinTest {
     private val restTemplate by lazy { RestTemplate() }
 
     @field:LocalServerPort
@@ -55,9 +54,9 @@ internal class Flash14ProdHealthIndicatorKotlinTest @Autowired constructor(
             }
         }
         shouldThrow<HttpServerErrorException> {
-            restTemplate.exchange(
+            restTemplate.exchange<String>(
                 url, HttpMethod.GET,
-                request, String::class.java
+                request
             )
         }
     }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,8 +21,9 @@ import java.util.stream.StreamSupport;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = SpaceRocketConfig.class,
+@ContextConfiguration(classes = {SpaceRocketConfig.class, SpaceRocketRepository.class},
         loader = AnnotationConfigContextLoader.class)
+@Transactional
 public class SpaceRocketServiceIntegrationTest {
 
     @Autowired
@@ -33,8 +35,9 @@ public class SpaceRocketServiceIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        spaceRocketService.addRocket(SpaceRocket.builder().id(2).name("Ariane1.0").engineType("A62").payLoad(5.0001).height(63).build());
-        spaceRocketService.addRocket(SpaceRocket.builder().id(3).name("Ariane1.1").engineType("A64").payLoad(11.0001).height(63).build());
+        spaceRocketRepository.deleteAll();
+        spaceRocketService.addRocket(SpaceRocket.builder().name("Ariane1.0").engineType("A62").payLoad(5.0001).height(63).build());
+        spaceRocketService.addRocket(SpaceRocket.builder().name("Ariane1.1").engineType("A64").payLoad(11.0001).height(63).build());
     }
 
     @AfterEach
@@ -53,17 +56,16 @@ public class SpaceRocketServiceIntegrationTest {
     @Test
     public void deleteRocket() {
 
-        final SpaceRocket spaceRocket = SpaceRocket.builder().id(4).name("Ariane").engineType("A64").payLoad(11.0001).height(63).build();
-        spaceRocketRepository.save(spaceRocket);
+        SpaceRocket spaceRocket = spaceRocketRepository.save(SpaceRocket.builder().name("Ariane").engineType("A64").payLoad(11.0001).height(63).build());
 
-        Optional<SpaceRocket> rocketResult = spaceRocketRepository.findById(4);
+        Optional<SpaceRocket> rocketResult = spaceRocketRepository.findById(spaceRocket.getId());
 
         assertThat(rocketResult).isPresent();
-        assertThat(rocketResult.get().getId()).isEqualTo(4);
+        assertThat(rocketResult.get().getId()).isEqualTo(spaceRocket.getId());
 
-        spaceRocketService.deleteRocket(4);
+        spaceRocketService.deleteRocket(spaceRocket.getId());
 
-        rocketResult = spaceRocketRepository.findById(4);
+        rocketResult = spaceRocketRepository.findById(spaceRocket.getId());
 
         assertThat(rocketResult).isEmpty();
 
@@ -71,12 +73,10 @@ public class SpaceRocketServiceIntegrationTest {
 
     @Test
     public void addRocket() {
-
-        final SpaceRocket spaceRocket = SpaceRocket.builder().id(1).name("Ariane").engineType("A64").payLoad(11.0001).height(63).build();
-        spaceRocketService.addRocket(spaceRocket);
+        SpaceRocket spaceRocket = spaceRocketService.addRocket(SpaceRocket.builder().name("Ariane").engineType("A64").payLoad(11.0001).height(63).build());
 
         final Optional<SpaceRocket> spaceRocketResult = StreamSupport.stream(spaceRocketService.getAllRockets().spliterator(), true).filter(
-                spaceRocket1 -> spaceRocket1.getId() == 1
+                spaceRocket1 -> spaceRocket1.getId().equals(spaceRocket.getId())
         ).findFirst();
 
         assertThat(spaceRocketResult).isPresent();

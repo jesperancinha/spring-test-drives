@@ -7,7 +7,6 @@ import org.jesperancinha.spring.flash57.secured.security.Flash57PreConfiguration
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
@@ -24,6 +23,7 @@ import static org.jesperancinha.spring.flash57.secured.services.ThroneType.SAVAN
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @ActiveProfiles("prod")
@@ -31,6 +31,7 @@ import static org.mockito.Mockito.*;
         Flash57PreConfiguration.class,
         ThroneServiceImpl.class
 })
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class ThroneServiceImplTest {
 
     @Autowired
@@ -39,8 +40,7 @@ class ThroneServiceImplTest {
     @MockitoBean
     private ThroneRepository throneRepository;
 
-    @Captor
-    private ArgumentCaptor<Throne> throneArgumentCaptor;
+        private final ArgumentCaptor<Throne> throneArgumentCaptor = ArgumentCaptor.forClass(Throne.class);
 
     @BeforeEach
     public void setUp() {

@@ -3,22 +3,22 @@ package org.jesperancinha.spring.flash5.persistence.domain;
 import com.ninjasquad.springmockk.MockkBean;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@MockkBean(PotatoService.class)
+@MockkBean(types = PotatoService.class)
 class PotatoRepositoryTest {
 
     @Autowired
     private PotatoRepository potatoRepository;
 
     @Test
-    @Transactional
+    @Rollback
     public void testSaveWhenNewPotatoThenGetItBack() {
         final var potato = new Potato();
         final Potato potatoSave = potatoRepository.save(potato);

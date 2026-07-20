@@ -1,18 +1,18 @@
 package org.jesperancinha.spring.flash418.controller.advice;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.*;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.*;
 import org.apache.commons.text.StringEscapeUtils;
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
-import org.springframework.boot.jackson.JsonComponent;
+import org.springframework.boot.jackson.JacksonComponent;
 
-@JsonComponent
+@JacksonComponent
 public class SongConverter {
 
-    public static class Serialize extends JsonSerializer<Song> {
+    public static class Serialize extends ValueSerializer<Song> {
         @Override
-        public void serialize(Song song, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) {
+        public void serialize(Song song, JsonGenerator jsonGenerator, SerializationContext serializationContext) {
             try {
                 if (song == null) {
                     jsonGenerator.writeNull();
@@ -32,11 +32,11 @@ public class SongConverter {
         }
     }
 
-    public static class Deserialize extends JsonDeserializer<Song> {
+    public static class Deserialize extends ValueDeserializer<Song> {
         @Override
         public Song deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) {
             try {
-                final var node = jsonParser.getCodec().readTree(jsonParser);
+                final var node = jsonParser.readValueAsTree();
                 final var nodeString = node.toString();
                 ConsolerizerComposer.outSpace()
                         .none()

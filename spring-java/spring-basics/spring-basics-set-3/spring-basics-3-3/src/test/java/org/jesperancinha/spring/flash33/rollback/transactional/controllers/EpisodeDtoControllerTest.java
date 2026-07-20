@@ -1,13 +1,13 @@
 package org.jesperancinha.spring.flash33.rollback.transactional.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.spring.flash33.rollback.transactional.dto.EpisodeDto;
 import org.jesperancinha.spring.flash33.rollback.transactional.exceptions.EpisodeException;
 import org.jesperancinha.spring.flash33.rollback.transactional.exceptions.VideoCountryException;
 import org.jesperancinha.spring.flash33.rollback.transactional.services.EpisodeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;

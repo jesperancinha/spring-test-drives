@@ -23,14 +23,11 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected DispatcherServlet createDispatcherServlet(WebApplicationContext servletAppContext) {
-        final var dispatcherServlet = (DispatcherServlet) super.createDispatcherServlet(servletAppContext);
-        dispatcherServlet.setThrowExceptionIfNoHandlerFound(true);
-        return dispatcherServlet;
+        return (DispatcherServlet) super.createDispatcherServlet(servletAppContext);
     }
 
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
     }
 }

@@ -1,12 +1,11 @@
 package org.jesperancinha.spring.topic.container;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 class ContainerLauncherTest {
 
     @Test
-    void testContext() throws JsonProcessingException {
+    void testContext() {
         ContainerLauncher.main(new String[0]);
     }
 }

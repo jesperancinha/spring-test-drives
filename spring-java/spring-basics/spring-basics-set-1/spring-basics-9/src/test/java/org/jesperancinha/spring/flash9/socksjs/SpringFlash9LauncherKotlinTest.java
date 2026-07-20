@@ -1,10 +1,5 @@
 package org.jesperancinha.spring.flash9.socksjs;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.jesperancinha.console.consolerizer.common.ConsolerizerColor;
 import org.jesperancinha.spring.flash9.socksjs.domain.Present;
 import org.jesperancinha.spring.flash9.socksjs.domain.Request;
@@ -12,9 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.lang.NonNull;
-import org.springframework.messaging.converter.MappingJackson2MessageConverter;
+import org.springframework.messaging.converter.JacksonJsonMessageConverter;
 import org.springframework.messaging.simp.stomp.StompFrameHandler;
 import org.springframework.messaging.simp.stomp.StompHeaders;
 import org.springframework.messaging.simp.stomp.StompSession;
@@ -24,7 +18,12 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 import org.springframework.web.socket.sockjs.client.SockJsClient;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 
-import java.io.IOException;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ext.javatime.deser.LocalDateTimeDeserializer;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.module.SimpleModule;
+import tools.jackson.core.JacksonException;
+
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -47,15 +46,14 @@ class SpringFlash9LauncherKotlinTest {
     public void setup() {
         this.webSocketStompClient = new WebSocketStompClient(new SockJsClient(
                 List.of(new WebSocketTransport(new StandardWebSocketClient()))));
-        webSocketStompClient.setMessageConverter(new MappingJackson2MessageConverter());
+        webSocketStompClient.setMessageConverter(new JacksonJsonMessageConverter());
 
-        final var module = new JavaTimeModule();
+        final var module = new SimpleModule();
         final var localDateTimeDeserializer = new
                 LocalDateTimeDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss[.SSSSSSSSS][.SSSSSSSS][.SSSSSSS][.SSSSSS][.SSSSS][.SSSS][.SSS][.SS][.S]"));
         module.addDeserializer(LocalDateTime.class, localDateTimeDeserializer);
-        objectMapper = Jackson2ObjectMapperBuilder.json()
-                .modules(module)
-                .featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+        objectMapper = JsonMapper.builder()
+                .addModule(module)
                 .build();
     }
 
@@ -71,7 +69,7 @@ class SpringFlash9LauncherKotlinTest {
         final var blockingQueue = new ArrayBlockingQueue<Present>(1);
 
         final var session = webSocketStompClient
-                .connect(String.format("ws://localhost:%d/ws", port), new StompSessionHandlerAdapter() {
+                .connectAsync(String.format("ws://localhost:%d/ws", port), new StompSessionHandlerAdapter() {
                 })
                 .get(1, SECONDS);
         subscribe(blockingQueue, session);
@@ -101,11 +99,8 @@ class SpringFlash9LauncherKotlinTest {
                             StompHeaders headers, Object payload) {
                 try {
                     blockingQueue.add(objectMapper.readValue((byte[]) (payload), Present.class));
-                } catch (JsonProcessingException e) {
+                } catch (JacksonException e) {
                     ConsolerizerColor.RED.printGenericLn("A JSON Parsing Exception has occured!");
-                    ConsolerizerColor.RED.printThrowableAndExit(e);
-                } catch (IOException e) {
-                    ConsolerizerColor.RED.printGenericLn("An IO Exception has occurred!");
                     ConsolerizerColor.RED.printThrowableAndExit(e);
                 }
             }

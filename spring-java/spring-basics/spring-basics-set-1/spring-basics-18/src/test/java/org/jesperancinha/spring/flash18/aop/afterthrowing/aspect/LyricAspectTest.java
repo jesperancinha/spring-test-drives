@@ -4,10 +4,12 @@ import org.aspectj.lang.JoinPoint;
 import org.jesperancinha.spring.flash18.aop.afterthrowing.beans.JoinPointService;
 import org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
 import java.util.List;
@@ -21,6 +23,8 @@ import static org.mockito.Mockito.verify;
  * Unit tests for the Aspect Class
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(ExecutionMode.SAME_THREAD)
 class LyricAspectTest {
 
     @Autowired
@@ -29,11 +33,9 @@ class LyricAspectTest {
     @MockitoBean
     private JoinPointService joinPointService;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
-    @Captor
-    private ArgumentCaptor<Exception> exceptionArgumentCaptor;
+        private final ArgumentCaptor<Exception> exceptionArgumentCaptor = ArgumentCaptor.forClass(Exception.class);
 
     /**
      * Tests the Advices that are supposed to respond to method {@link LyricsService#resultLyric1()}

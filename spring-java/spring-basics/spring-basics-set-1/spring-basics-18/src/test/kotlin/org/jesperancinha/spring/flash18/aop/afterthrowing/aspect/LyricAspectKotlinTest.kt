@@ -11,6 +11,8 @@ import org.aspectj.lang.JoinPoint
 import org.jesperancinha.spring.flash18.aop.afterthrowing.beans.JoinPointService
 import org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsService
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
@@ -19,6 +21,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDO
  * Unit tests for the Aspect Class
  */
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@Execution(SAME_THREAD)
 internal class LyricAspectKotlinTest @Autowired constructor(
     private val lyricsService: LyricsService,
     @MockkBean(relaxed = true)

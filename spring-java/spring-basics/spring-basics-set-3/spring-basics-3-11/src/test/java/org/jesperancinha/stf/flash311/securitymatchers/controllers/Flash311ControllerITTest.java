@@ -3,7 +3,7 @@ package org.jesperancinha.stf.flash311.securitymatchers.controllers;
 import org.jesperancinha.stf.flash311.securitymatchers.configuration.Flash311ConfigurationAdapter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

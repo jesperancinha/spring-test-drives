@@ -15,7 +15,7 @@ import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@MockkBean(value= [BeanRepository::class], relaxed = true)
+@MockkBean(types = [BeanRepository::class], relaxed = true)
 @TestPropertySource("classpath:beans.properties")
 internal class BeanServiceImplMockkSpringBootKotlinTest @Autowired constructor(
     private val beanService: BeanServiceImpl,

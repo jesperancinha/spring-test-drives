@@ -8,17 +8,19 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest
+import org.springframework.test.annotation.Rollback
 import org.springframework.transaction.annotation.Transactional
 
 @DataJpaTest
-@MockkBean(PotatoService::class)
+@MockkBean(types = [PotatoService::class])
 @Transactional
 class PotatoRepositoryMKTest @Autowired constructor(
     private val potatoRepository: PotatoRepository
 ) : WordSpec() {
 
     init {
+        @Rollback
         "testing Potatoes" should {
             "return new potato when making one"{
                 val potato = Potato()

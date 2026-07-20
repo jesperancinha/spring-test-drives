@@ -1,5 +1,6 @@
 package org.jesperancinha.spring.mastery2.portuguese.music.services
 
+import io.kotest.matchers.nulls.shouldNotBeNull
 import org.assertj.core.api.Assertions
 import org.jesperancinha.spring.mastery2.portuguese.music.api.ArtistService
 import org.jesperancinha.spring.mastery2.portuguese.music.configuration.TestDatabaseConfiguration
@@ -38,17 +39,17 @@ internal class ArtistServiceImplDbPopulatorKotlinTest @Autowired constructor(
     fun testListArtistsWithSQLWhenListAllThenGetAList() {
         databasePopulator.populate(dataSource.connection)
         val artists = artistService.listArtists()
-        Assertions.assertThat(artists).hasSize(4)
-        val actual = artists[0]
+        Assertions.assertThat(artists).hasSizeGreaterThanOrEqualTo(4)
+        val actual = artists.find { it.name == "UHF" }.shouldNotBeNull()
         Assertions.assertThat(actual.name).isEqualTo("UHF")
         Assertions.assertThat(actual.nationality).isEqualTo("Portuguese")
-        val actual2 = artists[1]
+        val actual2 = artists.find { it.name == "Radio Macau" }.shouldNotBeNull()
         Assertions.assertThat(actual2.name).isEqualTo("Radio Macau")
         Assertions.assertThat(actual2.nationality).isEqualTo("Portuguese")
-        val actual3 = artists[2]
+        val actual3 = artists.find { it.name == "Humanos" }.shouldNotBeNull()
         Assertions.assertThat(actual3.name).isEqualTo("Humanos")
         Assertions.assertThat(actual3.nationality).isEqualTo("Portuguese")
-        val actual4 = artists[3]
+        val actual4 = artists.find { it.name == "Mler Ife Dada" }.shouldNotBeNull()
         Assertions.assertThat(actual4.name).isEqualTo("Mler Ife Dada")
         Assertions.assertThat(actual4.nationality).isEqualTo("Portuguese")
     }

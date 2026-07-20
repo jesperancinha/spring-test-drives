@@ -4,14 +4,16 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.string.shouldContain
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.resttestclient.TestRestTemplate
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
+import org.springframework.boot.resttestclient.getForEntity
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.boot.test.web.client.TestRestTemplate
-import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.test.context.ActiveProfiles
 
 @ActiveProfiles("prod")
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@AutoConfigureTestRestTemplate
 internal class SpringFlash10LauncherKotlinTRTTest @Autowired constructor(
     private val testRestTemplate: TestRestTemplate
 ) {

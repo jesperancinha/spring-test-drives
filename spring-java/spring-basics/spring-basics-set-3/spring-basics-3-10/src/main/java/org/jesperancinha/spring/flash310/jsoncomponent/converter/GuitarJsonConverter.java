@@ -1,19 +1,19 @@
 package org.jesperancinha.spring.flash310.jsoncomponent.converter;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.*;
+import tools.jackson.core.JsonGenerator;
+import tools.jackson.core.JsonParser;
+import tools.jackson.databind.*;
 import org.apache.commons.text.StringEscapeUtils;
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
 import org.jesperancinha.spring.flash310.jsoncomponent.dto.Guitar;
-import org.springframework.boot.jackson.JsonComponent;
+import org.springframework.boot.jackson.JacksonComponent;
 
-@JsonComponent
+@JacksonComponent
 public class GuitarJsonConverter {
 
-    public static class Serialize extends JsonSerializer<Guitar> {
+    public static class Serialize extends ValueSerializer<Guitar> {
         @Override
-        public void serialize(Guitar guitar, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) {
+        public void serialize(Guitar guitar, JsonGenerator jsonGenerator, SerializationContext serializationContext) {
             try {
                 if (guitar == null) {
                     jsonGenerator.writeNull();
@@ -33,11 +33,11 @@ public class GuitarJsonConverter {
         }
     }
 
-    public static class Deserialize extends JsonDeserializer<Guitar> {
+    public static class Deserialize extends ValueDeserializer<Guitar> {
         @Override
         public Guitar deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) {
             try {
-                final var node = jsonParser.getCodec().readTree(jsonParser);
+                final var node = jsonParser.readValueAsTree();
                 final var nodeString = node.toString();
                 ConsolerizerComposer.outSpace()
                         .none()

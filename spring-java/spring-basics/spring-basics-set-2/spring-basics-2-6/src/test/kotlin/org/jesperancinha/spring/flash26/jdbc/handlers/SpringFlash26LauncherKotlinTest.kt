@@ -1,6 +1,6 @@
 package org.jesperancinha.spring.flash26.jdbc.handlers
 
-import com.ninjasquad.springmockk.SpykBean
+import com.ninjasquad.springmockk.MockkSpyBean
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainOnly
 import io.kotest.matchers.collections.shouldHaveSize
@@ -20,7 +20,7 @@ import org.springframework.jdbc.core.RowMapper
 @SpringBootTest
 internal class SpringFlash26LauncherKotlinTest @Autowired constructor(
     private val springFlash26Launcher: SpringFlash26Launcher,
-    @SpykBean
+    @MockkSpyBean
     private val jdbcTemplate: JdbcTemplate,
 ) {
 

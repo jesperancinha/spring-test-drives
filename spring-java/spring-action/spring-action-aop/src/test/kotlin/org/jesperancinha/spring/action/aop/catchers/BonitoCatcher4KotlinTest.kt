@@ -16,11 +16,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.context.annotation.ImportResource
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.annotation.DirtiesContext
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [BonitoCatcher::class, BonitoAspect4::class])
 @ImportResource("classpath:bean.xml")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class BonitoCatcher4KotlinTest @Autowired constructor(
     private val bonitoCatcher: BonitoCatcher,
     @MockkBean(relaxed = true)

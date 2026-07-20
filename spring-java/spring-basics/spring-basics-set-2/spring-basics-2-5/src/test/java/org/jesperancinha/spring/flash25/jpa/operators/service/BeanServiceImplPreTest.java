@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {BeanServiceImpl.class})
-@MockkBean(BeanRepository.class)
+@MockkBean(types = BeanRepository.class)
 @TestPropertySource("classpath:beans.properties")
 class BeanServiceImplPreTest {
 
