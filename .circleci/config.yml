@@ -11,7 +11,4 @@ workflows:
           executor:
             name: maven/default
             tag: '25.0'
-          pre-steps:
-            - run:
-                name: Build
-                command: mvn -B -DskipTests clean package
+
