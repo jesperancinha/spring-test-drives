@@ -1,19 +1,22 @@
 version: 2.1
 
 orbs:
-  maven: circleci/maven@1.11.0
+  maven: circleci/maven@1.4.1
+
+jobs:
+  build:
+    executor:
+      name: maven/default
+      tag: '25.0'
+
+    steps:
+      - checkout
+
+      - run:
+          name: Run make b
+          command: make b
 
 workflows:
   maven_test:
     jobs:
-      - maven/test:
-          command: make b
-          executor:
-            name: maven/default
-            tag: '25'
-          steps:
-            - checkout
-
-            - run:
-                name: Run make b
-                command: make b
+      - build
