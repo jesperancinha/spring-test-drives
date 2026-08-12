@@ -1,7 +1,10 @@
 ---
-name: java language patterns
-description: Conventions for using in all JVM languages
+name: jvm language patterns.
+description: Conventions for using in all JVM languages. All of these conventions are applicable to Java, Kotlin, Scala, Groovy, and other JVM languages.
 ---
+
+The following is a list of simple rules to apply to jvm code.
+
 
 ## 1. Remove all unused imports
 

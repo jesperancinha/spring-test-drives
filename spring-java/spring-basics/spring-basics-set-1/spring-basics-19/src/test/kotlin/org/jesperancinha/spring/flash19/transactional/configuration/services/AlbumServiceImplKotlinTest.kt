@@ -19,6 +19,9 @@ import org.jesperancinha.spring.flash19.transactional.services.AlbumServiceImpl
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
@@ -26,6 +29,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @ExtendWith(SpringExtension::class)
 @MockkBean(types = [AlbumRepository::class])
 @ContextConfiguration(classes = [AlbumServiceImpl::class])
+@Execution(SAME_THREAD)
 internal class AlbumServiceImplKotlinTest @Autowired constructor(
     private val albumRepository: AlbumRepository,
     private val albumService: AlbumServiceImpl
