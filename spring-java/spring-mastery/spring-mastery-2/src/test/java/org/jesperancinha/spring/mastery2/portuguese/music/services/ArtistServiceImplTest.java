@@ -6,6 +6,8 @@ import org.jesperancinha.spring.mastery2.portuguese.music.repositories.ArtistRep
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
@@ -26,6 +28,7 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.AFTER_TES
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ContextConfiguration
 @ExtendWith(SpringExtension.class)
+@Execution(ExecutionMode.SAME_THREAD)
 class ArtistServiceImplTest {
 
     @Autowired
