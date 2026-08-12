@@ -20,6 +20,7 @@ When updating or creating CircleCI configuration files in `.circleci/`, ensure t
 7. **Clean Commands**: Ensure build commands are optimized and follow project standards (e.g., `mvn clean install`).
 8. **Environment Variables**: Use context or project-level environment variables for sensitive data.
 9. **Latest Versioning**: When applicable, use the latest versions for tools, orbs, and base images.
+10. **Custom Commands**: If a command is not a standard Maven option (e.g., shell scripts, other tools), ensure the job includes a `checkout` step followed by a `run` step for that command.
 
 ## 3. References
 

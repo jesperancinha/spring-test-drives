@@ -7,8 +7,11 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-          command: make b
           executor:
             name: maven/default
             tag: '25.0'
-
+    steps:
+      - checkout
+      - run:
+          name: Run make b
+          command: make b
