@@ -9,6 +9,8 @@ import org.jesperancinha.spring.mastery3.plants.dto.PlantDto
 import org.jesperancinha.spring.mastery3.plants.model.Plant
 import org.jesperancinha.spring.mastery3.plants.service.PlantService
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
@@ -19,6 +21,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Execution(SAME_THREAD)
 class PlantsControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)
