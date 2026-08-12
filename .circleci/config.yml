@@ -10,7 +10,7 @@ workflows:
           command: make b
           executor:
             name: maven/default
-            tag: '3.9-eclipse-temurin-25'
+            tag: '25.0'
           pre-steps:
             - run:
                 name: Build
