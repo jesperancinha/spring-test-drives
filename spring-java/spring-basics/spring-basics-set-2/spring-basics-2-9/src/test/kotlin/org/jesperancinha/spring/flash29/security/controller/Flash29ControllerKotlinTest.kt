@@ -10,6 +10,9 @@ import org.jesperancinha.spring.flash29.security.repository.JewelRepository
 import org.jesperancinha.spring.flash29.security.services.JewelService
 import org.jesperancinha.spring.flash29.security.services.JewelType
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.context.annotation.Import
@@ -29,6 +32,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 @Import(
     Flash29ConfigurationAdapter::class
 )
+@Execution(SAME_THREAD)
 internal class Flash29ControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)

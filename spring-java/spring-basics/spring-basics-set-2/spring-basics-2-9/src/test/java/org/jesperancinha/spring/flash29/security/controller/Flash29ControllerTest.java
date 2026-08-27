@@ -1,5 +1,6 @@
 package org.jesperancinha.spring.flash29.security.controller;
 
+import org.junit.jupiter.api.parallel.Execution;
 import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.spring.flash29.security.configuration.Flash29ConfigurationAdapter;
 import org.jesperancinha.spring.flash29.security.dto.JewelDto;
@@ -23,6 +24,7 @@ import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.jesperancinha.spring.flash29.security.services.JewelType.EMERALD;
 import static org.jesperancinha.spring.flash29.security.services.JewelType.RUBY;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -34,6 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @WebMvcTest(controllers = Flash29Controller.class)
 @Import(Flash29ConfigurationAdapter.class)
+@Execution(SAME_THREAD)
 class Flash29ControllerTest {
 
     @Autowired
