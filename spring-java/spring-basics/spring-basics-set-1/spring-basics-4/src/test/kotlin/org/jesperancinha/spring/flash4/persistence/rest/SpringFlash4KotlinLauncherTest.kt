@@ -1,5 +1,6 @@
 package org.jesperancinha.spring.flash4.persistence.rest
 
+import org.jesperancinha.spring.flash4.persistence.rest.controller.TimeController
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
@@ -10,7 +11,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 internal class SpringFlash4KotlinLauncherTest {
-    private val mockMvc: MockMvc by lazy {  MockMvcBuilders.standaloneSetup(SpringFlash4Launcher()).build() }
+    private val mockMvc: MockMvc by lazy {  MockMvcBuilders.standaloneSetup(TimeController()).build() }
 
     @Test
     @Throws(Exception::class)

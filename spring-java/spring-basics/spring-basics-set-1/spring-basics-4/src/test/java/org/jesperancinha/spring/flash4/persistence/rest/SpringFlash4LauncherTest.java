@@ -1,5 +1,6 @@
 package org.jesperancinha.spring.flash4.persistence.rest;
 
+import org.jesperancinha.spring.flash4.persistence.rest.controller.TimeController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +18,7 @@ class SpringFlash4LauncherTest {
 
     @BeforeEach
     public void setup() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(new SpringFlash4Launcher()).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(new TimeController()).build();
     }
 
     @Test

@@ -315,6 +315,8 @@ by:
 
 ## 13. Make sure that rest controllers are declared in separate classes
 
+### Example 1
+
 There may be some code that looks like this:
 
 ```kotlin
@@ -437,7 +439,6 @@ The `main` class should then be:
 
 ```java
 @SpringBootApplication
-@RestController
 public class SpringFlash4Launcher implements ApplicationRunner {
     public static void main(String[] args) {
         SpringApplication.run(SpringFlash4Launcher.class, args);
@@ -466,6 +467,8 @@ public class SpringFlash4Launcher implements ApplicationRunner {
     }
 }
 ```
+
+This is only an example. This should be applied to all classes where `@SpringBootApplication` and `@RestController` share the same class
 
 ## 14. Checklist
 
