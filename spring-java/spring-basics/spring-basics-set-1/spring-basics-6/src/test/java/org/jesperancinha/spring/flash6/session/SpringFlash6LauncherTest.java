@@ -3,6 +3,7 @@ package org.jesperancinha.spring.flash6.session;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpSession;
+import org.jesperancinha.spring.flash6.session.controller.SessionController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -17,7 +18,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-@WebMvcTest(controllers = SpringFlash6Launcher.class)
+@WebMvcTest(controllers = SessionController.class)
 class SpringFlash6LauncherTest {
 
     @Autowired
@@ -41,7 +42,7 @@ class SpringFlash6LauncherTest {
 
     @Test
     void testGenerateListWhenCreateThenAddAnotherNumber() {
-        final var app = new SpringFlash6Launcher();
+        final var app = new SessionController();
         final var session = mock(HttpSession.class);
         final var numberList = new ArrayList<Integer>();
         when(session.getAttribute("numberList")).thenReturn(numberList);

@@ -3,6 +3,7 @@ package org.jesperancinha.spring.flash10.error
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
+import org.jesperancinha.spring.flash10.error.controller.ErrorController
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
@@ -11,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
-@WebMvcTest(SpringFlash10Launcher::class)
+@WebMvcTest(ErrorController::class)
 @ActiveProfiles("prod")
 internal class SpringFlash10LauncherKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc

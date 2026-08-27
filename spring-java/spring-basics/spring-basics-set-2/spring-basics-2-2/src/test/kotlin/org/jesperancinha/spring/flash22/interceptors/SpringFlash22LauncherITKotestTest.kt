@@ -7,6 +7,7 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.verify
 import org.jesperancinha.spring.flash22.interceptors.beans.FeelingLoveBean
+import org.jesperancinha.spring.flash22.interceptors.controller.WineController
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
@@ -15,8 +16,7 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
-@WebMvcTest(controllers = [SpringFlash22Launcher::class])
-@Import(FeelingLoveBean::class)
+@WebMvcTest(controllers = [WineController::class])
 internal class SpringFlash22LauncherITKotestTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkSpyBean
@@ -43,7 +43,7 @@ internal class SpringFlash22LauncherITKotestTest @Autowired constructor(
             .shouldHaveSize(3)
             .forEach {
                 it.shouldNotBeNull()
-                    .toString() shouldBe "org.jesperancinha.spring.flash22.interceptors.SpringFlash22Launcher#getString()"
+                    .toString() shouldBe "org.jesperancinha.spring.flash22.interceptors.controller.WineController#getString()"
             }
     }
 }

@@ -1,5 +1,6 @@
 package org.jesperancinha.spring.flash10.error;
 
+import org.jesperancinha.spring.flash10.error.controller.ErrorController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -11,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(SpringFlash10Launcher.class)
+@WebMvcTest(ErrorController.class)
 @ActiveProfiles("prod")
 class SpringFlash10LauncherTest {
 

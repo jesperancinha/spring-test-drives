@@ -1,6 +1,7 @@
 package org.jesperancinha.spring.flash23.xml.interceptors;
 
 import org.jesperancinha.spring.flash23.xml.interceptors.beans.FeelingLoveBean;
+import org.jesperancinha.spring.flash23.xml.interceptors.controller.WineController;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.test.annotation.DirtiesContext;
 
-@WebMvcTest(SpringFlash23Launcher.class)
+@WebMvcTest(WineController.class)
 @ImportResource("classpath:WEB-INF/beans.xml")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class SpringFlash23LauncherITTest {
@@ -56,7 +57,7 @@ class SpringFlash23LauncherITTest {
         final List<Object> allValues = objectArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(3);
         allValues.forEach(value ->
-                assertThat(value.toString()).isEqualTo("org.jesperancinha.spring.flash23.xml.interceptors.SpringFlash23Launcher#getString()"));
+                assertThat(value.toString()).isEqualTo("org.jesperancinha.spring.flash23.xml.interceptors.controller.WineController#getString()"));
         final ModelAndView value = modelAndViewArgumentCaptor.getValue();
         assertThat(value).isNull();
         final Exception exception = exceptionArgumentCaptor.getValue();

@@ -8,6 +8,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import jakarta.servlet.http.HttpSession
+import org.jesperancinha.spring.flash6.session.controller.SessionController
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
@@ -38,7 +39,7 @@ internal class SpringFlash6KotlinLauncherTRTTest @Autowired constructor(
 
     @Test
     fun testGenerateListWhenCreateThenAddAnotherNumber() {
-        val app = SpringFlash6Launcher()
+        val app = SessionController()
         val session: HttpSession = mockk()
         val numberList: ArrayList<Int> = ArrayList()
         every { session.getAttribute("numberList") } returns numberList

@@ -1,6 +1,7 @@
 package org.jesperancinha.spring.flash22.interceptors;
 
 import org.jesperancinha.spring.flash22.interceptors.beans.FeelingLoveBean;
+import org.jesperancinha.spring.flash22.interceptors.controller.WineController;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.test.annotation.DirtiesContext;
 
-@WebMvcTest(controllers = SpringFlash22Launcher.class)
+@WebMvcTest(controllers = WineController.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class SpringFlash22LauncherTest {
 
@@ -54,7 +55,7 @@ class SpringFlash22LauncherTest {
         final List<Object> allValues = objectArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(3);
         allValues.forEach(value ->
-                assertThat(value.toString()).isEqualTo("org.jesperancinha.spring.flash22.interceptors.SpringFlash22Launcher#getString()"));
+                assertThat(value.toString()).isEqualTo("org.jesperancinha.spring.flash22.interceptors.controller.WineController#getString()"));
         final ModelAndView value = modelAndViewArgumentCaptor.getValue();
         assertThat(value).isNull();
         final Exception exception = exceptionArgumentCaptor.getValue();
