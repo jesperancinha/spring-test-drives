@@ -313,7 +313,161 @@ by:
 </dependencies>
 ```
 
-## 13. Checklist
+## 13. Make sure that rest controllers are declared in separate classes
+
+There may be some code that looks like this:
+
+```kotlin
+
+@SpringBootApplication
+@RestController
+public class SpringFlash4Launcher implements ApplicationRunner {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringFlash4Launcher.class, args);
+    }
+
+    @PostMapping(path = "/",
+            consumes = "application/text",
+            headers = "currentTime")
+    public LocalDate currentDate(
+            @RequestHeader("currentTime")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+            LocalDate localDate) {
+        BRIGHT_MAGENTA.printGenericTitleLn(localDate);
+        return localDate;
+    }
+
+    @PostMapping(path = "/time",
+            consumes = "application/text",
+            headers = "currentTime")
+    public LocalDateTime currentTime(
+            @RequestHeader("currentTime")
+            @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+            LocalDateTime localDateTime) {
+        BRIGHT_MAGENTA.printGenericTitleLn(localDateTime);
+        return localDateTime;
+    }
+
+    @PostMapping(
+            path = "/dollars",
+            consumes = "application/text",
+            headers = "dollars")
+    public BigDecimal thousandDollars(
+            @RequestHeader("dollars")
+            @NumberFormat(style = NumberFormat.Style.NUMBER,
+                    pattern = "$###,###.###")
+            BigDecimal dollars) {
+        MAGENTA.printGenericTitleLn(dollars);
+        return dollars;
+    }
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        ConsolerizerComposer.outSpace()
+                .yellow("We provide the annotation this way:")
+                .blue("""
+                              <dependency>
+                                    <groupId>org.springframework.boot</groupId>
+                                    <artifactId>spring-boot-test</artifactId>
+                                    <scope>test</scope>
+                                </dependency>\
+                        """)
+                .yellow("We provide the implementation this way:")
+                .blue("""
+                                <dependency>
+                                    <groupId>org.springframework</groupId>
+                                    <artifactId>spring-test</artifactId>
+                                    <scope>test</scope>
+                                </dependency>\
+                        """)
+                .reset();
+    }
+}
+```
+
+The problem is thet `@RestController` is mixed with `@SpringBootApplication`.
+This maybe was done in a hurry to make examples or maybe to show something special about Spring.
+However, this isn't a good code standard.
+Let's change this follow this example. We then separate this into two classes.
+One class is the controller. This will be a new class. Use the name that couples all different rest methods in one.
+In this example, the rest methods all seem to make operations related to time, so lets call this `TimeController`:
+
+```java
+@RestController
+public class TimeController {
+    @PostMapping(path = "/",
+            consumes = "application/text",
+            headers = "currentTime")
+    public LocalDate currentDate(
+            @RequestHeader("currentTime")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+            LocalDate localDate) {
+        BRIGHT_MAGENTA.printGenericTitleLn(localDate);
+        return localDate;
+    }
+
+    @PostMapping(path = "/time",
+            consumes = "application/text",
+            headers = "currentTime")
+    public LocalDateTime currentTime(
+            @RequestHeader("currentTime")
+            @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+            LocalDateTime localDateTime) {
+        BRIGHT_MAGENTA.printGenericTitleLn(localDateTime);
+        return localDateTime;
+    }
+
+    @PostMapping(
+            path = "/dollars",
+            consumes = "application/text",
+            headers = "dollars")
+    public BigDecimal thousandDollars(
+            @RequestHeader("dollars")
+            @NumberFormat(style = NumberFormat.Style.NUMBER,
+                    pattern = "$###,###.###")
+            BigDecimal dollars) {
+        MAGENTA.printGenericTitleLn(dollars);
+        return dollars;
+    }
+}
+```
+
+This class should be placed in a subpackage called `controller`.
+The `main` class should then be:
+
+```java
+@SpringBootApplication
+@RestController
+public class SpringFlash4Launcher implements ApplicationRunner {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringFlash4Launcher.class, args);
+    }
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        ConsolerizerComposer.outSpace()
+                .yellow("We provide the annotation this way:")
+                .blue("""
+                              <dependency>
+                                    <groupId>org.springframework.boot</groupId>
+                                    <artifactId>spring-boot-test</artifactId>
+                                    <scope>test</scope>
+                                </dependency>\
+                        """)
+                .yellow("We provide the implementation this way:")
+                .blue("""
+                                <dependency>
+                                    <groupId>org.springframework</groupId>
+                                    <artifactId>spring-test</artifactId>
+                                    <scope>test</scope>
+                                </dependency>\
+                        """)
+                .reset();
+    }
+}
+```
+
+## 14. Checklist
 
 [ ] All old security configurations have been updated to the new style.
 [ ] All usages of `NestedServletException` have been replaced with `ServletException`.
