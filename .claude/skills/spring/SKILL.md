@@ -470,7 +470,11 @@ public class SpringFlash4Launcher implements ApplicationRunner {
 
 This is only an example. This should be applied to all classes where `@SpringBootApplication` and `@RestController` share the same class
 
-## 14. Checklist
+## 14. Use new `spring.web.error.whitelabel.enabled` instead of `server.error.whitelabel.enabled`
+
+The `server.error.whitelabel.enabled` property is disabled. Make sure to use `spring.web.error.whitelabel.enabled` in all `Spring` `.properties` files
+
+## 15. Checklist
 
 [ ] All old security configurations have been updated to the new style.
 [ ] All usages of `NestedServletException` have been replaced with `ServletException`.
