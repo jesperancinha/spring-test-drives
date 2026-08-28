@@ -49,7 +49,7 @@ class SpringFlash43LauncherTest {
     void testRevealSecretWhenCalledWithoutAuthenticationThenRedirect() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("http://localhost/login"));
+                .andExpect(redirectedUrl("/login"));
     }
 
     @Test
@@ -73,7 +73,7 @@ class SpringFlash43LauncherTest {
     void testRevealPartOfTheSecretWhenCalledWithoutAuthenticationThenRedirect() throws Exception {
         mockMvc.perform(get("/origin"))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("http://localhost/login"));
+                .andExpect(redirectedUrl("/login"));
     }
 
     @Test
