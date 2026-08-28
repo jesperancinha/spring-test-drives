@@ -15,7 +15,7 @@ public class SpringFlash516Launcher implements ApplicationRunner {
         this.skynetNetwork = skynetNetwork;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash516Launcher.class, args);
     }
 

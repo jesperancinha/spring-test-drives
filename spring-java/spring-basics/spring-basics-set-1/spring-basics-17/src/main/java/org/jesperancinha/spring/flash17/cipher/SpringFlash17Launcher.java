@@ -17,7 +17,7 @@ public class SpringFlash17Launcher {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash17Launcher.class, args);
     }
 }

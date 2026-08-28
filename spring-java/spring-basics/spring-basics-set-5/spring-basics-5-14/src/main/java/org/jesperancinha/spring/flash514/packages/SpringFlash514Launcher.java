@@ -18,7 +18,7 @@ public class SpringFlash514Launcher implements ApplicationRunner {
     @Autowired(required = false)
     private Chives chives;
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash514Launcher.class, args);
     }
 

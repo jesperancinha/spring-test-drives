@@ -31,7 +31,7 @@ public class SpringFlash410Launcher implements CommandLineRunner {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{SpringFlash410Launcher.class}, args);
     }
 

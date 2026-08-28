@@ -25,7 +25,7 @@ public class TomatoContextsSpringLauncher implements CommandLineRunner {
         this.applicationContext = applicationContext;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GREEN.printGenericTitleLn("Service is starting");
         SpringApplication.run(TomatoContextsSpringLauncher.class, args);
     }

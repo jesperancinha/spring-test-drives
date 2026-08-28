@@ -13,7 +13,7 @@ public class SpringFlash419Launcher implements CommandLineRunner {
         this.object = object;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash419Launcher.class, args);
     }
 

@@ -25,7 +25,7 @@ public class SpringFlash319Launcher implements CommandLineRunner {
         this.harvest2 = harvest2;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GREEN.printGenericTitleLn("Service is starting");
         SpringApplication.run(SpringFlash319Launcher.class, args);
     }

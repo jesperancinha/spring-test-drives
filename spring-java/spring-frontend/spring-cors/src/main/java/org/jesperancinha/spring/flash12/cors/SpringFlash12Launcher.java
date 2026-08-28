@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class SpringFlash12Launcher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash12Launcher.class, args);
     }
 

@@ -20,7 +20,7 @@ public class ContainerLauncher {
             "  \"scientificName\" : \"Phaseolus vulgaris\"\n" +
             "}";
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         BRIGHT_MAGENTA.printGenericTitleLn("Runtime Started");
 
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("./beans.xml");

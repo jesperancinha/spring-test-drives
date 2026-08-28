@@ -11,7 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class SpringFlash18Launcher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         ApplicationContext ac = SpringApplication.run(SpringFlash18Launcher.class, args);
         mutateLyricsServiceImpl(ac);
     }

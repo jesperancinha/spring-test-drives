@@ -16,7 +16,7 @@ public class SpringFlash47Launcher implements CommandLineRunner {
 
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{SpringFlash47Launcher.class}, args);
     }
 

@@ -18,7 +18,7 @@ public class SpringFlash216Launcher implements CommandLineRunner {
         this.awardDao = awardDao;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash216Launcher.class, args);
     }
 

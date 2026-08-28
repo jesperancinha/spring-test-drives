@@ -13,7 +13,7 @@ Please use these sources:
 2. https://blog.jetbrains.com/idea/2024/02/java-best-practices/
 3. https://google.github.io/styleguide/javaguide.html
 
-## 2. `static void` is reduntant in Java 25 for the `main` method.
+## 2. `public static void` is reduntant in Java 25 for the `main` method.
 
 Please make sure that wherever this is found: `public static void main(String[] args) {`
 that it gets its public attribute removed as in `static void main(String[] args) {`

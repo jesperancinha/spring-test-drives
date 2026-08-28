@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SpringFlash16Launcher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash16Launcher.class, args);
     }
 }

@@ -15,7 +15,7 @@ public class SpringFlash43Launcher {
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash43Launcher.class, args);
     }
 }

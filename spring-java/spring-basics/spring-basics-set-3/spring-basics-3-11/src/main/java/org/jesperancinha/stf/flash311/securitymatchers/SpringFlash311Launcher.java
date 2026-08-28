@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @SpringBootApplication
 @EnableWebSecurity
 public class SpringFlash311Launcher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash311Launcher.class, args);
     }
 }

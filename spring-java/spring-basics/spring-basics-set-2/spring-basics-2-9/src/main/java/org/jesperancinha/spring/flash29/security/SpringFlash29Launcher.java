@@ -27,7 +27,7 @@ public class SpringFlash29Launcher implements CommandLineRunner {
         this.jewelRepository = jewelRepository;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash29Launcher.class, args).start();
     }
 

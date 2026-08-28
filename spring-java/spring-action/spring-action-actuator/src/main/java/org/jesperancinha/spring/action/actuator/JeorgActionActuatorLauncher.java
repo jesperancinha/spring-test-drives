@@ -13,7 +13,7 @@ import static org.jesperancinha.console.consolerizer.console.ConsolerizerCompose
 @SpringBootApplication
 public class JeorgActionActuatorLauncher implements ApplicationRunner {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(JeorgActionActuatorLauncher.class, args);
     }
 

@@ -6,7 +6,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 public class SpringFlash8Launcher extends SpringBootServletInitializer {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash8Launcher.class, args);
     }
 }

@@ -37,7 +37,7 @@ public class Mastery2PortugueseMusicLauncher implements CommandLineRunner {
         this.applicationContext = applicationContext;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{Mastery2PortugueseMusicLauncher.class}, args);
     }
 

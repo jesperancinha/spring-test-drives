@@ -17,7 +17,7 @@ import static org.jesperancinha.console.consolerizer.console.ConsolerizerCompose
 
 @SpringBootApplication
 public class SpringFlash31Launcher implements ApplicationRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash31Launcher.class, args);
     }
 

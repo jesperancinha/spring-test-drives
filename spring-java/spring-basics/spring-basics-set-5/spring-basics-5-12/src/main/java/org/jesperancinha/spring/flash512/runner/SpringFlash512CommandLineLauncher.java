@@ -15,7 +15,7 @@ import static org.jesperancinha.console.consolerizer.console.ConsolerizerCompose
 @SpringBootApplication
 @Profile("command")
 public class SpringFlash512CommandLineLauncher implements CommandLineRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash512CommandLineLauncher.class, args);
     }
 

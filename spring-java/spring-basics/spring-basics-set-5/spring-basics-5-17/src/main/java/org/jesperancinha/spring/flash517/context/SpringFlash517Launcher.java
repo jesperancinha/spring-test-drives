@@ -20,7 +20,7 @@ public class SpringFlash517Launcher implements ApplicationRunner {
         this.applicationContext = applicationContext;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash517Launcher.class, args);
 
     }
