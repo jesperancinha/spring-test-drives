@@ -2,6 +2,7 @@
 
 <details>
 <summary><h2><b>1. Number and Datetime Formats</b></h2></summary>
+
 ## Introduction
 
 Exploring the
@@ -43,6 +44,7 @@ curl -X POST http://localhost:8081/time/dollars --header 'dollars: $1000000' --h
 
 <details>
 <summary><h2><b>2. Sequence generator</b></h2></summary>
+
 ## Introduction
 
 Exploring how to make sequence generators
