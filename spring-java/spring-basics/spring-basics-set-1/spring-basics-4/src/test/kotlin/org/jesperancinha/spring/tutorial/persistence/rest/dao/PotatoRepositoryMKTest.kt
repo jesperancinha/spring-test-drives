@@ -1,19 +1,18 @@
-package org.jesperancinha.spring.tutorial.persistence.rest.domain;
+package org.jesperancinha.spring.tutorial.persistence.rest.dao
 
-import com.ninjasquad.springmockk.MockkBean
 import io.kotest.core.spec.style.WordSpec
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.optional.shouldBePresent
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.jesperancinha.spring.tutorial.persistence.rest.domain.Potato
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest
 import org.springframework.test.annotation.Rollback
 import org.springframework.transaction.annotation.Transactional
 
 @DataJpaTest
-@MockkBean(types = [PotatoService::class])
 @Transactional
 class PotatoRepositoryMKTest @Autowired constructor(
     private val potatoRepository: PotatoRepository

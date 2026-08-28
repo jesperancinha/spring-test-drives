@@ -1,5 +1,7 @@
 package org.jesperancinha.spring.tutorial.persistence.rest.domain;
 
+import org.jesperancinha.spring.tutorial.persistence.rest.dao.PotatoRepository;
+import org.jesperancinha.spring.tutorial.persistence.rest.service.PotatoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

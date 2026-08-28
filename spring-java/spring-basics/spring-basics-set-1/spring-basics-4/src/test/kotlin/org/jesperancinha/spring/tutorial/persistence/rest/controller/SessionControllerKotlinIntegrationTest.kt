@@ -1,6 +1,5 @@
-package org.jesperancinha.spring.flash6.session
+package org.jesperancinha.spring.tutorial.persistence.rest.controller
 
-import tools.jackson.databind.ObjectMapper
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.ints.shouldBeBetween
 import io.kotest.matchers.longs.shouldBeBetween
@@ -9,17 +8,18 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import jakarta.servlet.http.HttpSession
-import org.jesperancinha.spring.flash6.session.controller.SessionController
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.MvcResult
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-
+import tools.jackson.databind.ObjectMapper
 
 @WebMvcTest(controllers = [SessionController::class])
-internal class SpringFlash6KotlinLauncherTest @Autowired constructor(
+@ContextConfiguration(classes = [SessionController::class])
+internal class SessionControllerKotlinIntegrationTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
 
@@ -27,7 +27,7 @@ internal class SpringFlash6KotlinLauncherTest @Autowired constructor(
     @Throws(Exception::class)
     fun testShowSessionDetailsWhenCalledThenTopListWithNumbers() {
         val objectMapper = ObjectMapper()
-        val mvcResult: MvcResult = mockMvc.perform(get("/"))
+        val mvcResult: MvcResult = mockMvc.perform(get("/session"))
             .andReturn()
         mvcResult
             .shouldNotBeNull()

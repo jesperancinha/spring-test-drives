@@ -1,7 +1,7 @@
 package org.jesperancinha.spring.tutorial.persistence.rest.controller;
 
 import org.jesperancinha.spring.tutorial.persistence.rest.domain.Potato;
-import org.jesperancinha.spring.tutorial.persistence.rest.domain.PotatoService;
+import org.jesperancinha.spring.tutorial.persistence.rest.service.PotatoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

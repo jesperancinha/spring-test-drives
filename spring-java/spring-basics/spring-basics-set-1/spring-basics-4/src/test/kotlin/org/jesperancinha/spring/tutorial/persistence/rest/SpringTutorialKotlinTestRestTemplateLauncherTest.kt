@@ -1,12 +1,20 @@
 package org.jesperancinha.spring.tutorial.persistence.rest
 
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.ints.shouldBeBetween
+import io.kotest.matchers.longs.shouldBeBetween
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
+import jakarta.servlet.http.HttpSession
+import org.jesperancinha.spring.tutorial.persistence.rest.controller.SessionController
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.resttestclient.TestRestTemplate
 import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate
 import org.springframework.boot.resttestclient.exchange
+import org.springframework.boot.resttestclient.getForEntity
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.http.HttpEntity
@@ -67,6 +75,41 @@ internal class SpringTutorialKotlinTestRestTemplateLauncherTest @Autowired const
             .apply {
                 statusCode shouldBe HttpStatus.OK
                 body.shouldNotBeNull()
+            }
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun testShowSessionDetailsWhenCalledThenTopListWithNumbers() {
+        testRestTemplate.getForEntity<Array<Long>>("/session")
+            .shouldNotBeNull()
+            .body
+            .shouldNotBeNull()
+            .toList()
+            .shouldNotBeNull()
+            .shouldHaveSize(1)
+            .first().shouldBeBetween(0L, 1000L)
+    }
+
+    @Test
+    fun testGenerateListWhenCreateThenAddAnotherNumber() {
+        val app = SessionController()
+        val session: HttpSession = mockk()
+        val numberList: ArrayList<Int> = ArrayList()
+        every { session.getAttribute("numberList") } returns numberList
+        val intCollection = app.generateList(session)
+            .shouldNotBeNull()
+            .shouldHaveSize(1)
+            .apply {
+                first().shouldNotBeNull()
+                    .shouldBeBetween(0, 1000)
+            }
+        app.generateList(session)
+            .shouldNotBeNull()
+            .shouldHaveSize(2)
+            .let {
+                it.first() shouldBe intCollection.toList()[0]
+                it.toList()[1].shouldBeBetween(0, 1000)
             }
     }
 }

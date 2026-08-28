@@ -10,7 +10,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-internal class SpringTutorialKotlinLauncherTest {
+class SpringTutorialKotlinLauncherTest {
     private val mockMvc: MockMvc by lazy {  MockMvcBuilders.standaloneSetup(TimeController()).build() }
 
     @Test

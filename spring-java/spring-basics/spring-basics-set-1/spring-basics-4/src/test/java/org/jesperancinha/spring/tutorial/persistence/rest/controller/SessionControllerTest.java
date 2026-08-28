@@ -1,14 +1,14 @@
-package org.jesperancinha.spring.flash6.session;
+package org.jesperancinha.spring.tutorial.persistence.rest.controller;
 
-import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpSession;
-import org.jesperancinha.spring.flash6.session.controller.SessionController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-@WebMvcTest(controllers = SessionController.class)
-class SpringFlash6LauncherTest {
+@WebMvcTest(SessionController.class)
+@ContextConfiguration(classes = SessionController.class)
+class SessionControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -27,7 +28,7 @@ class SpringFlash6LauncherTest {
     @Test
     void testShowSessionDetailsWhenCalledThenTopListWithNumbers() throws Exception {
         final ObjectMapper objectMapper = new ObjectMapper();
-        final MvcResult mvcResult = mockMvc.perform(get("/"))
+        final MvcResult mvcResult = mockMvc.perform(get("/session"))
                 .andReturn();
 
         assertThat(mvcResult).isNotNull();

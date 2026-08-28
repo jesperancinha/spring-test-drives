@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.tutorial.persistence.rest.domain;
+package org.jesperancinha.spring.tutorial.persistence.rest.service
 
 import com.ninjasquad.springmockk.MockkBean
 import io.kotest.core.spec.style.WordSpec
@@ -7,11 +7,12 @@ import io.kotest.matchers.collections.shouldContainAll
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.slot
 import io.mockk.verify
+import org.jesperancinha.spring.tutorial.persistence.rest.dao.PotatoRepository
+import org.jesperancinha.spring.tutorial.persistence.rest.domain.Potato
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration

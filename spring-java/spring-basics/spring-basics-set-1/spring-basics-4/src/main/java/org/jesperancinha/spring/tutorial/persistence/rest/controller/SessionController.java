@@ -1,8 +1,9 @@
-package org.jesperancinha.spring.flash6.session.controller;
+package org.jesperancinha.spring.tutorial.persistence.rest.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -13,9 +14,10 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.BR
 import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.BRIGHT_CYAN;
 
 @RestController
+@RequestMapping("/session")
 public class SessionController {
 
-    @GetMapping("/")
+    @GetMapping
     public String showSessionDetails(HttpServletRequest httpServletRequest) {
         BRIGHT_CYAN.printGenericTitleLn("Getting the session via the HttpServletRequest");
         final HttpSession session = httpServletRequest.getSession();

@@ -1,6 +1,8 @@
-package org.jesperancinha.spring.tutorial.persistence.rest.domain;
+package org.jesperancinha.spring.tutorial.persistence.rest.service;
 
 
+import org.jesperancinha.spring.tutorial.persistence.rest.domain.Potato;
+import org.jesperancinha.spring.tutorial.persistence.rest.dao.PotatoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

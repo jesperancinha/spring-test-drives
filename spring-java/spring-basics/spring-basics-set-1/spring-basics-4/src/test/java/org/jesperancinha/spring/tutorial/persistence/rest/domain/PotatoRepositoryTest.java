@@ -1,6 +1,8 @@
 package org.jesperancinha.spring.tutorial.persistence.rest.domain;
 
 import com.ninjasquad.springmockk.MockkBean;
+import org.jesperancinha.spring.tutorial.persistence.rest.dao.PotatoRepository;
+import org.jesperancinha.spring.tutorial.persistence.rest.service.PotatoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
