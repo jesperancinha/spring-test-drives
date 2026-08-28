@@ -13,7 +13,7 @@
     <name>Spring Test Drives :: Spring Flash Set 1</name>
 
     <modules>
-        <module>spring-basics-4</module>
+        <module>spring-basics-part-1</module>
         <module>spring-basics-15</module>
         <module>spring-basics-16</module>
         <module>spring-basics-17</module>

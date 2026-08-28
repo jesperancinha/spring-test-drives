@@ -1,6 +1,6 @@
 ---
 name: kotlin patterns
-description: Conventions for using Kotlin
+description: Conventions for using Kotlin. It only affects .kt files
 ---
 
 ## 1. Remove usage of `!!` operator

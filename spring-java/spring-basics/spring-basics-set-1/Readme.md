@@ -4,7 +4,7 @@
 
 1.  [spring-basics-1](./spring-basics-1) - 🍋 PropertyEditorRegistrar and converters + 🌱 AOP (Aspect Oriented Programming)
 2.  [spring-basics-3](./spring-basics-3) - ⛴ JDBC with boats
-3.  [spring-basics-4](./spring-basics-4) - 🪄 Spring param converters
+3.  [spring-basics-4](spring-basics-part-1) - 🪄 Spring param converters
 4.  [spring-basics-5](./spring-basics-5) - 🥔 Sequence generator with potatoes
 5.  [spring-basics-6](./spring-basics-6) - 🧮 Keep the math in the Session
 6.  [spring-basics-7](./spring-basics-7) - 🏎 🌺 Exception handling with cars and flowers

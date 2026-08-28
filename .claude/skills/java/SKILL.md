@@ -1,6 +1,6 @@
 ---
 name: java language patterns
-description: Conventions for using Java
+description: Conventions for using Java. It only affects .java files
 ---
 
 ## 1. Use modern java conventions in the code and make necessary changes

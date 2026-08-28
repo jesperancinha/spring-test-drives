@@ -324,7 +324,7 @@ There may be some code that looks like this:
 @SpringBootApplication
 @RestController
 public class SpringFlash4Launcher implements ApplicationRunner {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(SpringFlash4Launcher.class, args);
     }
 
@@ -440,7 +440,7 @@ The `main` class should then be:
 ```java
 @SpringBootApplication
 public class SpringFlash4Launcher implements ApplicationRunner {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(SpringFlash4Launcher.class, args);
     }
 
