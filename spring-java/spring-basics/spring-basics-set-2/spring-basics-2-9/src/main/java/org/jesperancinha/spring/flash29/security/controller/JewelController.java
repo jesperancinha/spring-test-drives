@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
 import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.*;
 
 @Controller
-public class Flash29Controller {
+public class JewelController {
 
     private final JewelService jewelService;
 
-    public Flash29Controller(JewelService jewelService) {
+    public JewelController(JewelService jewelService) {
         this.jewelService = jewelService;
     }
 

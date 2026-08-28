@@ -1,17 +1,16 @@
 package org.jesperancinha.spring.flash29.security.controller
 
-import tools.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import io.mockk.verify
-import org.jesperancinha.spring.flash29.security.configuration.Flash29ConfigurationAdapter
+import org.jesperancinha.spring.flash29.security.configuration.JewelSecurityConfiguration
 import org.jesperancinha.spring.flash29.security.dto.JewelDto
 import org.jesperancinha.spring.flash29.security.repository.JewelRepository
 import org.jesperancinha.spring.flash29.security.services.JewelService
 import org.jesperancinha.spring.flash29.security.services.JewelType
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.parallel.Execution
-import org.junit.jupiter.api.parallel.ExecutionMode
 import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
@@ -19,29 +18,45 @@ import org.springframework.context.annotation.Import
 import org.springframework.http.MediaType
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.test.context.support.WithMockUser
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity
+import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder
+import org.springframework.test.web.servlet.setup.MockMvcBuilders
+import org.springframework.test.web.servlet.setup.MockMvcConfigurer
+import org.springframework.web.context.WebApplicationContext
+import tools.jackson.databind.ObjectMapper
 
 /**
  * Tests for the controller
  * We are testing all REST methods necessary to manage our jewels
  * Note that for all the non failing cases, we always need minimally one logged-in user at lease, regardless of roles or jewel possession.
  */
-@WebMvcTest(controllers = [Flash29Controller::class])
+@WebMvcTest(controllers = [JewelController::class])
 @Import(
-    Flash29ConfigurationAdapter::class
+    JewelSecurityConfiguration::class
 )
 @Execution(SAME_THREAD)
-internal class Flash29ControllerKotlinTest @Autowired constructor(
-    private val mockMvc: MockMvc,
+internal class JewelControllerKotlinTest @Autowired constructor(
     @MockkBean(relaxed = true)
     private val jewelService: JewelService,
     @MockkBean(relaxed = true)
     private val jewelRepository: JewelRepository,
 ) {
     private val objectMapper = ObjectMapper()
+    lateinit var mockMvc: MockMvc
+    @Autowired
+    private lateinit var context: WebApplicationContext
 
+    @BeforeEach
+    fun setup() {
+        mockMvc = MockMvcBuilders
+            .webAppContextSetup(context)
+            .apply<DefaultMockMvcBuilder>(springSecurity())
+            .build()
+    }
 
     @Test
     @WithMockUser(username = "joao", roles = ["ADMIN"])

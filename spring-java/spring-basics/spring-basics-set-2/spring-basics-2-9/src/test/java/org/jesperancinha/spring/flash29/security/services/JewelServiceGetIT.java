@@ -4,6 +4,7 @@ import org.jesperancinha.spring.flash29.security.domain.Jewel;
 import org.jesperancinha.spring.flash29.security.repository.JewelRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
@@ -14,11 +15,13 @@ import java.util.Optional;
 
 import static org.jesperancinha.spring.flash29.security.services.JewelType.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
+@Execution(SAME_THREAD)
 class JewelServiceGetIT {
 
     @Autowired

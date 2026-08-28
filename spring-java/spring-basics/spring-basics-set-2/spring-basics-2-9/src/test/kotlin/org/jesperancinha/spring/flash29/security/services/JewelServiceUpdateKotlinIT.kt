@@ -13,6 +13,9 @@ import org.jesperancinha.spring.flash29.security.repository.JewelRepository
 import org.jesperancinha.spring.flash29.security.services.JewelType.OPAL
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
@@ -21,6 +24,7 @@ import org.springframework.security.authentication.AuthenticationCredentialsNotF
 import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@Execution(SAME_THREAD)
 internal class JewelServiceUpdateKotlinIT @Autowired constructor(
     private val jewelService: JewelService,
     @MockkBean(relaxed = true)

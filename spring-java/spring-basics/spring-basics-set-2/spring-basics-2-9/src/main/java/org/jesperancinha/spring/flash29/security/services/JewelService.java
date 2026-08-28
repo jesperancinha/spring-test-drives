@@ -6,7 +6,9 @@ import org.jesperancinha.spring.flash29.security.repository.JewelRepository;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.beans.Transient;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -29,6 +31,7 @@ public class JewelService {
      * @return
      */
     @PreAuthorize("hasRole('WRITE') && hasRole('ADMIN') && #jewel.guardian != null &&  #jewel.guardian == authentication.name")
+    @Transactional
     public JewelDto createJewel(JewelDto jewel) {
         final var savedJewel = this.jewelRepository.save(Jewel.builder().jewelType(jewel.getJewelType()).guardian(jewel.getGuardian()).build());
         return JewelDto.builder()
@@ -74,10 +77,10 @@ public class JewelService {
 
     public List<JewelDto> getAll() {
         return jewelRepository.findAll().stream().map(jewel ->
-                JewelDto.builder()
-                        .jewelType(jewel.getJewelType())
-                        .guardian(jewel.getGuardian())
-                        .build())
+                        JewelDto.builder()
+                                .jewelType(jewel.getJewelType())
+                                .guardian(jewel.getGuardian())
+                                .build())
                 .collect(Collectors.toList());
     }
 

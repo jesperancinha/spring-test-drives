@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 import static org.jesperancinha.spring.flash29.security.services.JewelType.AMETHYST;
 
@@ -19,6 +20,7 @@ import static org.jesperancinha.spring.flash29.security.services.JewelType.AMETH
  */
 @SpringBootApplication
 @EnableMethodSecurity
+@EnableWebSecurity
 public class SpringFlash29Launcher implements CommandLineRunner {
 
     private final JewelRepository jewelRepository;

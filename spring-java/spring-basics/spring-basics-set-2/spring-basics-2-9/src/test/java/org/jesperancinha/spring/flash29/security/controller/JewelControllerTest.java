@@ -1,8 +1,12 @@
 package org.jesperancinha.spring.flash29.security.controller;
 
 import org.junit.jupiter.api.parallel.Execution;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import tools.jackson.databind.ObjectMapper;
-import org.jesperancinha.spring.flash29.security.configuration.Flash29ConfigurationAdapter;
+import org.jesperancinha.spring.flash29.security.configuration.JewelSecurityConfiguration;
 import org.jesperancinha.spring.flash29.security.dto.JewelDto;
 import org.jesperancinha.spring.flash29.security.repository.JewelRepository;
 import org.jesperancinha.spring.flash29.security.services.JewelService;
@@ -11,7 +15,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.test.context.support.WithMockUser;
@@ -26,6 +29,7 @@ import static org.jesperancinha.spring.flash29.security.services.JewelType.EMERA
 import static org.jesperancinha.spring.flash29.security.services.JewelType.RUBY;
 import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -34,13 +38,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * We are testing all REST methods necessary to manage our jewels
  * Note that for all the non failing cases, we always need minimally one logged-in user at lease, regardless of roles or jewel possession.
  */
-@WebMvcTest(controllers = Flash29Controller.class)
-@Import(Flash29ConfigurationAdapter.class)
+@WebMvcTest(controllers = {JewelController.class, JewelSecurityConfiguration.class})
 @Execution(SAME_THREAD)
-class Flash29ControllerTest {
+class JewelControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private WebApplicationContext context;
 
     @MockitoBean
     private JewelService jewelService;
@@ -48,13 +54,41 @@ class Flash29ControllerTest {
     @MockitoBean
     private JewelRepository jewelRepository;
 
-        private final ArgumentCaptor<JewelDto> jewelDtoArgumentCaptor = ArgumentCaptor.forClass(JewelDto.class);
+    private final ArgumentCaptor<JewelDto> jewelDtoArgumentCaptor = ArgumentCaptor.forClass(JewelDto.class);
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @BeforeEach
     public void setup() {
+        mockMvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
         reset(jewelRepository);
+    }
+
+    @Test
+    @WithMockUser(username = "joao", roles = "ADMIN")
+    void securityContextIsLoaded() throws Exception {
+        final var authentication =
+                SecurityContextHolder.getContext().getAuthentication();
+
+        assertThat(authentication).isNotNull();
+        assertThat(authentication.isAuthenticated()).isTrue();
+        assertThat(authentication.getName()).isEqualTo("joao");
+        assertThat(authentication.getAuthorities())
+                .extracting(GrantedAuthority::getAuthority)
+                .containsExactly("ROLE_ADMIN");
+
+        mockMvc.perform(get("/"))
+                .andDo(result -> {
+                    System.out.println("STATUS: " +
+                            result.getResponse().getStatus());
+                    System.out.println("LOCATION: " +
+                            result.getResponse().getHeader("Location"));
+                    System.out.println("BODY: " +
+                            result.getResponse().getContentAsString());
+                });
     }
 
     @Test
@@ -99,8 +133,8 @@ class Flash29ControllerTest {
         when(jewelService.createJewel(kittenPowersJewel)).thenReturn(kittenPowersJewel);
 
         mockMvc.perform(post("/jewels")
-                .content(objectMapper.writeValueAsString(kittenPowersJewel))
-                .header("Content-Type", MediaType.APPLICATION_JSON_VALUE))
+                        .content(objectMapper.writeValueAsString(kittenPowersJewel))
+                        .header("Content-Type", MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(kittenPowersJewel)));
 

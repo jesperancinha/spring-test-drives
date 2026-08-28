@@ -15,18 +15,43 @@ Topics
 
 ```bash
 curl http://localhost:8081
+```
+
+```shell
 curl http://localhost:8081/jewels/1
-
+```
+```shell
 curl -v --cookie-jar cookies.txt -d username=admin -d password=admin -L http://localhost:8081/login
+```
+```shell
 curl -v -sL -b cookies.txt -X DELETE http://localhost:8081/jewels/1
+```
 
+```shell
 curl -v --cookie-jar cookies.txt -d username=admin2 -d password=admin -L http://localhost:8081/login
-curl -v -sL -b cookies.txt -X DELETE http://localhost:8081/jewels/1
+```
 
+```shell
+curl -v -sL -b cookies.txt -X DELETE http://localhost:8081/jewels/1
+```
+
+```shell
 curl -v --cookie-jar cookies.txt -d username=admin -d password=admin -L http://localhost:8081/login
+```
+
+```shell
 curl -v -sL -b cookies.txt --header "Content-Type: application/json"  -X POST --data '{"jewelType":"DIAMOND","guardian":"admin"}' http://localhost:8081/jewels
+```
 
+```shell
+curl -v -b cookies.txt http://localhost:8081/jewels/1
+```
+
+```shell
 curl -v --cookie-jar cookies.txt -d username=admin2 -d password=admin -L http://localhost:8081/login
+```
+
+```shell
 curl -v -sL -b cookies.txt --header "Content-Type: application/json"  -X POST --data '{"jewelType":"DIAMOND","guardian":"admin2"}' http://localhost:8081/jewels
 ```
 
