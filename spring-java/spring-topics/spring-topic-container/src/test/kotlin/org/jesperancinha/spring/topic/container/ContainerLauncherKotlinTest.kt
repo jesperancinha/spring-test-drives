@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 internal class ContainerLauncherKotlinTest {
     @Test
-    fun testContext() {
+    fun `should load context`() {
         ContainerLauncher.main(arrayOf())
     }
 

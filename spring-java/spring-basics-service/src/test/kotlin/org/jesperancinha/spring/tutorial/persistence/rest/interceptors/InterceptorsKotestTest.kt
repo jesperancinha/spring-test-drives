@@ -27,12 +27,12 @@ internal class InterceptorsKotestTest @Autowired constructor(
 ) {
 
     @Test
-    fun main() {
+    fun `should run main launcher`() {
     }
 
     @Test
     @Throws(Exception::class)
-    fun testGetStringWhenCalledThenTriggerInterceptors() {
+    fun `should trigger interceptor when get string is called`() {
         every { feelingLoveBean.preHandle(any()) } returns true
         mockMvc.perform(MockMvcRequestBuilders.get("/wine"))
             .andExpect(MockMvcResultMatchers.status().isOk)

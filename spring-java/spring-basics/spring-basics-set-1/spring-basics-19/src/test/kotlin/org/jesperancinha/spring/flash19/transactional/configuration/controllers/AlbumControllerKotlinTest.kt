@@ -35,7 +35,7 @@ internal class AlbumControllerKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCreateAlbumRollBackWhenCallCreateAlbumThenCreateAndRollback() {
+    fun `should create and rollback when calling create album rollback`() {
         val inputAlbum = AlbumDto()
             .apply {
                 name = "The Abbey Road Sessions"

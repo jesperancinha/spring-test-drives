@@ -25,7 +25,7 @@ internal class AlbumControllerKotlinUnitTest {
     lateinit var albumService: AlbumServiceImpl
 
     @Test
-    fun testGetAllAlbumsWhenCallThenGetAllAlbums(@MockK(relaxed = true) albums: List<Album>) {
+    fun `should get all albums when called`(@MockK(relaxed = true) albums: List<Album>) {
         every { albums.isEmpty() } returns true
         every { albumRepository.findAll() } returns albums.shouldBeEmpty().toMutableList()
         albumService.allAlbums

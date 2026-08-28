@@ -47,7 +47,7 @@ internal class GambaFoodMasterCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCatchWithNetWhenCallingMasterAnnotatedMethodThenTriggerTheRightAdvices() {
+    fun `should trigger the right advices when calling master annotated method with net`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         gambaFoodCatcher.catchWithNet()
         bonitoCatcher.catchWithNet()

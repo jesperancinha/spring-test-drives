@@ -42,7 +42,7 @@ internal class Flash17CreateControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testCreateUserWhenCalledThenCallCreationOk() {
+    fun `should call creation ok when creating user`() {
         mockMvc.perform(
             post("/open/create")
                 .header("name", "admin")

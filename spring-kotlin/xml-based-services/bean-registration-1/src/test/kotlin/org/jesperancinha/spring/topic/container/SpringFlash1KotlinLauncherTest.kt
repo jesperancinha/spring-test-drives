@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 
 internal class SpringFlash1KotlinLauncherTest {
     @Test
-    fun main() {
+    fun `should run main launcher`() {
         SpringFlash1Launcher.main(null)
     }
 }

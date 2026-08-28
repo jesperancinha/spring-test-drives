@@ -20,7 +20,7 @@ internal class SpringFlash13LauncherKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testCallsToCssWhenNormalThenGetNormal() {
+    fun `should get normal contents when calling css normally`() {
         mockMvc.perform(MockMvcRequestBuilders.get("/flash13.styles.css"))
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(
@@ -35,7 +35,7 @@ internal class SpringFlash13LauncherKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testCallsToCssWhenGzipThenGetContents() {
+    fun `should get contents when calling css with gzip`() {
         mockMvc.perform(MockMvcRequestBuilders.get("/original.styles.css"))
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(

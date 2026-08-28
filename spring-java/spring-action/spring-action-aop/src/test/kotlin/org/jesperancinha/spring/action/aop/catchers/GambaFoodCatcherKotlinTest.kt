@@ -27,7 +27,7 @@ internal class GambaFoodCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCatchWithNetWhenCallingThenTriggerAllMatchingBeforeAdvices() {
+    fun `should trigger all matching before advices when catching with net`() {
         gambaFoodCatcher.catchWithNet()
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         verify { gambaService.beforeWithin(capture(joinPointArgumentSlot)) }
@@ -39,7 +39,7 @@ internal class GambaFoodCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchByHandWhenCallingThenTriggerAllMatchingBeforeAdvices() {
+    fun `should trigger all matching before advices when catching by hand`() {
         gambaFoodCatcher.catchByHand()
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         verify { gambaService.beforeAnnotation(capture(joinPointArgumentSlot)) }

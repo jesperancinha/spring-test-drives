@@ -29,12 +29,12 @@ internal class SpringFlash23LauncherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun main() {
+    fun `should run main launcher`() {
     }
 
     @Test
     @Throws(Exception::class)
-    fun testGetStringWhenCalledThenTriggerInterceptors() {
+    fun `should trigger interceptor when get string is called`() {
         every { feelingLoveBean.preHandle(any()) } returns true
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
             .andExpect(MockMvcResultMatchers.status().isOk)

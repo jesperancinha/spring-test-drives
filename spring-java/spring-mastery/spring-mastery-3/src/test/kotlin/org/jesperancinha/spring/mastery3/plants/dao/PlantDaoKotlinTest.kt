@@ -33,7 +33,7 @@ class PlantDaoKotlinTest @Autowired constructor(
 
     @Test
     @WithMockUser(username = "Joao")
-    fun testGetFilteredList() {
+    fun `should get filtered list`() {
         plantDao.examplePlants
             .shouldNotBeNull()
             .shouldHaveSize(1)

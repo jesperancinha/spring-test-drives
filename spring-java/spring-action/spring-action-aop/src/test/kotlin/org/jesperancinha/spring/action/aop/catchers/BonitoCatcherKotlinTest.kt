@@ -28,7 +28,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCatchWithNetWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with net is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithNet()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -37,7 +37,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithFishingPoleWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with fishing pole is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithFishingPole()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -45,7 +45,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchByHandWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch by hand is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchByHand()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -53,7 +53,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchByHandExtraWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch by hand extra is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchByHandExtra()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -61,7 +61,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithClawsWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with claws is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithClaws()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -76,7 +76,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithSuperSonicWavesWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with super sonic waves is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithSuperSonicWaves()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -84,7 +84,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithABucketWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with a bucket is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithABucket()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }
@@ -92,7 +92,7 @@ internal class BonitoCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithLoveWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with love is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithLove()
         verify { bonito2Service.beforeAnyCatch(capture(joinPointArgumentSlot.also { it.clear() })) }

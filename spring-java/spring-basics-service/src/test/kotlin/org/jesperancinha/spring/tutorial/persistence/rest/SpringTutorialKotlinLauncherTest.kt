@@ -18,7 +18,7 @@ class SpringTutorialKotlinLauncherTest {
     }
 
     @Test
-    fun testCurrentDateWhenRequest_noErrors() {
+    fun `should get current date with no errors when requested`() {
         mockMvc.perform(
             post("/time")
                 .contentType("application/text")
@@ -28,7 +28,7 @@ class SpringTutorialKotlinLauncherTest {
     }
 
     @Test
-    fun testCurrentTimeWhenRequest_noErrors() {
+    fun `should get current time with no errors when requested`() {
         mockMvc.perform(
             post("/time/time")
                 .contentType("application/text")
@@ -38,7 +38,7 @@ class SpringTutorialKotlinLauncherTest {
     }
 
     @Test
-    fun thousandDollars_whenRequest_noErrors() {
+    fun `should get thousand dollars with no errors when requested`() {
         mockMvc.perform(
             post("/time/dollars")
                 .contentType("application/text")

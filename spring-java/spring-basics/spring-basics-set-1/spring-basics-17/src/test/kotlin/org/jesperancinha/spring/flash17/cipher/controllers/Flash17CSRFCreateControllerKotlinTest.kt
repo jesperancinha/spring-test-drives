@@ -48,7 +48,7 @@ internal class Flash17CSRFCreateControllerKotlinTest @Autowired constructor(
     @Test
     @WithMockUser(roles = ["ADMIN"])
     @Throws(Exception::class)
-    fun testCreateUserViaGeWhenCreateUserViaGetThenOk() {
+    fun `should return ok when create user via get`() {
         mockMvc.perform(get("/open/create/admin/password/ADMIN"))
             .andExpect(MockMvcResultMatchers.status().isOk)
         val slotUser = slot<UserDetails>()
@@ -66,7 +66,7 @@ internal class Flash17CSRFCreateControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testCreateUserViaGeWhenCreateUserViaPostThenForbidden() {
+    fun `should return forbidden when create user via post`() {
         mockMvc.perform(post("/open/create/admin/password/ADMIN"))
             .andExpect(MockMvcResultMatchers.status().isForbidden)
         ConsolerizerComposer.outSpace()

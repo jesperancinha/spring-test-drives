@@ -24,12 +24,12 @@ internal class SpringFlash23LauncherKotlinITTest @Autowired constructor(
 ) {
 
     @Test
-    fun main() {
+    fun `should run main launcher`() {
     }
 
     @Test
     @Throws(Exception::class)
-    fun testGetStringWhenCalledThenTriggerInterceptors() {
+    fun `should trigger interceptor when get string is called`() {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(MockMvcResultMatchers.content().string("Fine Wine"))

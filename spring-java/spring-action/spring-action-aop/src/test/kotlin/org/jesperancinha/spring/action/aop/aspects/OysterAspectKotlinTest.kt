@@ -28,7 +28,7 @@ internal class OysterAspectKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testOysterProcessing() {
+    fun `should process oyster`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         val oysterArgumentSlot = slot<Oyster>()
         val oyster = Oyster()
@@ -43,7 +43,7 @@ internal class OysterAspectKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testOysterQualityProcessing() {
+    fun `should process oyster quality`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         val oysterArgumentSlot = slot<Oyster>()
         val oyster = Oyster()

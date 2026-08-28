@@ -22,7 +22,7 @@ internal class Flash27HealthIndicatorKotlinTest @Autowired constructor(
 ) {
     @Test
     @Throws(Exception::class)
-    fun health() {
+    fun `should check health`() {
         val contentAsString = mockMvc.perform(MockMvcRequestBuilders.get("/actuator/health"))
             .andReturn()
             .shouldNotBeNull()

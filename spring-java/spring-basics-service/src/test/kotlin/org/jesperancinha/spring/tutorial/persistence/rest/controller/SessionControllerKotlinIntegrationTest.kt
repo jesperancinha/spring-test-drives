@@ -25,7 +25,7 @@ internal class SessionControllerKotlinIntegrationTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testShowSessionDetailsWhenCalledThenTopListWithNumbers() {
+    fun `should show session details with top list numbers when called`() {
         val objectMapper = ObjectMapper()
         val mvcResult: MvcResult = mockMvc.perform(get("/session"))
             .andReturn()
@@ -43,7 +43,7 @@ internal class SessionControllerKotlinIntegrationTest @Autowired constructor(
     }
 
     @Test
-    fun testGenerateListWhenCreateThenAddAnotherNumber() {
+    fun `should add another number when creating list`() {
         val app = SessionController()
         val session: HttpSession = mockk()
         val numberList: ArrayList<Int> = ArrayList()

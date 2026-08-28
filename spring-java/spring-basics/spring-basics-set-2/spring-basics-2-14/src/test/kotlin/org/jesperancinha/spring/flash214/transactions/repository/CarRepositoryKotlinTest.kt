@@ -32,7 +32,7 @@ internal class CarRepositoryKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testSaveWhenSaveCarThenRetrieveIt() {
+    fun `should retrieve car when saved`() {
        Car.builder().brand("Renault").model("Twingo").build()
            .let { car ->
                carRepository.save(car).also {

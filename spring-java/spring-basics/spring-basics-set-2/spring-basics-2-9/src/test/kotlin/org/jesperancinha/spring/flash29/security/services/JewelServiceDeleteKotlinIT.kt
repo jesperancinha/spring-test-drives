@@ -24,28 +24,28 @@ internal class JewelServiceDeleteKotlinIT @Autowired constructor(
     private val jewelRepository: JewelRepository,
 ) {
     @Test
-    fun testDeleteJewel_whenCallingWithoutAuthentication_thenFail() {
+    fun `should fail to delete jewel when calling without authentication`() {
         val jewel = JewelDto.builder().jewelType(PEARL).guardian("ThunderKitten").build()
         shouldThrow<IllegalArgumentException> { jewelService.deleteJewel(jewel) }
     }
 
     @Test
     @WithMockUser(username = "ThunderKitten")
-    fun testDeleteJewel_whenNoRoles_thenFail() {
+    fun `should fail to delete jewel when no roles`() {
         val jewel = JewelDto.builder().jewelType(PEARL).guardian("ThunderKitten").build()
         shouldThrow<AccessDeniedException>{ jewelService.deleteJewel(jewel) }
     }
 
     @Test
     @WithMockUser(username = "SuperKitten", roles = ["ADMIN"])
-    fun testDeleteJewel_whenRolesButNoMatch_thenFail() {
+    fun `should fail to delete jewel when roles do not match`() {
         val jewel = JewelDto.builder().jewelType(PEARL).guardian("ThunderKitten").build()
         shouldThrow<AccessDeniedException>{ jewelService.deleteJewel(jewel) }
     }
 
     @Test
     @WithMockUser(username = "SuperKitten", roles = ["ADMIN"])
-    fun testDeleteJewel_whenRolesAndMatch_thenOk() {
+    fun `should delete jewel ok when roles match`() {
         val superKittenJewel = JewelDto.builder().jewelType(PEARL).guardian("SuperKitten").build()
         jewelService.deleteJewel(superKittenJewel)
         val slotJewel = slot<Jewel>()

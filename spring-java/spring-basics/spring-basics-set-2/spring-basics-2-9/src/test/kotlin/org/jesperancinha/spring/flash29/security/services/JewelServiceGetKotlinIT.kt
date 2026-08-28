@@ -31,19 +31,19 @@ internal class JewelServiceGetKotlinIT @Autowired constructor(
     }
 
     @Test
-    fun testGetJewelById_whenNoAuthentication_thenFail() {
+    fun `should fail to get jewel by id when no authentication`() {
         shouldThrow<IllegalArgumentException> { jewelService.getJewelById(1L) }
     }
 
     @Test
     @WithMockUser(username = "MegaKitten")
-    fun testGetJewelById_whenGuardianDoesNotMatch_thenFail() {
+    fun `should fail to get jewel by id when guardian does not match`() {
         shouldThrow<AccessDeniedException> { jewelService.getJewelById(3L) }
     }
 
     @Test
     @WithMockUser(username = "MegaKitten")
-    fun testGetJewelById_whenGuardianMatch_thenOk() {
+    fun `should get jewel by id ok when guardian matches`() {
         jewelService.getJewelById(2L)
     }
 }

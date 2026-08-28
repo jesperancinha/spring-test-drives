@@ -41,7 +41,7 @@ internal class MemberRepositoryKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testGetOneWhenFindOneThenMatch() {
+    fun `should match when finding one member`() {
         memberRepository.findByIdOrNull(savedMember.id)
             .shouldNotBeNull()
             .apply {
@@ -51,7 +51,7 @@ internal class MemberRepositoryKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testFindAllByNameLikeWhenFindAllThenGetAll() {
+    fun `should get all when finding all by name like`() {
         memberRepository.findAllByNameLike("%Dion%")
             .shouldNotBeNull()
             .shouldHaveSize(1)

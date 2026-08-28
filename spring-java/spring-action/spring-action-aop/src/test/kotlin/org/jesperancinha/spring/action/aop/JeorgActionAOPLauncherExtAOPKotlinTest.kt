@@ -35,7 +35,7 @@ internal class JeorgActionAOPLauncherExtAOPKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testContext() {
+    fun `should load context`() {
         bonitoCatcher.catchByHand()
         bonitoCatcher.catchByHandExtra()
         bonitoCatcher.catchWithClaws()

@@ -38,7 +38,7 @@ class CakeRepositoryKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testGetCakeWhenGoodIdThenGetCake() {
+    fun `should get cake when good id`() {
        cakeRepository.findById(savedCake.shouldNotBeNull().id)
            .shouldNotBeNull()
            .apply {

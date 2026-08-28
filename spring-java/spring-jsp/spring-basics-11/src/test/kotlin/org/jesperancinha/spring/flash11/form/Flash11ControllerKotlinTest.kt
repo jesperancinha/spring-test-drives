@@ -31,7 +31,7 @@ internal class Flash11ControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testHandleRequestWhenMusicReceivedThenWriteCorrectPage() {
+    fun `should write correct page when music is received`() {
         val music = Music()
         music.artist = "Tracy Chapman"
         music.song = "Talkin' About A Revolution"

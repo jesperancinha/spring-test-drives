@@ -33,7 +33,7 @@ internal class ProdFileHealthIndicatorKotlinTest {
     private val port: Long? = null
 
     @Test
-    fun testHealthCheckWhenEndpointCalledThenReturnHealthChecks() {
+    fun `should return health checks when endpoint is called`() {
         val url = "http://localhost:$port/actuator/health"
         val headers = HttpHeaders()
         val request = HttpEntity<Any>(headers)

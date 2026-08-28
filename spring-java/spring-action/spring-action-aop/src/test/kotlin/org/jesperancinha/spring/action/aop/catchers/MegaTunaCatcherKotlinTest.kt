@@ -28,7 +28,7 @@ internal class MegaTunaCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun catchWithNet() {
+    fun `should catch with net`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         megaTunaCatcher.catchWithNet()
         verify { tunaService.beforeCatching(capture(joinPointArgumentSlot)) }

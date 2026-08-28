@@ -35,7 +35,7 @@ internal class ArtistServiceImplKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testListArtistsWhenListAllThenGetAList() {
+    fun `should get a list when listing all artists`() {
         val artists = artistService.listArtists()
         Assertions.assertThat(artists).hasSize(1)
         val actual = artists[0]
@@ -52,7 +52,7 @@ internal class ArtistServiceImplKotlinTest @Autowired constructor(
             config = SqlConfig(transactionMode = SqlConfig.TransactionMode.ISOLATED)
         )
     )
-    fun testListArtistsWithSQLWhenListAllThenGetAList() {
+    fun `should get a list when listing all artists with sql`() {
         val artists = artistService.listArtists()
         Assertions.assertThat(artists).hasSizeGreaterThanOrEqualTo(2)
         val actual = artists.find { it.name == "António Variações" }.shouldNotBeNull()
@@ -64,7 +64,7 @@ internal class ArtistServiceImplKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testGetArtistByNameUnauthenticatedWhenGetArtistThenFail() {
+    fun `should fail when getting artist by name unauthenticated`() {
         org.junit.jupiter.api.Assertions.assertThrows(
             Exception::class.java
         ) { artistService.getArtistByName("António") }
@@ -72,7 +72,7 @@ internal class ArtistServiceImplKotlinTest @Autowired constructor(
 
     @Test
     @WithMockUser
-    fun testGetArtistByNameUnauthorizerWhenGetArtistThenGetArtist() {
+    fun `should get artist when unauthorized user gets artist`() {
         org.junit.jupiter.api.Assertions.assertThrows(
             AccessDeniedException::class.java
         ) { artistService.getArtistByName("António") }
@@ -80,7 +80,7 @@ internal class ArtistServiceImplKotlinTest @Autowired constructor(
 
     @Test
     @WithMockUser(username = "admin", password = "admin", roles = ["ADMIN"], value = "admin")
-    fun testGetArtistByNameWhenGetArtistThenGetArtist() {
+    fun `should get artist when getting artist by name`() {
         val actual = artistService.getArtistByName("António")
         Assertions.assertThat(actual.name).isEqualTo("António Variações")
         Assertions.assertThat(actual.nationality).isEqualTo("Portuguese")

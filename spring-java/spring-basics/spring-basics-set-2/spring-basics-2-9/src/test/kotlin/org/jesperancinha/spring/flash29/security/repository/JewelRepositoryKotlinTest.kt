@@ -52,7 +52,7 @@ internal class JewelRepositoryKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testGetJewelWhenReadingJewelThenResultInJewel() {
+    fun `should result in jewel when reading jewel`() {
         jewelRepository.findByIdOrNull(adminId ?: throw NullPointerException())
             .shouldNotBeNull()
             .apply {
@@ -69,7 +69,7 @@ internal class JewelRepositoryKotlinTest @Autowired constructor(
 
     @Test
     @Transactional(TxType.REQUIRED)
-    fun testSaveJewelWhenCreatingThenGetId() {
+    fun `should get id when saving jewel`() {
         jewelRepository.save(
             Jewel.builder()
                 .id(3L)

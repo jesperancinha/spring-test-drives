@@ -6,6 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 internal class SpringFlash29LauncherKotlinTest {
     @Test
-    fun testContext() {
+    fun `should load context`() {
     }
 }

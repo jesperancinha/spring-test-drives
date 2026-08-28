@@ -38,7 +38,7 @@ internal class BeanServiceImplRandomPortSpringBootKotlinTest @Autowired construc
     }
 
     @Test
-    fun tesGetSlogan_whenCalled_getProductionSlogan() {
+    fun `should get production slogan when called`() {
         beanService.slogan shouldBe "This is just a slogan"
         dataSourceUrl shouldBe "jdbc:h2:file:~/flash25db"
         ConsolerizerComposer.outSpace()

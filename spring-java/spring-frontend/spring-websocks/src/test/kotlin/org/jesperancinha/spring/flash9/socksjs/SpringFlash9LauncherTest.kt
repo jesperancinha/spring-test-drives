@@ -57,7 +57,7 @@ internal class SpringFlash9LauncherTest @Autowired constructor(
 
     @Test
     @Throws(ExecutionException::class, InterruptedException::class, TimeoutException::class)
-    fun testSendMessageWhenReceiveMessageThenSendResponseBack() {
+    fun `should send response back when message is received`() {
         val blockingQueue: ArrayBlockingQueue<Present> = ArrayBlockingQueue<Present>(1)
         val session = webSocketStompClient
             .connectAsync(String.format("ws://localhost:%d/ws", port), object : StompSessionHandlerAdapter() {})

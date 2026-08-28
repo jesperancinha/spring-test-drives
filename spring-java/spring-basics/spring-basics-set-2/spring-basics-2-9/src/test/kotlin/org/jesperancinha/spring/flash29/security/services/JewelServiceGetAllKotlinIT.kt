@@ -36,7 +36,7 @@ internal class JewelServiceGetAllKotlinIT @Autowired constructor(
     }
 
     @Test
-    fun testGetAll_whenNoAuthentication_thenStillListAll() {
+    fun `should still list all jewels when no authentication`() {
         jewelService
             .shouldNotBeNull()
             .all

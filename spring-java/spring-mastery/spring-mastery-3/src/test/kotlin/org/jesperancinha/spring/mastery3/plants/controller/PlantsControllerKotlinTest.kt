@@ -31,7 +31,7 @@ class PlantsControllerKotlinTest @Autowired constructor(
     private val objectMapper = ObjectMapper()
     @Test
     @Throws(Exception::class)
-    fun openPostFailWhenCalledTheResponseMustBeEmpty() {
+    fun `should return empty response when open post fails`() {
         val plantDto = PlantDto
             .builder()
             .name("Yucca")
@@ -55,7 +55,7 @@ class PlantsControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testGet3CopiesWhenCallThenReturn3Yuccas() {
+    fun `should return 3 yuccas when calling get 3 copies`() {
         val plantDto = PlantDto
             .builder()
             .name("Yucca")
@@ -79,7 +79,7 @@ class PlantsControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testGet3CopiesArrayWhenCallThenReturn3Yuccas() {
+    fun `should return 3 yuccas array when calling get 3 copies array`() {
         val plantDto = PlantDto
             .builder()
             .name("Yucca")

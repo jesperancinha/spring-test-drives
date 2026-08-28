@@ -35,7 +35,7 @@ internal class JewelServiceUpdateKotlinIT @Autowired constructor(
             .build()
     }
     @Test
-    fun testUpdateJewel_whenNoAuthentication_thenFail() {
+    fun `should fail to update jewel when no authentication`() {
         val jewel = JewelDto
             .builder()
             .jewelType(OPAL)
@@ -46,7 +46,7 @@ internal class JewelServiceUpdateKotlinIT @Autowired constructor(
 
     @Test
     @WithMockUser(username = "MegaKitten")
-    fun testUpdateJewel_whenAuthenticationNoRoles_thenFail() {
+    fun `should fail to update jewel when authentication has no roles`() {
         val jewel = JewelDto
             .builder()
             .jewelType(OPAL)
@@ -57,7 +57,7 @@ internal class JewelServiceUpdateKotlinIT @Autowired constructor(
 
     @Test
     @WithMockUser(username = "MegaKitten", roles = ["ADMIN"])
-    fun testUpdateJewel_whenAuthenticationRolesGuardianUnMatch_thenFail() {
+    fun `should fail to update jewel when guardian does not match`() {
         val jewel = JewelDto
             .builder()
             .jewelType(OPAL)
@@ -68,7 +68,7 @@ internal class JewelServiceUpdateKotlinIT @Autowired constructor(
 
     @Test
     @WithMockUser(username = "MegaKitten", roles = ["ADMIN"])
-    fun testUpdateJewel_whenAuthenticationRolesGuardiaMatch_thenOk() {
+    fun `should update jewel ok when guardian matches`() {
         val jewel = JewelDto
             .builder()
             .jewelType(OPAL)

@@ -46,13 +46,13 @@ class SpaceRocketServiceIntegrationKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun allRockets() {
+    fun `should get all rockets`() {
         spaceRocketService.allRockets.toList()
             .shouldHaveSize(2)
     }
 
     @Test
-    fun deleteRocket() {
+    fun `should delete rocket`() {
         val spaceRocket =
             SpaceRocket.builder().name("Ariane").engineType("A64").payLoad(11.0001).height(63.0).build()
         spaceRocketRepository.save(spaceRocket)
@@ -64,7 +64,7 @@ class SpaceRocketServiceIntegrationKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun addRocket() {
+    fun `should add rocket`() {
         val rocket = spaceRocketService.addRocket(
             SpaceRocket.builder().name("Ariane").engineType("A64").payLoad(11.0001).height(63.0).build()
         )

@@ -80,7 +80,7 @@ internal class SpringTutorialKotlinTestRestTemplateLauncherTest @Autowired const
 
     @Test
     @Throws(Exception::class)
-    fun testShowSessionDetailsWhenCalledThenTopListWithNumbers() {
+    fun `should show session details with top list numbers when called`() {
         testRestTemplate.getForEntity<Array<Long>>("/session")
             .shouldNotBeNull()
             .body
@@ -92,7 +92,7 @@ internal class SpringTutorialKotlinTestRestTemplateLauncherTest @Autowired const
     }
 
     @Test
-    fun testGenerateListWhenCreateThenAddAnotherNumber() {
+    fun `should add another number when creating list`() {
         val app = SessionController()
         val session: HttpSession = mockk()
         val numberList: ArrayList<Int> = ArrayList()

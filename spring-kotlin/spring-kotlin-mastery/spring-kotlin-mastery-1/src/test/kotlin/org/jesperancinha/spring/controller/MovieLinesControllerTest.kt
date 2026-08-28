@@ -17,13 +17,13 @@ internal class MovieLinesControllerTest @Autowired constructor(
     private val objectMapper: ObjectMapper = ObjectMapper()
 
     @Test
-    fun testGetQuotesWhenCallingThenGetQuotes() {
+    fun `should get quotes when calling`() {
         mockMvc.perform(get("/movies/thesoundofmusic"))
             .andExpect(content().string("The hills are alive with the sound of music"))
     }
 
     @Test
-    fun testAllFilmsWhenCallingThenGetAllFilms() {
+    fun `should get all films when calling`() {
         mockMvc.perform(get("/movies/list"))
             .andExpect(
                 content().json(

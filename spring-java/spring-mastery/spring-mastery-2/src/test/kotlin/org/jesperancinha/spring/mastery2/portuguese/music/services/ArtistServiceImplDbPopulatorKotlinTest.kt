@@ -36,7 +36,7 @@ internal class ArtistServiceImplDbPopulatorKotlinTest @Autowired constructor(
 
     @Test
     @Throws(SQLException::class)
-    fun testListArtistsWithSQLWhenListAllThenGetAList() {
+    fun `should get a list when listing all artists with sql`() {
         databasePopulator.populate(dataSource.connection)
         val artists = artistService.listArtists()
         Assertions.assertThat(artists).hasSizeGreaterThanOrEqualTo(4)

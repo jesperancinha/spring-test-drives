@@ -46,7 +46,7 @@ internal class Flash29ControllerKotlinTest @Autowired constructor(
     @Test
     @WithMockUser(username = "joao", roles = ["ADMIN"])
     @Throws(Exception::class)
-    fun testGenericHandleWhenCalledThenReturnOwnedJewelsView() {
+    fun `should return owned jewels view when generic handle is called`() {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
             .andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(MockMvcResultMatchers.view().name("ownedjewels"))
@@ -63,7 +63,7 @@ internal class Flash29ControllerKotlinTest @Autowired constructor(
     @Test
     @WithMockUser(username = "joao", roles = ["ADMIN"])
     @Throws(Exception::class)
-    fun testListJewelsWhenSimpleAuthenticationThenStillAbleToGetList() {
+    fun `should still be able to get list when simple authentication`() {
         val listOfJewels = listOf(
             JewelDto.builder().jewelType(JewelType.EMERALD).guardian("KittenPowers").build(),
             JewelDto.builder().jewelType(JewelType.RUBY).guardian("KittenStrongSword").build()
@@ -78,7 +78,7 @@ internal class Flash29ControllerKotlinTest @Autowired constructor(
     @Test
     @WithMockUser(username = "joao", roles = ["ADMIN"])
     @Throws(Exception::class)
-    fun testCreateJewelWhenCreatingOneThenCreateIt() {
+    fun `should create jewel when creating one`() {
         val kittenPowersJewel = JewelDto.builder().jewelType(JewelType.EMERALD).guardian("KittenPowers").build()
         every { jewelService.createJewel(kittenPowersJewel) } returns kittenPowersJewel
         mockMvc.perform(
@@ -94,7 +94,7 @@ internal class Flash29ControllerKotlinTest @Autowired constructor(
     @Test
     @WithMockUser(username = "joao", roles = ["ADMIN"])
     @Throws(Exception::class)
-    fun testJewelWhenFetchingByIdThenReturnMatchingJewel() {
+    fun `should return matching jewel when fetching by id`() {
         val jewelDto = JewelDto.builder().jewelType(JewelType.EMERALD).guardian("KittenPowers").build()
         every { jewelService.getJewelById(1L) } returns jewelDto
         mockMvc.perform(MockMvcRequestBuilders.get("/jewels/1"))
@@ -106,7 +106,7 @@ internal class Flash29ControllerKotlinTest @Autowired constructor(
     @Test
     @WithMockUser(username = "joao", roles = ["ADMIN"])
     @Throws(Exception::class)
-    fun testRemoveJewelWhenCallToDeleteJewel1ThenRemoveIt() {
+    fun `should remove jewel when calling delete jewel 1`() {
         val jewelDto = JewelDto.builder().jewelType(JewelType.EMERALD).guardian("KittenPowers").build()
         every { jewelService.getJewelById(1L) } returns jewelDto
         mockMvc.perform(MockMvcRequestBuilders.delete("/jewels/1"))
