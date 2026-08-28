@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash7.session.controllers.controllers
+package org.jesperancinha.spring.tutorial.persistence.rest.controller
 
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -27,7 +27,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint`(): Unit {
         testRestTemplate
-            .getForEntity<String>("/tulips")
+            .getForEntity<String>("/products/tulips")
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()
@@ -40,7 +40,7 @@ internal class ProductControllerKotlinTRTTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint, but in the ok it should get an error message`() {
         testRestTemplate
-            .getForEntity<String>("/tulips/ok")
+            .getForEntity<String>("/products/tulips/ok")
             .shouldNotBeNull()
             .apply { statusCode shouldBe HttpStatus.OK }
             .shouldNotBeNull()

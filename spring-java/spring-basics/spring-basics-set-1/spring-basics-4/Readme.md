@@ -99,6 +99,56 @@ curl -c cookies.txt -b cookies.txt -v http://localhost:8081/session
 ```
 </details>
 
+<details>
+<summary><h2><b>4. Exception Handling</b></h2></summary>
+
+## Introduction
+
+Exception Handling in Spring
+
+Topics
+
+1.  `@ResponseStatus(HttpStatus.NOT_FOUND)`, `@ControllerAdvice`,`ModelAndView`, `ResponseEntity`, `@ExceptionHandler`
+
+## Endpoints
+
+Check running on 8081
+
+```bash
+lsof -i :8081
+```
+
+1.  [http://localhost:8081/products/tulips](http://localhost:8081/tulips)
+2.  [http://localhost:8081/products/tulips/ok](http://localhost:8081/tulips/ok)
+3.  [http://localhost:8081/products/tulips/error](http://localhost:8081/tulips/error)
+4.  [http://localhost:8081/products/flowers/carnation](http://localhost:8081/flowers/carnation)
+5.  [http://localhost:8081/products/cars/kitt](http://localhost:8081/cars/kit)
+6.  [http://localhost:8081/products/flowers/loca/carnation](http://localhost:8081/flowers/local/carnation)
+7.  [http://localhost:8081/products/cars/local/kitt](http://localhost:8081/cars/local/kit)
+8.  [http://localhost:8081/products/fourwheels/monster](http://localhost:8081/fourwheels/monster)
+9.  [http://localhost:8081/products/pottery/amphor](http://localhost:8081/pottery/amphor)
+
+```bash
+curl http://localhost:8081/products/tulips
+curl http://localhost:8081/products/tulips/ok
+curl http://localhost:8081/products/tulips/error
+curl http://localhost:8081/products/flowers/carnation
+curl http://localhost:8081/products/cars/kitt
+curl http://localhost:8081/products/flowers/local/carnation
+curl http://localhost:8081/products/cars/local/kitt
+curl http://localhost:8081/products/cars/local/kitt
+curl http://localhost:8081/products/fourwheels/monster
+curl http://localhost:8081/products/pottery/amphor
+```
+
+In order to test by keeping the session it's easier just to refresh the browser on the endpoint, but you can also use this curl command:
+
+```bash
+curl -c cookies.txt -b cookies.txt -v http://localhost:8081/products
+```
+
+</details>
+
 ## Resources
 
 ### Books

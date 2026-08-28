@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash7.session.exceptions2;
+package org.jesperancinha.spring.tutorial.persistence.rest.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

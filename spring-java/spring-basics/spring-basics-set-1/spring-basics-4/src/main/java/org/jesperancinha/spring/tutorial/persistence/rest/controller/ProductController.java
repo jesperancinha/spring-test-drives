@@ -1,13 +1,8 @@
-package org.jesperancinha.spring.flash7.session.controllers;
+package org.jesperancinha.spring.tutorial.persistence.rest.controller;
 
-import org.jesperancinha.spring.flash7.session.exceptions.CarNotAvailableException;
-import org.jesperancinha.spring.flash7.session.exceptions.FlowerNotAvailableException;
-import org.jesperancinha.spring.flash7.session.exceptions2.CarNotAvailableException2;
-import org.jesperancinha.spring.flash7.session.exceptions2.FlowerNotAvailableException2;
-import org.jesperancinha.spring.flash7.session.exceptions2.FourWheelNotAvailableException;
-import org.jesperancinha.spring.flash7.session.exceptions2.PotteryNotAvailableException;
-import org.jesperancinha.spring.flash7.session.handlers.ErrorCar;
-import org.jesperancinha.spring.flash7.session.handlers.ErrorFlower;
+import org.jesperancinha.spring.tutorial.persistence.rest.exceptions.*;
+import org.jesperancinha.spring.tutorial.persistence.rest.handlers.ErrorCar;
+import org.jesperancinha.spring.tutorial.persistence.rest.handlers.ErrorFlower;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +14,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.GR
 import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.MAGENTA;
 
 @RestController
+@RequestMapping("/products")
 public class ProductController {
 
     @GetMapping(path = "tulips",

@@ -1,26 +1,28 @@
-package org.jesperancinha.spring.flash7.session.controllers.controllers
+package org.jesperancinha.spring.tutorial.persistence.rest.controller
 
-import tools.jackson.databind.ObjectMapper
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
 import io.kotest.matchers.types.shouldBeInstanceOf
-import org.jesperancinha.spring.flash7.session.controllers.ProductController
-import org.jesperancinha.spring.flash7.session.handlers.ErrorCar
-import org.jesperancinha.spring.flash7.session.handlers.ErrorFlower
-import org.jesperancinha.spring.flash7.session.handlers.MixErrorMessage
+import org.jesperancinha.spring.tutorial.persistence.rest.handlers.ErrorCar
+import org.jesperancinha.spring.tutorial.persistence.rest.handlers.ErrorFlower
+import org.jesperancinha.spring.tutorial.persistence.rest.handlers.MixErrorMessage
+import org.jesperancinha.spring.tutorial.persistence.rest.handlers.ProductsExceptionHandler
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.MockitoAnnotations.openMocks
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.http.HttpStatus.NOT_FOUND
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import tools.jackson.databind.ObjectMapper
 
 @WebMvcTest(controllers = [ProductController::class])
+@ContextConfiguration(classes = [ProductController::class, ProductsExceptionHandler::class])
 internal class ProductControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
@@ -36,7 +38,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint`(): Unit {
         mockMvc
-            .perform(get("/tulips"))
+            .perform(get("/products/tulips"))
             .andExpect(status().isOk)
             .andReturn()
             .shouldNotBeNull()
@@ -49,7 +51,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should get tulips in the general endpoint, but in the ok it should get an error message`() {
-        mockMvc.perform(get("/tulips/ok"))
+        mockMvc.perform(get("/products/tulips/ok"))
             .andExpect(status().isOk)
             .andReturn()
             .shouldNotBeNull()
@@ -64,7 +66,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should get a real service unavailable error`() {
-        mockMvc.perform(get("/tulips/error"))
+        mockMvc.perform(get("/products/tulips/error"))
             .andExpect(status().isServiceUnavailable)
             .andReturn()
             .shouldNotBeNull()
@@ -79,7 +81,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should result in an error when calling the generic rose endpoint`() {
-        mockMvc.perform(get("/flowers/rose"))
+        mockMvc.perform(get("/products/flowers/rose"))
             .andExpect(status().isNotFound)
             .andReturn()
             .shouldNotBeNull()
@@ -101,7 +103,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should result in no error when calling the generic kitt endpoint`() {
-        mockMvc.perform(get("/cars/kitt"))
+        mockMvc.perform(get("/products/cars/kitt"))
             .andExpect(status().isNotFound)
             .andReturn()
             .shouldNotBeNull()
@@ -122,7 +124,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should get an error when calling the local rose endpoint`() {
-        mockMvc.perform(get("/flowers/local/rose"))
+        mockMvc.perform(get("/products/flowers/local/rose"))
             .andExpect(status().isOk)
             .andReturn()
             .shouldNotBeNull()
@@ -156,7 +158,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should get an error when performing a request to the local car kitt endpoint`() {
-        mockMvc.perform(get("/cars/local/kitt"))
+        mockMvc.perform(get("/products/cars/local/kitt"))
             .andExpect(status().isOk)
             .andReturn()
             .shouldNotBeNull()
@@ -190,7 +192,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should get a pottery error when calling the pottery endpoint`() {
-        mockMvc.perform(get("/pottery/amphora"))
+        mockMvc.perform(get("/products/pottery/amphora"))
             .andExpect(status().isNotFound)
             .andReturn()
             .shouldNotBeNull()
@@ -209,7 +211,7 @@ internal class ProductControllerKotlinTest @Autowired constructor(
     @Test
     @Throws(Exception::class)
     fun `should get mix response when calling fourheels error endpoint`() {
-        mockMvc.perform(get("/fourwheels/rover"))
+        mockMvc.perform(get("/products/fourwheels/rover"))
             .andExpect(status().isNotFound)
             .andReturn()
             .shouldNotBeNull()

@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash7.session.handlers;
+package org.jesperancinha.spring.tutorial.persistence.rest.handlers;
 
 import org.springframework.http.HttpStatus;
 

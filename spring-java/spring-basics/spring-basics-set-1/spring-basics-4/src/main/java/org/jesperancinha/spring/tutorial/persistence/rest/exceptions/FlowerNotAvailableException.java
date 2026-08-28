@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash7.session.exceptions;
+package org.jesperancinha.spring.tutorial.persistence.rest.exceptions;
 
 public class FlowerNotAvailableException extends RuntimeException {
     public FlowerNotAvailableException(final String flower) {

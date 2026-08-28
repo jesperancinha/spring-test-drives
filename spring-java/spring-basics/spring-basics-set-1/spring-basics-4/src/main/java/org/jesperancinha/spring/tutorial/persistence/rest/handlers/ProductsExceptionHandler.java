@@ -1,11 +1,6 @@
-package org.jesperancinha.spring.flash7.session.handlers;
+package org.jesperancinha.spring.tutorial.persistence.rest.handlers;
 
-import org.jesperancinha.spring.flash7.session.exceptions.CarNotAvailableException;
-import org.jesperancinha.spring.flash7.session.exceptions.FlowerNotAvailableException;
-import org.jesperancinha.spring.flash7.session.exceptions2.CarNotAvailableException2;
-import org.jesperancinha.spring.flash7.session.exceptions2.FlowerNotAvailableException2;
-import org.jesperancinha.spring.flash7.session.exceptions2.FourWheelNotAvailableException;
-import org.jesperancinha.spring.flash7.session.exceptions2.PotteryNotAvailableException;
+import org.jesperancinha.spring.tutorial.persistence.rest.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

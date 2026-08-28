@@ -14,6 +14,10 @@ class SpringTutorialKotlinLauncherTest {
     private val mockMvc: MockMvc by lazy {  MockMvcBuilders.standaloneSetup(TimeController()).build() }
 
     @Test
+    fun `should be able to load application context`() {
+    }
+
+    @Test
     fun testCurrentDateWhenRequest_noErrors() {
         mockMvc.perform(
             post("/time")
