@@ -30,9 +30,9 @@ class SpringFlash44LauncherTest {
                         "{\"name\":\"requestMappingHandlerMapping\",\"order\":0,\"type\":\"org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping\"}," +
                         "{\"name\":\"beanNameHandlerMapping\",\"order\":2,\"type\":\"org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping\"}," +
                         "{\"name\":\"routerFunctionMapping\",\"order\":-1,\"type\":\"org.springframework.web.servlet.function.support.RouterFunctionMapping\"}," +
-                        "{\"name\":\"healthEndpointWebMvcHandlerMapping\",\"order\":-100,\"type\":\"org.springframework.boot.actuate.endpoint.web.servlet.AdditionalHealthEndpointPathsWebMvcHandlerMapping\"}," +
-                        "{\"name\":\"webEndpointServletHandlerMapping\",\"order\":-100,\"type\":\"org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping\"}," +
-                        "{\"name\":\"controllerEndpointHandlerMapping\",\"order\":-100,\"type\":\"org.springframework.boot.actuate.endpoint.web.servlet.ControllerEndpointHandlerMapping\"}]"))
+                        "{\"name\":\"healthEndpointWebMvcHandlerMapping\",\"order\":-100,\"type\":\"org.springframework.boot.webmvc.actuate.endpoint.web.AdditionalHealthEndpointPathsWebMvcHandlerMapping\"}," +
+                        "{\"name\":\"webEndpointServletHandlerMapping\",\"order\":-100,\"type\":\"org.springframework.boot.webmvc.actuate.endpoint.web.WebMvcEndpointHandlerMapping\"}," +
+                        "{\"name\":\"controllerEndpointHandlerMapping\",\"order\":-100,\"type\":\"org.springframework.boot.webmvc.actuate.endpoint.web.ControllerEndpointHandlerMapping\"}]"))
                 .andReturn();
 
         ConsolerizerComposer.outSpace()
