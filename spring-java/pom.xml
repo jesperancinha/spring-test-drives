@@ -23,6 +23,7 @@
         <module>spring-apps</module>
         <module>spring-action</module>
         <module>title-text-adder</module>
+        <module>spring-security</module>
     </modules>
 
 </project>
