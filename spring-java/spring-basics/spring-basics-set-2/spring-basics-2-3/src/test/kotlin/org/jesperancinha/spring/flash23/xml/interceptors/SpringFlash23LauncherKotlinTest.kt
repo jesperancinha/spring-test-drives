@@ -49,7 +49,7 @@ internal class SpringFlash23LauncherKotlinTest @Autowired constructor(
             .shouldHaveSize(3)
             .forEach {
                 it.shouldNotBeNull()
-                    .toString() shouldBe "org.jesperancinha.spring.flash23.xml.interceptors.SpringFlash23Launcher#getString()"
+                    .toString() shouldBe "org.jesperancinha.spring.flash23.xml.interceptors.controller.WineController#getString()"
             }
     }
 }
