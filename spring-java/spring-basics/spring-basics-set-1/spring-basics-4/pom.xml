@@ -18,8 +18,8 @@
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jesperancinha.console</groupId>
@@ -28,6 +28,10 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
         <dependency>
             <groupId>io.kotest</groupId>
@@ -47,6 +51,21 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-restclient-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ninja-squad</groupId>
+            <artifactId>springmockk</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-data-jpa-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.kotest</groupId>
+            <artifactId>kotest-framework-api-jvm</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
