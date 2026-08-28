@@ -9,7 +9,7 @@
 5.  [spring-basics-6](./spring-basics-6) - 🧮 Keep the math in the Session
 6.  [spring-basics-7](./spring-basics-7) - 🏎 🌺 Exception handling with cars and flowers
 7.  [spring-basics-8](./spring-basics-8) - 🎄 Xmas message with simple JSP in Spring
-8.  [spring-basics-9](./spring-basics-9) - 🤖 A very simple bot with SockJS support
+8.  [spring-basics-9](spring-websocks) - 🤖 A very simple bot with SockJS support
 9.  [spring-basics-10](./spring-basics-10) - 🛑 Error messages
 10. [spring-basics-11](./spring-basics-11) - 👔 Form parameters
 11. [spring-basics-12](./spring-basics-12) - 🔑 CORS explained via annotations

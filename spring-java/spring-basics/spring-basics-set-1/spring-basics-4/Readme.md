@@ -149,6 +149,49 @@ curl -c cookies.txt -b cookies.txt -v http://localhost:8081/products
 
 </details>
 
+<details>
+<summary><h2><b>5. Custom Health Endpoints</b></h2></summary>
+
+## Introduction
+
+Exploring Health Indicator in Spring
+
+Topics
+
+1.  `FileHealthIndicator`, `AbstractHealthIndicator`, `health`, `doHealthCheck`
+
+## Endpoints
+
+1.  [http://localhost:8081/actuator/health](http://localhost:8081/actuator/health)
+
+```bash
+curl localhost:8081/actuator/health
+```
+
+## How to run
+
+Copy file [testfile.txt](testfile.txt) to [/tmp](/tmp)
+
+```bash
+cp testfile.txt /tmp
+```
+
+Run Spring Boot
+
+1.  Running Health Checks the old way
+
+```bash
+mvn clean install spring-boot:run -Dspring-boot.run.profiles=test
+```
+
+2.  Running Health Checks the new way
+
+```bash
+mvn clean install spring-boot:run -Dspring-boot.run.profiles=prod
+```
+
+</details>
+
 ## Resources
 
 ### Books

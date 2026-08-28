@@ -112,7 +112,7 @@ i.e. [mermaid-plugin](https://chrome.google.com/webstore/detail/mermaid-diagrams
 
 ## Tech-stack Cloud
 
-`@Transational timeout`, `TestRestTemplate`, `HealthIndicator`, `actuator`, `Embedded`, `JPA`, `Big Data`
+`@Transational timeout`, `TestRestTemplate`, `FileHealthIndicator`, `actuator`, `Embedded`, `JPA`, `Big Data`
 
 ## Running unit and integration tests
 
