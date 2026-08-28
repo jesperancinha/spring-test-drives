@@ -8,13 +8,16 @@ import org.jesperancinha.spring.flash33.rollback.transactional.repositories.Epis
 import org.jesperancinha.spring.flash33.rollback.transactional.services.EpisodeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 
 @SpringBootTest
+@Execution(SAME_THREAD)
 class EpisodeServiceIT {
 
     @Autowired
@@ -30,7 +33,7 @@ class EpisodeServiceIT {
 
     @Test
     void testCreateEpisode_whenCreateOne_thenCallSave() {
-        final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
+        final var episodeDto = EpisodeDto.builder().name("The eyes see more").build();
 
         assertThatExceptionOfType(EpisodeException.class)
                 .isThrownBy(() -> episodeService.createEpisode(episodeDto));
@@ -39,7 +42,7 @@ class EpisodeServiceIT {
 
         assertThat(all).isNotNull();
         assertThat(all).hasSize(1);
-        final var episode = all.get(0);
+        final var episode = all.getFirst();
         assertThat(episode).isNotNull();
         assertThat(episode.getId()).isNotNull();
         assertThat(episode.getId()).isBetween(1L, 10L);
@@ -48,7 +51,7 @@ class EpisodeServiceIT {
 
     @Test
     void testCreateEpisodeExceptionRollback_whenCreateOne_thenCallSave() {
-        final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
+        final var episodeDto = EpisodeDto.builder().name("The eyes see more").build();
 
         assertThatExceptionOfType(VideoCountryException.class)
                 .isThrownBy(() -> episodeService.createEpisodeExceptionRollback(episodeDto));
@@ -61,7 +64,7 @@ class EpisodeServiceIT {
 
     @Test
     void testCreateEpisodeExceptionNoRollback_whenCreateOne_thenCallSave() {
-        final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
+        final var episodeDto = EpisodeDto.builder().name("The eyes see more").build();
 
         assertThatExceptionOfType(EpisodeException.class)
                 .isThrownBy(() -> episodeService.createEpisodeExceptionNoRollback(episodeDto));
@@ -70,7 +73,7 @@ class EpisodeServiceIT {
 
         assertThat(all).isNotNull();
         assertThat(all).hasSize(1);
-        final var episode = all.get(0);
+        final var episode = all.getFirst();
         assertThat(episode).isNotNull();
         assertThat(episode.getId()).isNotNull();
         assertThat(episode.getId()).isBetween(1L, 10L);
@@ -79,7 +82,7 @@ class EpisodeServiceIT {
 
     @Test
     void testCreateEpisodeMixRollback_whenCreateOne_thenCallSave() {
-        final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
+        final var episodeDto = EpisodeDto.builder().name("The eyes see more").build();
 
         assertThatExceptionOfType(VideoCountryException.class)
                 .isThrownBy(() -> episodeService.createEpisodeMixRollback(episodeDto));
@@ -92,7 +95,7 @@ class EpisodeServiceIT {
 
     @Test
     void testCreateEpisodeMixNoRollback_whenCreateOne_thenCallSave() {
-        final var episodeDto = EpisodeDto.builder().id(1L).name("The eyes see more").build();
+        final var episodeDto = EpisodeDto.builder().name("The eyes see more").build();
 
         assertThatExceptionOfType(EpisodeException.class)
                 .isThrownBy(() -> episodeService.createEpisodeMixNoRollback(episodeDto));
@@ -101,7 +104,7 @@ class EpisodeServiceIT {
 
         assertThat(all).isNotNull();
         assertThat(all).hasSize(1);
-        final var episode = all.get(0);
+        final var episode = all.getFirst();
         assertThat(episode).isNotNull();
         assertThat(episode.getId()).isNotNull();
         assertThat(episode.getId()).isBetween(1L, 10L);
