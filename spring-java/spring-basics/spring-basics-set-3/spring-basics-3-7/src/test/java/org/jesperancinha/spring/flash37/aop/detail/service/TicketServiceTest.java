@@ -14,6 +14,8 @@ import org.jesperancinha.spring.flash37.aop.detail.model.Ticket;
 import org.jesperancinha.spring.flash37.aop.detail.repository.TicketRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,6 +25,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import org.springframework.test.annotation.DirtiesContext;
@@ -33,6 +36,7 @@ import org.springframework.test.annotation.DirtiesContext;
         TicketAspectAfter.class, TicketAspectAround.class, TicketAspectBefore.class,
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(SAME_THREAD)
 public class TicketServiceTest {
 
     @Autowired
