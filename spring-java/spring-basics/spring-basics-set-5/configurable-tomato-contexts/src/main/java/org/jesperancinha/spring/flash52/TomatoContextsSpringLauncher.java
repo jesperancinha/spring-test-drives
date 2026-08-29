@@ -1,6 +1,7 @@
 package org.jesperancinha.spring.flash52;
 
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
+import org.jspecify.annotations.NonNull;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,7 +32,7 @@ public class TomatoContextsSpringLauncher implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String @NonNull ... args) {
         final var securityFilterChainRegistration = applicationContext.getBean("securityFilterChainRegistration", DelegatingFilterProxyRegistrationBean.class);
         final var delegatingFilterProxy = securityFilterChainRegistration.getFilter();
         outSpace()
