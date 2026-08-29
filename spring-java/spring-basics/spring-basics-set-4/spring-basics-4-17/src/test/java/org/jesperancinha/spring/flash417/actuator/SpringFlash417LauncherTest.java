@@ -31,8 +31,6 @@ class SpringFlash417LauncherTest {
                 .andExpect(content().json("{\"_links\":{" +
                         "\"self\":{\"href\":\"http://localhost/actuator\",\"templated\":false}," +
                         "\"beans\":{\"href\":\"http://localhost/actuator/beans\",\"templated\":false}," +
-                        "\"caches-cache\":{\"href\":\"http://localhost/actuator/caches/{cache}\",\"templated\":true}," +
-                        "\"caches\":{\"href\":\"http://localhost/actuator/caches\",\"templated\":false}," +
                         "\"health\":{\"href\":\"http://localhost/actuator/health\",\"templated\":false}," +
                         "\"health-path\":{\"href\":\"http://localhost/actuator/health/{*path}\",\"templated\":true}," +
                         "\"info\":{\"href\":\"http://localhost/actuator/info\",\"templated\":false}," +
