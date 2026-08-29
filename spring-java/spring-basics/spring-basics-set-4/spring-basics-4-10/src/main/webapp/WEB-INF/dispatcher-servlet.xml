@@ -9,11 +9,7 @@
     <context:component-scan base-package="org.jesperancinha.spring.flash410.*"/>
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix">
-            <value>/WEB-INF/jsp/</value>
-        </property>
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
