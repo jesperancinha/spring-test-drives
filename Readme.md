@@ -3,6 +3,7 @@
 ---
 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/36df977c04624e14956f72063c54cee2)](https://app.codacy.com/gh/jesperancinha/spring-test-drives?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/spring-test-drives&utm_campaign=Badge_Grade)
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Spring%20Test%20Drives&color=informational)](https://github.com/jesperancinha/spring-test-drives)
 [![GitHub License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
