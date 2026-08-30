@@ -48,8 +48,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdvice1(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric1())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric1())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.enumerateLyric1())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.enumerateLyric1())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
@@ -63,8 +63,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdvice2(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric2())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric2())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.enumerateLyric2())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.enumerateLyric2())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
@@ -78,8 +78,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdvice3(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric3())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric3())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.enumerateLyric3())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.enumerateLyric3())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
@@ -96,8 +96,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdviceResults(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric1())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric1())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric1())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric1())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
@@ -114,8 +114,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdviceResults(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric2())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric2())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric2())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric2())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
@@ -132,8 +132,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdviceResults(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric3())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric3())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric3())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric3())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
@@ -150,8 +150,8 @@ class LyricAspectTest {
         verify(joinPointService, times(1)).afterThrowingAdviceResults(joinPointArgumentCaptor.capture(), exceptionArgumentCaptor.capture());
         final List<JoinPoint> allValues = joinPointArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(2);
-        assertThat(allValues.get(0).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric4())");
-        assertThat(allValues.get(1).toString()).isEqualTo("execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric4())");
+        assertThat(allValues.get(0).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric4())");
+        assertThat(allValues.get(1).toString()).isEqualTo("execution(void org.jesperancinha.spring.tutorial.service.LyricsServiceImpl.resultLyric4())");
         final List<Exception> exceptionList = exceptionArgumentCaptor.getAllValues();
         assertThat(exceptionList.get(0)).isSameAs(runtimeException);
         assertThat(exceptionList.get(1)).isSameAs(runtimeException);
