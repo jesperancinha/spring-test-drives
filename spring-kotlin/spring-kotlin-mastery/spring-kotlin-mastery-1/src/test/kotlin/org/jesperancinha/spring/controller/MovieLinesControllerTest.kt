@@ -1,11 +1,11 @@
 package org.jesperancinha.spring.controller
 
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.ObjectMapper
 import org.jesperancinha.spring.old.webapp.model.Film
 import org.jesperancinha.spring.old.webapp.model.FilmGenre
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
@@ -17,13 +17,13 @@ internal class MovieLinesControllerTest @Autowired constructor(
     private val objectMapper: ObjectMapper = ObjectMapper()
 
     @Test
-    fun testGetQuotesWhenCallingThenGetQuotes() {
+    fun `should get quotes when calling`() {
         mockMvc.perform(get("/movies/thesoundofmusic"))
             .andExpect(content().string("The hills are alive with the sound of music"))
     }
 
     @Test
-    fun testAllFilmsWhenCallingThenGetAllFilms() {
+    fun `should get all films when calling`() {
         mockMvc.perform(get("/movies/list"))
             .andExpect(
                 content().json(

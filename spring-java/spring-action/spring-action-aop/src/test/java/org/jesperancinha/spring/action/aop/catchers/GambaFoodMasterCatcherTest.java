@@ -6,7 +6,6 @@ import org.jesperancinha.spring.action.aop.beans.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,6 +16,7 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 
 @ExtendWith({SpringExtension.class})
@@ -36,6 +36,7 @@ import static org.mockito.Mockito.*;
         BonitoAspect4.class
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class GambaFoodMasterCatcherTest {
 
     @MockitoBean
@@ -83,8 +84,7 @@ class GambaFoodMasterCatcherTest {
     @Autowired
     private TunaCatcher tunaCatcher;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
     @Test
     void testCatchWithNetWhenCallingMasterAnnotatedMethodThenTriggerTheRightAdvices() {

@@ -11,7 +11,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.GR
 @SpringBootApplication
 @EnableWebMvc
 public class SpringFlash51Launcher implements CommandLineRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GREEN.printGenericTitleLn("Service is starting");
         SpringApplication.run(SpringFlash51Launcher.class, args);
     }

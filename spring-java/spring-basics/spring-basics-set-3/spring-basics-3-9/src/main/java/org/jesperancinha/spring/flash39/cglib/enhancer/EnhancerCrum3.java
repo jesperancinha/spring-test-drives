@@ -19,7 +19,7 @@ import static org.jesperancinha.console.consolerizer.console.ConsolerizerCompose
 import static org.jesperancinha.console.consolerizer.console.ConsolerizerGraphs.printUnicornsLn;
 
 public class EnhancerCrum3 {
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         Consolerizer.maxLineCharsGlobal = 200;
         final var bean = new Bean();

@@ -11,8 +11,10 @@ import org.jesperancinha.spring.flash19.transactional.repos.AlbumRepository
 import org.jesperancinha.spring.flash19.transactional.services.AlbumService
 import org.jesperancinha.spring.flash19.transactional.services.AlbumServiceImpl
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -24,6 +26,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement
     classes = [AlbumServiceImpl::class, AlbumController::class],
     initializers = [AbstractTestContainersKotlinIT.DockerPostgresDataInitializer::class]
 )
+@Execution(ExecutionMode.SAME_THREAD)
 internal class AlbumControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     private val albumService: AlbumService,
@@ -32,7 +35,7 @@ internal class AlbumControllerKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCreateAlbumRollBackWhenCallCreateAlbumThenCreateAndRollback() {
+    fun `should create and rollback when calling create album rollback`() {
         val inputAlbum = AlbumDto()
             .apply {
                 name = "The Abbey Road Sessions"

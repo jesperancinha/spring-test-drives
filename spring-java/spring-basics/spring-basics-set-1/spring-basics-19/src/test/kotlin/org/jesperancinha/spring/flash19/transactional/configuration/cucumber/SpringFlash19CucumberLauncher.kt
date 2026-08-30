@@ -3,6 +3,9 @@ package org.jesperancinha.spring.flash19.transactional.configuration.cucumber
 import io.cucumber.junit.CucumberOptions
 import org.jesperancinha.spring.flash19.transactional.configuration.HikariConfiguration
 import org.jesperancinha.spring.flash19.transactional.configuration.containers.AbstractTestContainersKotlinIT
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.junit.platform.suite.api.IncludeEngines
 import org.junit.platform.suite.api.Suite
 import org.springframework.context.annotation.Import
@@ -14,5 +17,6 @@ import org.springframework.test.context.ContextConfiguration
 @Import(
     HikariConfiguration::class
 )
+@Execution(SAME_THREAD)
 @ContextConfiguration(initializers = [AbstractTestContainersKotlinIT.DockerPostgresDataInitializer::class])
 class SpringFlash19CucumberLauncher 

@@ -33,7 +33,7 @@ internal class SpringFlash214LauncherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testContext() {
+    fun `should load context`() {
         Car.builder().brand("Renault").model("Twingo").build()
             .let { car ->
                 carRepository.save(car)

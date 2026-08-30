@@ -8,6 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest
 class JeorgActionActuatorLauncherTest {
 
     @Test
-    fun context() {
+    fun `should load context`() {
     }
 }

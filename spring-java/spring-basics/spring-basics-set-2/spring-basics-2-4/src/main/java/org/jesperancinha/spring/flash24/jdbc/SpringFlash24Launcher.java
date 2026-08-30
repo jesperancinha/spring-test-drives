@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
@@ -22,7 +21,6 @@ import java.util.stream.Collectors;
 import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.*;
 
 @SpringBootApplication
-@RestController
 public class SpringFlash24Launcher implements CommandLineRunner {
     private final JdbcTemplate jdbcTemplate;
 
@@ -33,7 +31,7 @@ public class SpringFlash24Launcher implements CommandLineRunner {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash24Launcher.class, args);
     }
 

@@ -13,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.annotation.DirtiesContext
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [MegaTunaCatcher::class, TunaAspect::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class MegaTunaCatcherKotlinTest @Autowired constructor(
     private val megaTunaCatcher: MegaTunaCatcher,
     @MockkBean(relaxed = true)
@@ -26,7 +28,7 @@ internal class MegaTunaCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun catchWithNet() {
+    fun `should catch with net`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         megaTunaCatcher.catchWithNet()
         verify { tunaService.beforeCatching(capture(joinPointArgumentSlot)) }

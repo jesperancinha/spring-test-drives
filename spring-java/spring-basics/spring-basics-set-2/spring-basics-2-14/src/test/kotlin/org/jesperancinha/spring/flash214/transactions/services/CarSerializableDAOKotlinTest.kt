@@ -38,7 +38,7 @@ internal class CarSerializableDAOKotlinTest @Autowired constructor(
      */
     @Test
     @Throws(InterruptedException::class)
-    fun testSerializableWhenRunningThenExemplifySerializable() {
+    fun `should exemplify serializable when running`() {
         ConsolerizerComposer.outSpace()
             .cyan(ConsolerizerComposer.title("Serializable"))
             .magenta("In this example, we are writing data in one transaction.")

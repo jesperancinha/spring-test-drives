@@ -13,7 +13,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.OR
 
 @SpringBootApplication
 public class SpringFlash35Launcher implements CommandLineRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash35Launcher.class, args);
     }
 

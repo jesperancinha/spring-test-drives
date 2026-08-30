@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = "org.jesperancinha.spring.old.webapp.repository")
 @SpringBootApplication
 public class OldWebAppLauncher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(OldWebAppLauncher.class, args).refresh();
     }
 }

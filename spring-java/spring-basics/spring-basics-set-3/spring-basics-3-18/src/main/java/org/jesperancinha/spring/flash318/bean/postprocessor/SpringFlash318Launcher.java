@@ -18,7 +18,7 @@ public class SpringFlash318Launcher implements CommandLineRunner {
         this.recording = recording;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash318Launcher.class, args);
     }
 

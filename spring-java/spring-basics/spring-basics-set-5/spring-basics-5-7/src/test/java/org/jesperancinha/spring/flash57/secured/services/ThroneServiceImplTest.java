@@ -6,13 +6,14 @@ import org.jesperancinha.spring.flash57.secured.repository.ThroneRepository;
 import org.jesperancinha.spring.flash57.secured.security.Flash57PreConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -22,6 +23,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.jesperancinha.spring.flash57.secured.services.ThroneType.SAVANNAH_WOOD;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -31,6 +33,8 @@ import static org.mockito.Mockito.*;
         Flash57PreConfiguration.class,
         ThroneServiceImpl.class
 })
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(SAME_THREAD)
 class ThroneServiceImplTest {
 
     @Autowired
@@ -39,8 +43,7 @@ class ThroneServiceImplTest {
     @MockitoBean
     private ThroneRepository throneRepository;
 
-    @Captor
-    private ArgumentCaptor<Throne> throneArgumentCaptor;
+        private final ArgumentCaptor<Throne> throneArgumentCaptor = ArgumentCaptor.forClass(Throne.class);
 
     @BeforeEach
     public void setUp() {

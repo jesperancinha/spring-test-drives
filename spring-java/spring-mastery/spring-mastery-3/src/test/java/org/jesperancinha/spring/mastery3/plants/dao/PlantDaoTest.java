@@ -2,13 +2,16 @@ package org.jesperancinha.spring.mastery3.plants.dao;
 
 import org.jesperancinha.spring.mastery3.plants.model.Plant;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 
 @SpringBootTest
+@Execution(SAME_THREAD)
 public class PlantDaoTest {
 
     @Autowired

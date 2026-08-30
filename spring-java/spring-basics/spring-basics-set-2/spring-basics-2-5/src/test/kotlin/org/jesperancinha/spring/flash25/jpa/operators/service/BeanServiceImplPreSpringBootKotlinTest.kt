@@ -17,7 +17,7 @@ import org.springframework.context.event.ContextStartedEvent
 import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-@MockkBean(value = [BeanRepository::class], relaxed = true)
+@MockkBean(types = [BeanRepository::class], relaxed = true)
 @TestPropertySource("classpath:beans.properties")
 internal class BeanServiceImplPreSpringBootKotlinTest @Autowired constructor(
     private val beanService: BeanServiceImpl,

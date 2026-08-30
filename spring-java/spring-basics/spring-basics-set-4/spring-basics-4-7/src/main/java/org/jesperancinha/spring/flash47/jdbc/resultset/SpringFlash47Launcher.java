@@ -5,9 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @SpringBootApplication
 public class SpringFlash47Launcher implements CommandLineRunner {
 
@@ -18,7 +16,7 @@ public class SpringFlash47Launcher implements CommandLineRunner {
 
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{SpringFlash47Launcher.class}, args);
     }
 

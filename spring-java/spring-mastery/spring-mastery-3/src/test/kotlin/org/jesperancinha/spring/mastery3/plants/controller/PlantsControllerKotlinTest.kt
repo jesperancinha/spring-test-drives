@@ -1,6 +1,6 @@
 package org.jesperancinha.spring.mastery3.plants.controller
 
-import com.fasterxml.jackson.databind.ObjectMapper
+import tools.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
 import io.kotest.matchers.shouldBe
 import io.mockk.slot
@@ -9,8 +9,10 @@ import org.jesperancinha.spring.mastery3.plants.dto.PlantDto
 import org.jesperancinha.spring.mastery3.plants.model.Plant
 import org.jesperancinha.spring.mastery3.plants.service.PlantService
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType.*
 import org.springframework.test.web.servlet.MockMvc
@@ -19,6 +21,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@Execution(SAME_THREAD)
 class PlantsControllerKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc,
     @MockkBean(relaxed = true)
@@ -28,7 +31,7 @@ class PlantsControllerKotlinTest @Autowired constructor(
     private val objectMapper = ObjectMapper()
     @Test
     @Throws(Exception::class)
-    fun openPostFailWhenCalledTheResponseMustBeEmpty() {
+    fun `should return empty response when open post fails`() {
         val plantDto = PlantDto
             .builder()
             .name("Yucca")
@@ -52,7 +55,7 @@ class PlantsControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testGet3CopiesWhenCallThenReturn3Yuccas() {
+    fun `should return 3 yuccas when calling get 3 copies`() {
         val plantDto = PlantDto
             .builder()
             .name("Yucca")
@@ -76,7 +79,7 @@ class PlantsControllerKotlinTest @Autowired constructor(
 
     @Test
     @Throws(Exception::class)
-    fun testGet3CopiesArrayWhenCallThenReturn3Yuccas() {
+    fun `should return 3 yuccas array when calling get 3 copies array`() {
         val plantDto = PlantDto
             .builder()
             .name("Yucca")

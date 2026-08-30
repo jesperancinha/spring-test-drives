@@ -47,7 +47,7 @@ public class SpringFlash45Launcher extends SpringBootServletInitializer implemen
         return context;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{SpringFlash45Launcher.class}, args);
     }
 

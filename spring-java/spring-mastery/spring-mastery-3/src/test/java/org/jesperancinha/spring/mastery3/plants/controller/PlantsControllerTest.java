@@ -1,14 +1,13 @@
 package org.jesperancinha.spring.mastery3.plants.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.spring.mastery3.plants.dto.PlantDto;
 import org.jesperancinha.spring.mastery3.plants.model.Plant;
 import org.jesperancinha.spring.mastery3.plants.service.PlantService;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -23,9 +22,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class PlantsControllerTest {
 
     @Autowired
@@ -34,8 +35,7 @@ public class PlantsControllerTest {
     @MockitoBean
     private PlantService plantService;
 
-    @Captor
-    private ArgumentCaptor<Plant> argumentCaptor;
+        private final ArgumentCaptor<Plant> argumentCaptor = ArgumentCaptor.forClass(Plant.class);
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

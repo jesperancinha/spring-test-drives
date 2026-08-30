@@ -1,0 +1,117 @@
+package org.jesperancinha.spring.flash29.security.services;
+
+import org.jesperancinha.spring.flash29.security.domain.Jewel;
+import org.jesperancinha.spring.flash29.security.dto.JewelDto;
+import org.jesperancinha.spring.flash29.security.repository.JewelRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.mockito.ArgumentCaptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.jesperancinha.spring.flash29.security.services.JewelType.OPAL;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
+
+@SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(SAME_THREAD)
+class JewelServiceIT {
+
+    @Autowired
+    private JewelService jewelService;
+
+    @MockitoBean
+    private JewelRepository jewelRepository;
+
+    @BeforeEach
+    public void setUp() {
+        reset(jewelRepository);
+        when(jewelRepository.save(any())).thenAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]);
+    }
+
+        private final ArgumentCaptor<Jewel> jewelArgumentCaptor = ArgumentCaptor.forClass(Jewel.class);
+
+    @Test
+    void testCreateJewel_whenNoAuthentication_thenFail() {
+        final var jewel = JewelDto
+                .builder()
+                .jewelType(OPAL)
+                .guardian("Kitten")
+                .build();
+
+        assertThrows(AuthenticationCredentialsNotFoundException.class, () -> jewelService.createJewel(jewel));
+        verifyNoInteractions(jewelRepository);
+    }
+
+    @Test
+    @WithMockUser(username = "gregory_kitten")
+    void testCreateJewel_whenAuthenticationButNoRoles_thenFail() {
+        final var jewel = JewelDto
+                .builder()
+                .jewelType(OPAL)
+                .guardian("Kitten")
+                .build();
+
+        assertThrows(AccessDeniedException.class, () -> jewelService.createJewel(jewel));
+        verifyNoInteractions(jewelRepository);
+    }
+
+    @Test
+    @WithMockUser(username = "gregory_kitten",
+            roles = "ADMIN")
+    void testCreateJewel_whenAuthenticationButNotEnoughRoles_thenFail() {
+        final var jewel = JewelDto
+                .builder()
+                .jewelType(OPAL)
+                .guardian("Kitten")
+                .build();
+
+        assertThrows(AccessDeniedException.class, () -> jewelService.createJewel(jewel));
+        verifyNoInteractions(jewelRepository);
+    }
+
+    @Test
+    @WithMockUser(username = "gregory_kitten",
+            roles = {"ADMIN", "WRITE"})
+    void testCreateJewel_whenAuthenticationAndRolesButGuardianNotMatch_thenFail() {
+        final var jewel = JewelDto
+                .builder()
+                .jewelType(OPAL)
+                .guardian("Kitten")
+                .build();
+
+        assertThrows(AccessDeniedException.class, () -> jewelService.createJewel(jewel));
+        verifyNoInteractions(jewelRepository);
+    }
+
+    @Test
+    @WithMockUser(username = "gregory_kitten",
+            roles = {"ADMIN", "WRITE"})
+    void testCreateJewel_whenAuthenticationAndRightRoles_thenOk() {
+        final var jewel = JewelDto
+                .builder()
+                .jewelType(OPAL)
+                .guardian("gregory_kitten")
+                .build();
+
+        final var jewelResult = jewelService.createJewel(jewel);
+        assertThat(jewelResult.getJewelType()).isEqualTo(OPAL);
+        assertThat(jewelResult.getGuardian()).isEqualTo("gregory_kitten");
+        verify(jewelRepository, times(1)).save(jewelArgumentCaptor.capture());
+        final Jewel result = jewelArgumentCaptor.getValue();
+        assertThat(result).isNotNull();
+        assertThat(result.getGuardian()).isEqualTo(jewel.getGuardian());
+        assertThat(result.getJewelType()).isEqualTo(jewel.getJewelType());
+    }
+}

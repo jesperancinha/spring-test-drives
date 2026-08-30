@@ -38,7 +38,7 @@ internal class CarRepeatableReadDAOKotlinTest @Autowired constructor(
      */
     @Test
     @Throws(InterruptedException::class)
-    fun testRepeatableReadWhenRunningThenExemplifyRepeatableRead() {
+    fun `should exemplify repeatable read when running`() {
         ConsolerizerComposer.outSpace()
             .cyan(ConsolerizerComposer.title("Repeatable Read"))
             .magenta("In this example, we are writing data in one transaction.")

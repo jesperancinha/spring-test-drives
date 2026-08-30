@@ -151,7 +151,33 @@ If creating an entity like this, somehow works and is used in the test, the test
 
 Updates and other CRUD methods should be left as is. Only on creation should the above be considered.
 
-## 7. Test class checklist
+## 7. Name test according to Kotlin rules in Kotlin tests (.kt files)
+
+Some tests still use the naming that is convenient in `Java`. That naming convention established that test methods begin with `test` followed by a camelcase name describing the test.
+
+In Kotlin, we use string literals as a test name, that gets compiled into its byteclass version.
+However, some naming is still being used in some tests. Make sure that they get changed automatically with a text that beter describes the test.
+
+### Example 1
+
+```kotlin
+fun testGetStringWhenCalledThenTriggerInterceptors()
+```
+
+In this test, the new test name should consider the whole text from `test` onwards.
+Here we get `get`, `string`, `when`, `called`, `then`, `trigger`, `interceptors`.
+
+A new name could be:
+
+"should trigger interceptor when get string is called", so it should look like:
+
+```kotlin
+fun `should trigger interceptor when get string is called`()
+```
+
+This change only affects `kotlin` test classes with `.kt` extension. Do not change other files with other extensions.
+
+## 8. Test class checklist
 
 Before submitting/reviewing an integration test class, confirm:
 

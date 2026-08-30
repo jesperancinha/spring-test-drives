@@ -14,10 +14,12 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.util.stream.IntStream
+import org.springframework.test.annotation.DirtiesContext
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [GambaFoodCatcher::class, BonitoCatcher::class, MackerelCatcher::class, MegaTunaCatcher::class, SardineCatcher::class, ShrimpCatcher::class, TunaCatcher::class, GambaAspect::class, MasterAspect::class, BonitoAspect::class, BonitoAspect2::class, BonitoAspect3::class, BonitoAspect4::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class GambaFoodMasterCatcherKotlinTest @Autowired constructor(
     private val gambaFoodCatcher: GambaFoodCatcher,
     private val bonitoCatcher: BonitoCatcher,
@@ -45,7 +47,7 @@ internal class GambaFoodMasterCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCatchWithNetWhenCallingMasterAnnotatedMethodThenTriggerTheRightAdvices() {
+    fun `should trigger the right advices when calling master annotated method with net`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         gambaFoodCatcher.catchWithNet()
         bonitoCatcher.catchWithNet()

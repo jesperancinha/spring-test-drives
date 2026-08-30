@@ -13,7 +13,7 @@ internal class TheWorldConfigurationKotlinTest @Autowired constructor(
     private val material2: Material
 ) {
     @Test
-    fun testMaterial2whenInjectionGetMaterial2() {
+    fun `should get material 2 when injecting material 2`() {
         material2.value shouldBe "If you are strong enough!"
     }
 }

@@ -14,8 +14,9 @@ import org.jesperancinha.spring.flash37.aop.detail.model.Ticket;
 import org.jesperancinha.spring.flash37.aop.detail.repository.TicketRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -24,14 +25,18 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {
         TicketConfiguration.class, TicketService.class,
         TicketAspectAfter.class, TicketAspectAround.class, TicketAspectBefore.class,
 })
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(SAME_THREAD)
 public class TicketServiceTest {
 
     @Autowired
@@ -49,11 +54,9 @@ public class TicketServiceTest {
     @MockitoBean
     private TicketBeforeBean ticketBeforeBean;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
-    @Captor
-    private ArgumentCaptor<ProceedingJoinPoint> proceedingJoinPointArgumentCaptor;
+        private final ArgumentCaptor<ProceedingJoinPoint> proceedingJoinPointArgumentCaptor = ArgumentCaptor.forClass(ProceedingJoinPoint.class);
 
     /**
      * In this unit test, only the around and after advices are executed by the aspect at the respective cutpoints.

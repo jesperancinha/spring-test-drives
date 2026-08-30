@@ -7,7 +7,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.GR
 
 @SpringBootApplication
 public class SpringFlash41Launcher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GREEN.printGenericTitleLn("Service is starting");
         SpringApplication.run(SpringFlash41Launcher.class, args);
     }

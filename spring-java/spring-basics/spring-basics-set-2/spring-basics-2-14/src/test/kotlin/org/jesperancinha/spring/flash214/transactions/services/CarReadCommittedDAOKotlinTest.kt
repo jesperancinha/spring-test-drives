@@ -37,7 +37,7 @@ internal class CarReadCommittedDAOKotlinTest @Autowired constructor(
      */
     @Test
     @Throws(InterruptedException::class)
-    fun testReadCommittedWhenRunningThenExemplifyReadCommitted() {
+    fun `should exemplify read committed when running`() {
         ConsolerizerComposer.outSpace()
             .cyan(ConsolerizerComposer.title("Read Committed"))
             .magenta("In this example, we are writing data in one transaction.")

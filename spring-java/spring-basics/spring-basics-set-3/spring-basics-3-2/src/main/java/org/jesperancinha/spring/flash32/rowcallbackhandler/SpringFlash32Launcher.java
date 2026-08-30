@@ -19,7 +19,7 @@ public class SpringFlash32Launcher implements CommandLineRunner {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash32Launcher.class, args);
     }
 
