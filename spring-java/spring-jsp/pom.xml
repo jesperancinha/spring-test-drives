@@ -16,6 +16,7 @@
         <module>spring-basics-10</module>
         <module>spring-basics-11</module>
         <module>spring-basics-4-10</module>
+        <module>spring-basics-16</module>
     </modules>
 
     <packaging>pom</packaging>
