@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash18.aop.afterthrowing.beans;
+package org.jesperancinha.spring.tutorial.beans;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

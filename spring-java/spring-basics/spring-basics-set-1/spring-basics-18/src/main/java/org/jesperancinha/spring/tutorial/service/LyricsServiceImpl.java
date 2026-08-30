@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl;
+package org.jesperancinha.spring.tutorial.service;
 
 import org.springframework.stereotype.Service;
 

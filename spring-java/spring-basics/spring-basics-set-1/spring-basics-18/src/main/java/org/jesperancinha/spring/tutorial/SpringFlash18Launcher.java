@@ -1,8 +1,8 @@
-package org.jesperancinha.spring.flash18.aop.afterthrowing;
+package org.jesperancinha.spring.tutorial;
 
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
-import org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsService;
-import org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl;
+import org.jesperancinha.spring.tutorial.service.LyricsService;
+import org.jesperancinha.spring.tutorial.service.LyricsServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

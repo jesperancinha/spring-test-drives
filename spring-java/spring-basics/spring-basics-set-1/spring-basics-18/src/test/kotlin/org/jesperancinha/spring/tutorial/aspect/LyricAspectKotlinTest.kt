@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash18.aop.afterthrowing.aspect
+package org.jesperancinha.spring.tutorial.aspect
 
 import com.ninjasquad.springmockk.MockkBean
 import io.kotest.assertions.throwables.shouldThrow
@@ -8,8 +8,8 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeTypeOf
 import io.mockk.verify
 import org.aspectj.lang.JoinPoint
-import org.jesperancinha.spring.flash18.aop.afterthrowing.beans.JoinPointService
-import org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsService
+import org.jesperancinha.spring.tutorial.beans.JoinPointService
+import org.jesperancinha.spring.tutorial.service.LyricsService
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.parallel.Execution
 import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
@@ -53,10 +53,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric1())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric1())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric1())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric1())"
                 }
             }
         exceptions
@@ -87,10 +87,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric2())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric2())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric2())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric2())"
                 }
             }
         exceptions
@@ -121,10 +121,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric3())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric3())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric3())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric3())"
                 }
             }
         exceptions
@@ -165,10 +165,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric1())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric1())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric1())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric1())"
                 }
             }
         exceptions
@@ -209,10 +209,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric2())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric2())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric2())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric2())"
                 }
             }
         exceptions
@@ -253,10 +253,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric3())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric3())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.enumerateLyric3())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.enumerateLyric3())"
                 }
             }
         exceptions
@@ -302,10 +302,10 @@ internal class LyricAspectKotlinTest @Autowired constructor(
                 toList().apply {
                     get(0)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.resultLyric4())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric4())"
                     get(1)
                         .shouldNotBeNull()
-                        .toString() shouldBe "execution(void org.jesperancinha.spring.flash18.aop.afterthrowing.service.impl.LyricsServiceImpl.resultLyric4())"
+                        .toString() shouldBe "execution(void impl.service.org.jesperancinha.spring.tutorial.LyricsServiceImpl.resultLyric4())"
                 }
             }
         exceptions
