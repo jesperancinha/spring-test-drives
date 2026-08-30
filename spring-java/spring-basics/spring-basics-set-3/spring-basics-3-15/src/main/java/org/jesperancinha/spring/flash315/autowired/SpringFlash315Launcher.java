@@ -19,7 +19,7 @@ public class SpringFlash315Launcher implements CommandLineRunner {
     @Autowired(required = false)
     private SomethingElse somethingElse;
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash315Launcher.class, args);
     }
 

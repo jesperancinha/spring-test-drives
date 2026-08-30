@@ -3,7 +3,7 @@ package org.jesperancinha.spring.flash25.jpa.operators.service;
 import org.jesperancinha.spring.flash25.jpa.operators.domain.Bean;
 import org.jesperancinha.spring.flash25.jpa.operators.repos.BeanRepository;
 
-import javax.inject.Named;
+import jakarta.inject.Named;
 import java.util.List;
 
 @Named("that-other-bean-service")

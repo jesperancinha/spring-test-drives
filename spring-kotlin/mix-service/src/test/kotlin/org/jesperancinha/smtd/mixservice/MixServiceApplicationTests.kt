@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 class MixServiceApplicationTests {
 
     @Test
-    fun contextLoads() {
+    fun `should load context`() {
     }
 
 }

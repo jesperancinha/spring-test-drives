@@ -23,7 +23,7 @@ public class ScrapbookingForCatsAndCoffeeOwnersDotCom implements ApplicationRunn
         this.scrapbookService = scrapbookService;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(ScrapbookingForCatsAndCoffeeOwnersDotCom.class, args);
     }
 

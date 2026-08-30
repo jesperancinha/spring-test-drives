@@ -1,11 +1,11 @@
 package org.jesperancinha.spring.flash415.http.converter.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.spring.flash415.http.converter.domain.TearDrop;
 import org.jesperancinha.spring.flash415.http.converter.domain.TearDropReport;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;

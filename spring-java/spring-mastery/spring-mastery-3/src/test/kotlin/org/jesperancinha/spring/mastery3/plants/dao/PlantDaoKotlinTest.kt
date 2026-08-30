@@ -7,11 +7,15 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import org.jesperancinha.spring.mastery3.plants.model.Plant
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.security.test.context.support.WithMockUser
 
 @SpringBootTest
+@Execution(SAME_THREAD)
 class PlantDaoKotlinTest @Autowired constructor(
     private val plantDao: PlantDao
 ) {
@@ -29,7 +33,7 @@ class PlantDaoKotlinTest @Autowired constructor(
 
     @Test
     @WithMockUser(username = "Joao")
-    fun testGetFilteredList() {
+    fun `should get filtered list`() {
         plantDao.examplePlants
             .shouldNotBeNull()
             .shouldHaveSize(1)

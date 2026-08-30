@@ -18,10 +18,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.annotation.DirtiesContext
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [HarvestingAspect::class, HarvestingService::class, Fisher::class, Shrimper::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class HarvestingAspectKotlinTest @Autowired constructor(
     private val fisher: Fisher,
     private val shrimper: Shrimper,
@@ -30,7 +32,7 @@ internal class HarvestingAspectKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testAnyHarvesterWhenCall3HarversterTypesNSubsThenTriggerAdvices() {
+    fun `should trigger advices when calling 3 harvester types and subs`() {
         fisher.harvest()
         shrimper.harvest()
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
@@ -77,7 +79,7 @@ internal class HarvestingAspectKotlinTest @Autowired constructor(
 
 
     @Test
-    fun testAnyHarvesterWhenCallReferenceToFisherThenTriggerOnlyFisherRefAdvicesAndAllInstanceShrimperAdvices() {
+    fun `should trigger only fisher ref advices and all instance shrimper advices when calling reference to fisher`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         shrimper.harvest()
         verify { harvestingService.thisHarvester(capture(joinPointArgumentSlot)) }
@@ -110,7 +112,7 @@ internal class HarvestingAspectKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testFishAnythingWhenCallReferenceToFisherThenTriggerOnlyFisherRefAdvicesAndAllInstanceShrimperAdvices() {
+    fun `should trigger only fisher ref advices and all instance shrimper advices when calling reference to fisher on fish anything`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         shrimper.justFishAnything()
         verify { harvestingService.thisHarvester(capture(joinPointArgumentSlot)) }
@@ -140,7 +142,7 @@ internal class HarvestingAspectKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testFishShrimpWhenCallParameterThenTriggerOnlyFisherRefAdvicesAndAllInstanceShrimperAdvices() {
+    fun `should trigger only fisher ref advices and all instance shrimper advices when calling parameter on fish shrimp`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         val shrimperArgumentSlot = slot<Shrimper>()
         shrimper.secretHarvest()
@@ -185,7 +187,7 @@ internal class HarvestingAspectKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testFishShrimpWhenCallParameterThenProxyServiceGetsIntoAdvice() {
+    fun `should enter advice through proxy service when calling parameter on fish shrimp`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         val shrimperArgumentSlot = slot<Shrimper>()
         shrimper.secretHarvest()

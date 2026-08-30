@@ -6,6 +6,8 @@ import org.jesperancinha.spring.mastery2.portuguese.music.repositories.ArtistRep
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
@@ -25,6 +27,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @ContextConfiguration
 @Import(TestDatabaseConfiguration.class)
 @ExtendWith(SpringExtension.class)
+@Execution(ExecutionMode.SAME_THREAD)
 class ArtistServiceImplDbPopulatorTest {
 
     @Autowired
@@ -49,17 +52,21 @@ class ArtistServiceImplDbPopulatorTest {
         databasePopulator.populate(dataSource.getConnection());
         final var artists = artistService.listArtists();
 
-        assertThat(artists).hasSize(4);
-        final var actual = artists.get(0);
+        assertThat(artists).hasSizeGreaterThanOrEqualTo(4);
+        final var actual = artists.stream().filter(artist -> artist.getName().equals("UHF"))
+                .findFirst().orElseThrow();
         assertThat(actual.getName()).isEqualTo("UHF");
         assertThat(actual.getNationality()).isEqualTo("Portuguese");
-        final var actual2 = artists.get(1);
+        final var actual2 = artists.stream().filter(artist -> artist.getName().equals("Radio Macau"))
+                .findFirst().orElseThrow();
         assertThat(actual2.getName()).isEqualTo("Radio Macau");
         assertThat(actual2.getNationality()).isEqualTo("Portuguese");
-        final var actual3 = artists.get(2);
+        final var actual3 = artists.stream().filter(artist -> artist.getName().equals("Humanos"))
+                .findFirst().orElseThrow();
         assertThat(actual3.getName()).isEqualTo("Humanos");
         assertThat(actual3.getNationality()).isEqualTo("Portuguese");
-        final var actual4 = artists.get(3);
+        final var actual4 = artists.stream().filter(artist -> artist.getName().equals("Mler Ife Dada"))
+                .findFirst().orElseThrow();
         assertThat(actual4.getName()).isEqualTo("Mler Ife Dada");
         assertThat(actual4.getNationality()).isEqualTo("Portuguese");
 

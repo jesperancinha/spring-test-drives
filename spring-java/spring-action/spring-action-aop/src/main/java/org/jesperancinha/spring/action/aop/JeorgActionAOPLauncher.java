@@ -49,7 +49,7 @@ public class JeorgActionAOPLauncher implements ApplicationRunner {
         this.tunaCatcher = tunaCatcher;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(JeorgActionAOPLauncher.class, args);
     }
 

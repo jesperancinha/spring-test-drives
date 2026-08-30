@@ -4,7 +4,6 @@ import org.jesperancinha.spring.flash26.jdbc.handlers.model.Shell;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
@@ -18,8 +17,10 @@ import java.util.Arrays;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class SpringFlash26LauncherTest {
 
     @MockitoSpyBean
@@ -28,14 +29,13 @@ class SpringFlash26LauncherTest {
     @Autowired
     private SpringFlash26Launcher springFlash26Launcher;
 
-    @Captor
-    private ArgumentCaptor<String> stringArgumentCaptor;
+        private final ArgumentCaptor<String> stringArgumentCaptor = ArgumentCaptor.forClass(String.class);
 
-    @Captor
-    private ArgumentCaptor<RowMapper<Shell>> rowMapperArgumentCaptor;
+    @SuppressWarnings("unchecked")
+    private final ArgumentCaptor<RowMapper<Shell>> rowMapperArgumentCaptor = (ArgumentCaptor<RowMapper<Shell>>) (ArgumentCaptor<?>) ArgumentCaptor.forClass(RowMapper.class);
 
-    @Captor
-    private ArgumentCaptor<ResultSetExtractor<String>> resultSetExtractorArgumentCaptor;
+    @SuppressWarnings("unchecked")
+    private final ArgumentCaptor<ResultSetExtractor<String>> resultSetExtractorArgumentCaptor = (ArgumentCaptor<ResultSetExtractor<String>>) (ArgumentCaptor<?>) ArgumentCaptor.forClass(ResultSetExtractor.class);
 
     @BeforeEach
     public void setUp() {

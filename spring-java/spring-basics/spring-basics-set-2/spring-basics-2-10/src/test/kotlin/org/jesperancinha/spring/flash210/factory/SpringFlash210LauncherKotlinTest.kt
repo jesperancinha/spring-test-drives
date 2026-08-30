@@ -14,7 +14,7 @@ internal class SpringFlash210LauncherKotlinTest @Autowired constructor(
     private val material: Material
 ) {
     @Test
-    fun testContext() {
+    fun `should load context`() {
         material
             .shouldNotBeNull()
             .value shouldBe "The world is not enough!"

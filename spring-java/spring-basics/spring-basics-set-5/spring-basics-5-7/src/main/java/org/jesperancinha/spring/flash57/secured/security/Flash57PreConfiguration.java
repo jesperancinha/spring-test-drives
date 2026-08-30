@@ -1,9 +1,9 @@
 package org.jesperancinha.spring.flash57.secured.security;
 
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 @Profile({"prod", "!test and !acc"})
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity(prePostEnabled = true)
 public class Flash57PreConfiguration {
 }

@@ -17,9 +17,13 @@
         <module>spring-topics</module>
         <module>spring-mastery</module>
         <module>spring-basics</module>
+        <module>spring-jsp</module>
+        <module>spring-frontend</module>
+        <module>spring-basics-service</module>
         <module>spring-apps</module>
         <module>spring-action</module>
         <module>title-text-adder</module>
+        <module>spring-security</module>
     </modules>
 
 </project>

@@ -2,7 +2,7 @@ package org.jesperancinha.spring.flash417.actuator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -31,8 +31,6 @@ class SpringFlash417LauncherTest {
                 .andExpect(content().json("{\"_links\":{" +
                         "\"self\":{\"href\":\"http://localhost/actuator\",\"templated\":false}," +
                         "\"beans\":{\"href\":\"http://localhost/actuator/beans\",\"templated\":false}," +
-                        "\"caches-cache\":{\"href\":\"http://localhost/actuator/caches/{cache}\",\"templated\":true}," +
-                        "\"caches\":{\"href\":\"http://localhost/actuator/caches\",\"templated\":false}," +
                         "\"health\":{\"href\":\"http://localhost/actuator/health\",\"templated\":false}," +
                         "\"health-path\":{\"href\":\"http://localhost/actuator/health/{*path}\",\"templated\":true}," +
                         "\"info\":{\"href\":\"http://localhost/actuator/info\",\"templated\":false}," +

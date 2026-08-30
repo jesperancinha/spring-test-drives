@@ -1,6 +1,6 @@
 ---
 name: kotlin patterns
-description: Conventions for using Kotlin
+description: Conventions for using Kotlin. It only affects .kt files
 ---
 
 ## 1. Remove usage of `!!` operator
@@ -120,7 +120,52 @@ private val CSV_HEADER = CSVFormat.DEFAULT.builder()
     ).get()
 ```
 
-## 8. Checklist
+## 8. For all uses of Lombok in Kotlin classes that still use its builder pattern, please convert them to data classes
+
+Due to Java conversions to Kotlin, some of them, due to their automatic nature, didn't consider the existence of data classes.
+If Kotlin classes still use lombok for the builder pattern please convert them to `data class`.
+
+## 9. Replace the package of `jackson-module-kotlin` 
+
+Please replace:
+
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.module</groupId>
+    <artifactId>jackson-module-kotlin</artifactId>
+</dependency>
+```
+
+with 
+
+```xml
+<dependency>
+    <groupId>tools.jackson.module</groupId>
+    <artifactId>jackson-module-kotlin</artifactId>
+</dependency>
+```
+
+## 10. Replace usages of deprected URL(url) contructor and use URI.toURL() instead
+
+The usage of the URL constructor is deprecated. When finding it please replace it with `URI.toURL()`
+
+### Example 1.
+
+Replace
+
+```kotlin
+URL("http://" + host + ":" + port)
+```
+
+with
+
+```kotlin
+URI.create("http://$host:$port").toURL()
+```
+
+The usage of create wil make a `URI` object, which then can be converted to a `URL` object via the `toURL()` method.
+
+## 11. Checklist
 
 [ ] The code does not use the `!!` operator.
 [ ] The code does not use the safe call operator (`?.`) when the value is guaranteed to be non-null.

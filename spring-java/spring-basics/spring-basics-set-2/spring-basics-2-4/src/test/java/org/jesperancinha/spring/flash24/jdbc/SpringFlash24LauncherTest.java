@@ -4,7 +4,6 @@ import org.jesperancinha.spring.flash24.jdbc.template.Concert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,10 +28,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Testcontainers
 @ContextConfiguration(initializers = {SpringFlash24LauncherTest.Initializer.class})
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class SpringFlash24LauncherTest {
 
     @MockitoSpyBean
@@ -41,14 +42,12 @@ class SpringFlash24LauncherTest {
     @Autowired
     private SpringFlash24Launcher springFlash24Launcher;
 
-    @Captor
-    private ArgumentCaptor<RowMapper<Concert>> rowMapperArgumentCaptor;
+    @SuppressWarnings("unchecked")
+    private final ArgumentCaptor<RowMapper<Concert>> rowMapperArgumentCaptor = (ArgumentCaptor<RowMapper<Concert>>) (ArgumentCaptor<?>) ArgumentCaptor.forClass(RowMapper.class);
 
-    @Captor
-    private ArgumentCaptor<String> stringArgumentCaptor;
+        private final ArgumentCaptor<String> stringArgumentCaptor = ArgumentCaptor.forClass(String.class);
 
-    @Captor
-    private ArgumentCaptor<AbstractFallbackSQLExceptionTranslator> abstractFallbackSQLExceptionTranslatorArgumentCaptor;
+        private final ArgumentCaptor<AbstractFallbackSQLExceptionTranslator> abstractFallbackSQLExceptionTranslatorArgumentCaptor = ArgumentCaptor.forClass(AbstractFallbackSQLExceptionTranslator.class);
 
     @Container
     static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14")

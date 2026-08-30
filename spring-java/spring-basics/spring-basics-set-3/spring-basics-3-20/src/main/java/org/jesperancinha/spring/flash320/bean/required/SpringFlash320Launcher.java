@@ -28,7 +28,7 @@ public class SpringFlash320Launcher implements CommandLineRunner {
         this.peopleXml = peopleXml;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GREEN.printGenericTitleLn("Service is starting");
         SpringApplication.run(SpringFlash320Launcher.class, args);
     }

@@ -1,38 +1,26 @@
-version: 2
+version: 2.1
+
+orbs:
+  maven: circleci/maven@1.4.1
+
 jobs:
   build:
-    machine:
-      image: ubuntu-2204:2023.04.2
-
-    working_directory: ~/repo
-
-    environment:
-      # Customize the JVM maximum heap limit
-      MAVEN_OPTS: -Xmx3200m
+    executor:
+      name: maven/default
+      tag: '25.0'
 
     steps:
       - checkout
 
-      - run:
-          name: Install SDK 25
-          command: wget https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.3%2B9/OpenJDK25U-jdk_x64_linux_hotspot_25.0.3_9.tar.gz &&
-            tar -xvf OpenJDK25U-jdk_x64_linux_hotspot_25.0.3_9.tar.gz &&
-            sudo mv jdk-25*/ /opt/jdk25 &&
-            export JAVA_HOME=/opt/jdk25 &&
-            echo "export JAVA_HOME=/opt/jdk25" >> ~/.bashrc &&
-            echo "export PATH=$JAVA_HOME/bin:$PATH" >> ~/.bashrc
+      - setup_remote_docker:
+          version: default
+          docker_layer_caching: true
 
       - run:
-          name: Build
-          command: java -version &&
-            mvn -B -DskipTests clean package
+          name: Run make b
+          command: make b
 
-      - run:
-          name: Test
-          command: java -version &&
-            make b
-
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+workflows:
+  maven_test:
+    jobs:
+      - build

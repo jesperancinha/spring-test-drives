@@ -1,11 +1,11 @@
 package org.jesperancinha.spring.flash316.requestparam.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.spring.flash316.requestparam.model.Think;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
@@ -37,7 +37,7 @@ class ThinkControllerTest {
         final var thinkStrings = allThinks.stream().map(thinkString -> {
             try {
                 return objectMapper.writeValueAsString(thinkString);
-            } catch (JsonProcessingException e) {
+            } catch (JacksonException e) {
                 return null;
             }
         }).collect(Collectors.toList());
@@ -62,7 +62,7 @@ class ThinkControllerTest {
         final var thinkStrings = allThinks.stream().map(thinkString -> {
             try {
                 return objectMapper.writeValueAsString(thinkString);
-            } catch (JsonProcessingException e) {
+            } catch (JacksonException e) {
                 return null;
             }
         }).collect(Collectors.toList());

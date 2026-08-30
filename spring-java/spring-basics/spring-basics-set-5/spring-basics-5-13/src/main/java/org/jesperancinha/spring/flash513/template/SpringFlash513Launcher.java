@@ -1,6 +1,5 @@
 package org.jesperancinha.spring.flash513.template;
 
-import jakarta.servlet.http.HttpServletResponse;
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
 import org.jesperancinha.spring.flash513.template.dto.Casket;
 import org.springframework.boot.ApplicationArguments;
@@ -8,21 +7,15 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 
 import static org.jesperancinha.console.consolerizer.console.ConsolerizerComposer.quote;
 
-@RestController
-@RequestMapping("api")
 @SpringBootApplication
 public class SpringFlash513Launcher implements ApplicationRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash513Launcher.class, args);
     }
 
@@ -68,17 +61,5 @@ public class SpringFlash513Launcher implements ApplicationRunner {
                 .yellow("We received our casket back!")
                 .orange(casketReturn)
                 .reset();
-    }
-
-    @PostMapping(path = "casket")
-    public Casket sendCasket(
-            @RequestBody
-            final Casket casket, HttpServletResponse httpServletResponse) {
-        ConsolerizerComposer.outSpace()
-                .brightBlue("We just received your casket filled with")
-                .brightGreen(casket)
-                .reset();
-        httpServletResponse.addHeader("Location", "http://joaofilipesabinoesperancinha.nl");
-        return casket;
     }
 }

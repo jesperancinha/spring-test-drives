@@ -7,7 +7,6 @@ import org.jesperancinha.spring.action.aop.pickers.OysterPicker;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,6 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+import org.springframework.test.annotation.DirtiesContext;
 
 @ExtendWith({SpringExtension.class})
 @ContextConfiguration(classes = {
@@ -24,6 +24,7 @@ import static org.mockito.Mockito.*;
         OysterPicker.class,
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 class OysterAspectTest {
 
     @Autowired
@@ -32,11 +33,9 @@ class OysterAspectTest {
     @MockitoBean
     private OysterService oysterService;
 
-    @Captor
-    private ArgumentCaptor<JoinPoint> joinPointArgumentCaptor;
+        private final ArgumentCaptor<JoinPoint> joinPointArgumentCaptor = ArgumentCaptor.forClass(JoinPoint.class);
 
-    @Captor
-    private ArgumentCaptor<Oyster> oysterArgumentCaptor;
+        private final ArgumentCaptor<Oyster> oysterArgumentCaptor = ArgumentCaptor.forClass(Oyster.class);
 
     @Test
     void testOysterProcessing() {

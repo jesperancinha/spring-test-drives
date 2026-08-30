@@ -10,7 +10,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.RE
 import static org.jesperancinha.console.consolerizer.console.ConsolerizerGraphs.printUnicornsLn;
 
 public class EnhancerCrum4 {
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         Consolerizer.maxLineCharsGlobal = 200;
         final var bean = new Bean();
@@ -24,21 +24,18 @@ public class EnhancerCrum4 {
         final var proxy =
                 (IBean) Proxy.newProxyInstance(IBean.class.getClassLoader(),
                         bean.getClass().getInterfaces(),
-                        new java.lang.reflect.InvocationHandler() {
-                            @Override
-                            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                                if (method.getReturnType() == String.class && method.getName().equals("beanState")) {
-                                    return "This is a plant and no soup is made";
-                                }
-                                if (method.getName().equals("makeBeanSoup")) {
-                                    RED.printThrowableAndExit(new RuntimeException("A private method never gets intercepted"));
-                                    return "Soup would be made here, but this is never called";
-                                }
-                                if (method.getReturnType() == String.class && method.getName().equals("makeProtectedBeanSoup")) {
-                                    return "We cannot do a protected method. We can still make a soup with public though. JDK proxies need interfaces";
-                                } else {
-                                    return method.invoke(bean);
-                                }
+                        (proxy1, method, args1) -> {
+                            if (method.getReturnType() == String.class && method.getName().equals("beanState")) {
+                                return "This is a plant and no soup is made";
+                            }
+                            if (method.getName().equals("makeBeanSoup")) {
+                                RED.printThrowableAndExit(new RuntimeException("A private method never gets intercepted"));
+                                return "Soup would be made here, but this is never called";
+                            }
+                            if (method.getReturnType() == String.class && method.getName().equals("makeProtectedBeanSoup")) {
+                                return "We cannot do a protected method. We can still make a soup with public though. JDK proxies need interfaces";
+                            } else {
+                                return method.invoke(bean);
                             }
                         });
 

@@ -23,7 +23,7 @@ public class SpringFlash515Launcher implements ApplicationRunner {
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         final SpringApplication springApplication = new SpringApplication(SpringFlash515Launcher.class);
         SpringFlash515Launcher.application = springApplication;
         springApplication.run(args);

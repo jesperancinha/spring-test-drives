@@ -14,10 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.annotation.DirtiesContext
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [GambaFoodCatcher::class, GambaAspect::class])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class GambaFoodCatcherKotlinTest @Autowired constructor(
     private val gambaFoodCatcher: GambaFoodCatcher,
     @MockkBean(relaxed = true)
@@ -25,7 +27,7 @@ internal class GambaFoodCatcherKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCatchWithNetWhenCallingThenTriggerAllMatchingBeforeAdvices() {
+    fun `should trigger all matching before advices when catching with net`() {
         gambaFoodCatcher.catchWithNet()
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         verify { gambaService.beforeWithin(capture(joinPointArgumentSlot)) }
@@ -37,7 +39,7 @@ internal class GambaFoodCatcherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchByHandWhenCallingThenTriggerAllMatchingBeforeAdvices() {
+    fun `should trigger all matching before advices when catching by hand`() {
         gambaFoodCatcher.catchByHand()
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         verify { gambaService.beforeAnnotation(capture(joinPointArgumentSlot)) }

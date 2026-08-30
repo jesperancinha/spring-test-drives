@@ -27,7 +27,7 @@ public class ThroneServiceJsr250Impl implements ThroneService {
      * @param throne
      * @return
      */
-    @RolesAllowed("ROLE_RULER")
+    @RolesAllowed("RULER")
     public ThroneDto createThrone(Throne throne) {
         final Throne save = this.throneRepository.save(throne);
         return ThroneDto
@@ -43,25 +43,25 @@ public class ThroneServiceJsr250Impl implements ThroneService {
      *
      * @param throne
      */
-    @RolesAllowed("ROLE_RULER")
+    @RolesAllowed("RULER")
     public void updateThrone(Throne throne) {
         this.throneRepository.save(throne);
     }
 
-    /**
+    /**`
      * (R) ead
      *
      * @param id
      * @return {@link Throne}
      */
-    @RolesAllowed("ROLE_RULER")
+    @RolesAllowed("RULER")
     public Throne getThrone(final Long id) {
         final var throne = throneRepository.getOne(id);
         ORANGE.printGenericLn(throne);
         return throne;
     }
 
-    @RolesAllowed("ROLE_RULER")
+    @RolesAllowed("RULER")
     public List<Throne> getAll() {
         return throneRepository.findAll();
     }
@@ -71,12 +71,12 @@ public class ThroneServiceJsr250Impl implements ThroneService {
      *
      * @param throne
      */
-    @RolesAllowed("ROLE_RULER")
+    @RolesAllowed("RULER")
     public void deleteThrone(Throne throne) {
         throneRepository.delete(throne);
     }
 
-    @RolesAllowed({"ROLE_RULER", "ROLE_ADMIN", "ROLE_DANCER"})
+    @RolesAllowed({"RULER", "ADMIN", "DANCER"})
     public String dance() {
         return "We would Pop Champagne and Raise our tones!";
     }

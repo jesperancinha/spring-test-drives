@@ -7,7 +7,7 @@ class SolrJSearcherKotlinTest {
     @Test
     @Disabled
     @Throws(Exception::class)
-    fun testGetAllFilteredResults() {
+    fun `should get all filtered results`() {
         SolrJSearcher().getAllFilteredResults("*")
             .forEach{solrDocument ->
                 println(solrDocument["title"])
