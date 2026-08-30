@@ -49,7 +49,7 @@ public class SpringFlash25Launcher implements CommandLineRunner {
         this.source = source;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash25Launcher.class, args).start();
     }
 

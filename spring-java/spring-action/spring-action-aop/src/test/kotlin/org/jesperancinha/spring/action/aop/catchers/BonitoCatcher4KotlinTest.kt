@@ -16,11 +16,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy
 import org.springframework.context.annotation.ImportResource
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.test.annotation.DirtiesContext
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(classes = [BonitoCatcher::class, BonitoAspect4::class])
 @ImportResource("classpath:bean.xml")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 internal class BonitoCatcher4KotlinTest @Autowired constructor(
     private val bonitoCatcher: BonitoCatcher,
     @MockkBean(relaxed = true)
@@ -28,7 +30,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testCatchWithNetwhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with net is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithNet()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -37,7 +39,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithFishingPoleWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with fishing pole is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithFishingPole()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -46,7 +48,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchByHandWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch by hand is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchByHand()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -57,7 +59,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchByHandExtraWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch by hand extra is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchByHandExtra()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -68,7 +70,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithClawsWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with claws is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithClaws()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -84,7 +86,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithSuperSonicWavesWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with super sonic waves is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithSuperSonicWaves()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -94,7 +96,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithABucketWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with a bucket is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithABucket()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }
@@ -104,7 +106,7 @@ internal class BonitoCatcher4KotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testCatchWithLoveWhenCalledThenTriggerAllAdvices() {
+    fun `should trigger all advices when catch with love is called`() {
         val joinPointArgumentSlot = mutableListOf<JoinPoint>()
         bonitoCatcher.catchWithLove()
         verify { bonito4Service.beforeAnyCatch(capture(joinPointArgumentSlot)) }

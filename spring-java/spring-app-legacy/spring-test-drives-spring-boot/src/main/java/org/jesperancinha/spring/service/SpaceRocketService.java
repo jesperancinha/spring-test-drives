@@ -22,8 +22,8 @@ public class SpaceRocketService {
         spaceRocketRepository.deleteById(id);
     }
 
-    public void addRocket(final SpaceRocket spaceRocket) {
-        spaceRocketRepository.save(spaceRocket);
+    public SpaceRocket addRocket(final SpaceRocket spaceRocket) {
+        return spaceRocketRepository.save(spaceRocket);
     }
 
 }

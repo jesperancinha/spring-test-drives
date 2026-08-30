@@ -20,6 +20,7 @@ import org.springframework.cache.annotation.Cacheable;
 public class DetailEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 

@@ -25,7 +25,7 @@ public class SpringFlash56Launcher implements CommandLineRunner {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         GREEN.printGenericTitleLn("Service is starting");
         SpringApplication.run(SpringFlash56Launcher.class, args);
     }

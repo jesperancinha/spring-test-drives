@@ -6,8 +6,8 @@ import org.jesperancinha.spring.flash57.secured.repository.ThroneRepository;
 import org.jesperancinha.spring.flash57.secured.security.Flash57Jsr250Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
@@ -22,6 +22,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.jesperancinha.spring.flash57.secured.services.ThroneType.SAVANNAH_WOOD;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -31,6 +32,7 @@ import static org.mockito.Mockito.*;
         Flash57Jsr250Configuration.class,
         ThroneServiceJsr250Impl.class
 })
+@Execution(SAME_THREAD)
 class ThroneServiceJsr250ImplTest {
 
     @Autowired
@@ -39,8 +41,7 @@ class ThroneServiceJsr250ImplTest {
     @MockitoBean
     private ThroneRepository throneRepository;
 
-    @Captor
-    private ArgumentCaptor<Throne> throneArgumentCaptor;
+        private final ArgumentCaptor<Throne> throneArgumentCaptor = ArgumentCaptor.forClass(Throne.class);
 
     @BeforeEach
     public void setUp() {

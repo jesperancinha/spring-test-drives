@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {BeanServiceImpl.class})
-@MockkBean(BeanRepository.class)
+@MockkBean(types = BeanRepository.class)
 @TestPropertySource("classpath:application.properties")
 class BeanServiceImplTest {
 

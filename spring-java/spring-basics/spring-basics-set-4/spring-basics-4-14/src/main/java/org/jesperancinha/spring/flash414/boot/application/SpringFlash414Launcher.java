@@ -11,7 +11,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.MA
 
 @SpringBootApplication
 public class SpringFlash414Launcher implements CommandLineRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash414Launcher.class, args);
     }
 

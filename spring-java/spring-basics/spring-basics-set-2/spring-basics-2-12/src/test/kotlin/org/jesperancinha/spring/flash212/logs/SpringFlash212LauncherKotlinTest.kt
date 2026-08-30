@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBootTest
 internal class SpringFlash212LauncherKotlinTest {
     @Test
-    fun testContext() {
+    fun `should load context`() {
         ConsolerizerComposer.outSpace()
             .magenta(ConsolerizerComposer.title("Logback example"))
             .magenta("In this example we check how Spring Framework can use Logback when it finds a logback file")

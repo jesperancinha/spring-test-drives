@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @Endpoint(id = "greatEndpointId")
 @SpringBootApplication
 public class SpringFlash58Launcher implements CommandLineRunner {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash58Launcher.class, args);
     }
 

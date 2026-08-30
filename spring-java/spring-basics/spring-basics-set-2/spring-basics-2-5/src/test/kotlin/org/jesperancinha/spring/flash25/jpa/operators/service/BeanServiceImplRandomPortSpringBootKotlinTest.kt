@@ -18,7 +18,7 @@ import org.springframework.context.event.ContextStartedEvent
 import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@MockkBean(value = [BeanRepository::class], relaxed = true)
+@MockkBean(types = [BeanRepository::class], relaxed = true)
 @TestPropertySource("classpath:beans.properties")
 internal class BeanServiceImplRandomPortSpringBootKotlinTest @Autowired constructor(
     private val beanService: BeanServiceImpl,
@@ -38,7 +38,7 @@ internal class BeanServiceImplRandomPortSpringBootKotlinTest @Autowired construc
     }
 
     @Test
-    fun tesGetSlogan_whenCalled_getProductionSlogan() {
+    fun `should get production slogan when called`() {
         beanService.slogan shouldBe "This is just a slogan"
         dataSourceUrl shouldBe "jdbc:h2:file:~/flash25db"
         ConsolerizerComposer.outSpace()

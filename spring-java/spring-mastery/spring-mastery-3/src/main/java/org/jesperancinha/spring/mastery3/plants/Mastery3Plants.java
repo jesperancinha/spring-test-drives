@@ -20,7 +20,7 @@ public class Mastery3Plants implements ApplicationRunner {
         this.jmpConfigBean = jmpConfigBean;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(Mastery3Plants.class, args);
     }
 

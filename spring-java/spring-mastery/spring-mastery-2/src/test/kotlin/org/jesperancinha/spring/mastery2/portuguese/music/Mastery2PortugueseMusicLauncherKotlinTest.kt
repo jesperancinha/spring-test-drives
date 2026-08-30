@@ -26,7 +26,7 @@ internal class Mastery2PortugueseMusicLauncherKotlinTest @Autowired constructor(
     }
 
     @Test
-    fun testRunWhenAskingPortsThenGetSeparatePorts() {
+    fun `should get separate ports when asking ports`() {
         ConsolerizerComposer.out(" ")
             .brightGreen(localServerPort)
             .toConsoleLn()

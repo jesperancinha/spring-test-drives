@@ -12,8 +12,11 @@ import org.jesperancinha.spring.flash19.transactional.repos.AlbumRepository
 import org.jesperancinha.spring.flash19.transactional.services.AlbumServiceImpl
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.junit.jupiter.api.parallel.Execution
+import org.junit.jupiter.api.parallel.ExecutionMode
 
 @ExtendWith(MockKExtension::class)
+@Execution(ExecutionMode.SAME_THREAD)
 internal class AlbumControllerKotlinUnitTest {
     @MockK(relaxed = true)
     lateinit var albumRepository: AlbumRepository
@@ -22,7 +25,7 @@ internal class AlbumControllerKotlinUnitTest {
     lateinit var albumService: AlbumServiceImpl
 
     @Test
-    fun testGetAllAlbumsWhenCallThenGetAllAlbums(@MockK(relaxed = true) albums: List<Album>) {
+    fun `should get all albums when called`(@MockK(relaxed = true) albums: List<Album>) {
         every { albums.isEmpty() } returns true
         every { albumRepository.findAll() } returns albums.shouldBeEmpty().toMutableList()
         albumService.allAlbums

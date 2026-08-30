@@ -26,7 +26,7 @@ public class SpringFlash26Launcher implements CommandLineRunner {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash26Launcher.class, args);
     }
 

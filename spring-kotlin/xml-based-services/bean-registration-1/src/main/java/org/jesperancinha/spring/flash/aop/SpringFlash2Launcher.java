@@ -6,7 +6,7 @@ import org.springframework.aop.framework.ProxyFactory;
 import static org.jesperancinha.console.consolerizer.console.ConsolerizerComposer.title;
 
 public class SpringFlash2Launcher {
-    public static void main(String[] args) {
+    static void main(String[] args) {
         final var seed = new Seed("Chives");
         final var vase = new Vase();
         ProxyFactory proxyFactory = new ProxyFactory();

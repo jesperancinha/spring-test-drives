@@ -20,7 +20,7 @@ public class SpringFlash412Launcher implements CommandLineRunner {
         this.applicationContext = applicationContext;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{SpringFlash412Launcher.class}, args);
     }
 

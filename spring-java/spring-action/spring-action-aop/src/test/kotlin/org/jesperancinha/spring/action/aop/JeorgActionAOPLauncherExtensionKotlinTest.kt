@@ -30,7 +30,7 @@ internal class JeorgActionAOPLauncherExtensionKotlinTest @Autowired constructor(
     private val codCatcher: CodCatcher,
 ) {
     @Test
-    fun testContext() {
+    fun `should load context`() {
         bonitoCatcher.catchByHand()
         bonitoCatcher.catchByHandExtra()
         bonitoCatcher.catchWithClaws()

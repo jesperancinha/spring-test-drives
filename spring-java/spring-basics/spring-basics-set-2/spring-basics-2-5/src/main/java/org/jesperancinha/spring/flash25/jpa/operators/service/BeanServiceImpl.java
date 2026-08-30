@@ -13,7 +13,7 @@ public class BeanServiceImpl implements BeanService {
     @Value("${org.jesperancinha.spring.flash25.jpa.operators.slogan}")
     private String slogan;
 
-    private BeanRepository beanRepository;
+    private final BeanRepository beanRepository;
 
     public BeanServiceImpl(final BeanRepository beanRepository) {
         this.beanRepository = beanRepository;

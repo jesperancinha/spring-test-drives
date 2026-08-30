@@ -24,7 +24,6 @@ public class BookieCookieConfiguration {
         contentNegotiationManagerFactoryBean.setDefaultContentType(TEXT_HTML);
         contentNegotiationManagerFactoryBean.setIgnoreAcceptHeader(true);
         contentNegotiationManagerFactoryBean.setFavorParameter(false);
-        contentNegotiationManagerFactoryBean.setFavorPathExtension(true);
         final var mediaTypes = new Properties();
         mediaTypes.setProperty("txt", TEXT_PLAIN_VALUE);
         mediaTypes.setProperty("pdf", APPLICATION_PDF_VALUE);

@@ -14,7 +14,7 @@ internal class TheUniverseConfigurationKotlinTest @Autowired constructor(
 ) {
 
     @Test
-    fun testMaterial1_whenInjectThenGetMaterial2() {
+    fun `should get material 2 when injecting material 1`() {
        material1.value shouldBe "The world is not enough!"
     }
 }

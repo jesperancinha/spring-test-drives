@@ -1,13 +1,14 @@
 package org.jesperancinha.spring.flash55.hateoas;
 
+import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -16,6 +17,8 @@ class SpringFlash55LauncherTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
     void testContext() {
@@ -26,12 +29,14 @@ class SpringFlash55LauncherTest {
      */
     @Test
     void testGetAllCellsWhenCallingThenReturnWithHATEOASLink() throws Exception {
-        mockMvc.perform(get("/"))
+        final var mvcResult = mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("" +
-                        "{\"cells\":[\"Macrophage\",\"Neutrophil\",\"Natural Killer Cell\",\"Complement\",\"Mast Cell\",\"Monocyte\",\"Follicular Dentritic Cell\"]," +
-                        "\"_links\":{\"self\":{\"href\":\"/endless\"}}}"
-                ));
+                .andReturn();
+
+        final var contentAsString = mvcResult.getResponse().getContentAsString();
+        final var node = objectMapper.readTree(contentAsString);
+        assertThat(node.get("cells")).isEqualTo(objectMapper.readTree("[\"Macrophage\",\"Neutrophil\",\"Natural Killer Cell\",\"Complement\",\"Mast Cell\",\"Monocyte\",\"Follicular Dentritic Cell\"]"));
+        assertThat(node.get("_links")).isEqualTo(objectMapper.readTree("{\"self\":{\"href\":\"/endless\"}}"));
     }
 
     /**
@@ -39,11 +44,13 @@ class SpringFlash55LauncherTest {
      */
     @Test
     void testGetAllCellsWhenCallingEndlessThenReturnWithHATEOASLink() throws Exception {
-        mockMvc.perform(get("/endless"))
+        final var mvcResult = mockMvc.perform(get("/endless"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("" +
-                        "{\"cells\":[\"Macrophage\",\"Neutrophil\",\"Natural Killer Cell\",\"Complement\",\"Mast Cell\",\"Monocyte\",\"Follicular Dentritic Cell\"]," +
-                        "\"_links\":{\"self\":{\"href\":\"/\"}}}"
-                ));
+                .andReturn();
+
+        final var contentAsString = mvcResult.getResponse().getContentAsString();
+        final var node = objectMapper.readTree(contentAsString);
+        assertThat(node.get("cells")).isEqualTo(objectMapper.readTree("[\"Macrophage\",\"Neutrophil\",\"Natural Killer Cell\",\"Complement\",\"Mast Cell\",\"Monocyte\",\"Follicular Dentritic Cell\"]"));
+        assertThat(node.get("_links")).isEqualTo(objectMapper.readTree("{\"self\":{\"href\":\"/\"}}"));
     }
 }

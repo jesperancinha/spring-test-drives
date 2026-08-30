@@ -1,7 +1,7 @@
 package org.jesperancinha.spring.flash58.conditionals.prod;
 
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
-import org.springframework.boot.actuate.autoconfigure.health.ConditionalOnEnabledHealthIndicator;
+import org.springframework.boot.health.autoconfigure.contributor.ConditionalOnEnabledHealthIndicator;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 

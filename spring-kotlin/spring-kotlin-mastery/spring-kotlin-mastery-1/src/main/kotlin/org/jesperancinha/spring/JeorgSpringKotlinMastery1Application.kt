@@ -8,7 +8,7 @@ import java.io.File
 
 @SpringBootApplication
 class JeorgSpringKotlinMastery1Application : CommandLineRunner {
-    override fun run(vararg args: String?) {
+    override fun run(vararg args: String) {
         ConsolerizerComposer.out(" ")
             .ln()
             .blue("We can depend on other classes")

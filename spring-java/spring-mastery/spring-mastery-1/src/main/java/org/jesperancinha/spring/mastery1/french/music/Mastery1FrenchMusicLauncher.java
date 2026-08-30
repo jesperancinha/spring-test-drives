@@ -17,7 +17,7 @@ public class Mastery1FrenchMusicLauncher implements CommandLineRunner {
         this.mastery1Configuration = mastery1Configuration;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(new Class[]{Mastery1FrenchMusicLauncher.class}, args);
     }
 

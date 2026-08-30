@@ -14,7 +14,7 @@ import org.springframework.test.context.support.DirtiesContextTestExecutionListe
 class JeorgSpringKotlinMastery1ApplicationTest {
 
     @Test
-    fun contextLoads() {
+    fun `should load context`() {
         main(arrayOf())
     }
 

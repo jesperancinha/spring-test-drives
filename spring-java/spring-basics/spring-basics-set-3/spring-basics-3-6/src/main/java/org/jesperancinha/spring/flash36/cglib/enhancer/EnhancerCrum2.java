@@ -7,7 +7,7 @@ import static org.jesperancinha.console.consolerizer.common.ConsolerizerColor.CY
 import static org.jesperancinha.console.consolerizer.console.ConsolerizerGraphs.printUnicornsLn;
 
 public class EnhancerCrum2 {
-    public static void main(String[] args) {
+    static void main(String[] args) {
 
         final var tomato = new Tomato();
         tomato.setMessage("I'm a tomato!");

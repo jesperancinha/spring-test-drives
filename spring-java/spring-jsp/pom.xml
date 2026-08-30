@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-java</artifactId>
+        <groupId>org.jesperancinha.spring</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-jsp</artifactId>
+    <name>Spring Test Drives :: Spring JSP</name>
+    <modules>
+        <module>spring-basics-8</module>
+        <module>spring-basics-10</module>
+        <module>spring-basics-11</module>
+        <module>spring-basics-4-10</module>
+        <module>spring-basics-16</module>
+        <module>spring-basics-17</module>
+    </modules>
+
+    <packaging>pom</packaging>
+</project>

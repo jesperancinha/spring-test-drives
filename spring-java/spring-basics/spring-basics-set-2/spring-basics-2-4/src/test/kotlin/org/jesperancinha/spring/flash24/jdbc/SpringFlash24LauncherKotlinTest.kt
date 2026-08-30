@@ -1,6 +1,6 @@
 package org.jesperancinha.spring.flash24.jdbc
 
-import com.ninjasquad.springmockk.SpykBean
+import com.ninjasquad.springmockk.MockkSpyBean
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldContainOnly
@@ -32,7 +32,7 @@ import java.time.LocalDateTime
 @ContextConfiguration(initializers = [SpringFlash24LauncherKotlinTest.Initializer::class])
 internal class SpringFlash24LauncherKotlinTest @Autowired constructor(
     private val springFlash24Launcher: SpringFlash24Launcher,
-    @SpykBean
+    @MockkSpyBean
     private val jdbcTemplate: JdbcTemplate,
 ) {
 

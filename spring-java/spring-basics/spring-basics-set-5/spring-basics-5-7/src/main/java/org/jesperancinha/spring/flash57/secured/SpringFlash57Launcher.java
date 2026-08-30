@@ -16,7 +16,7 @@ public class SpringFlash57Launcher implements CommandLineRunner {
         this.throneRepository = throneRepository;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash57Launcher.class, args);
     }
 

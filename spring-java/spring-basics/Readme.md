@@ -19,7 +19,7 @@ All of these modules are fast-track learning modules about Spring. Flash in this
 `Model`, `ModelAndView`, `commandName`, `modelAttribute`, `<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>`,
 `@CORS`, `origins`, `WebMvcConfigurer`, `CorsRegistry`,
 `GzipResourceResolver`,
-`HealthIndicator`, `AbstractHealthIndicator`, `health`, `doHealthCheck`,
+`FileHealthIndicator`, `AbstractHealthIndicator`, `health`, `doHealthCheck`,
 `ConfigurationProperties`, `@Component`, `@PropertySource`,
 `WebSecurityConfigurerAdapter`, `tomcat-embed-jasper`, `Authentication`, `SimpleGrantedAuthority`, `UsernamePasswordAuthenticationToken`,
 `UserDetailsManager`, `tomcat-embed-jasper`, `PasswordEncoder`, `HttpSecurity`, `AuthenticationManagerBuilder`,

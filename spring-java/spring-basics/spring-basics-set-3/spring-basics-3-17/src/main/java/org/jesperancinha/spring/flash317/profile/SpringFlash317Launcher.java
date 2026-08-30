@@ -14,7 +14,7 @@ public class SpringFlash317Launcher implements CommandLineRunner {
         this.messenger = messenger;
     }
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         SpringApplication.run(SpringFlash317Launcher.class, args);
     }
 

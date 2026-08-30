@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service
 import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.client.getForEntity
+import org.springframework.web.client.postForEntity
 import java.net.URI
-import java.util.*
 
 const val ADD_URL ="http://localhost:8080/title-text-adder-api/rest/tta/titles/add"
 const val GET_URL = "http://localhost:8080/title-text-adder-api/rest/tta/titles/list"
@@ -17,7 +17,7 @@ class SolrTitleDao {
     val restTemplate by lazy { RestTemplate() }
 
     fun sendTitle(title: Title): String {
-        val response = restTemplate.postForEntity(URI(ADD_URL), title, String::class.java)
+        val response = restTemplate.postForEntity<String>(URI(ADD_URL), title)
         return "You have added title: ${title.title} with text: ${title.text} and the response is ${response.body}"
     }
 
