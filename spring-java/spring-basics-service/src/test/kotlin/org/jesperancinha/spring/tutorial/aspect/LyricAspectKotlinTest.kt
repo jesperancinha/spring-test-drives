@@ -29,7 +29,7 @@ internal class LyricAspectKotlinTest @Autowired constructor(
 ) {
 
     /**
-     * Tests the Advices that are supposed to respond to method [LyricsService.resultLyric1]
+     * Tests the Advices that are supposed to respond to method [org.jesperancinha.spring.tutorial.service.LyricsService.resultLyric1]
      */
     @Test
     fun `should register all advices when calling enumerate lyrics 1 after throwing advice`() {
