@@ -12,6 +12,10 @@ jobs:
     steps:
       - checkout
 
+      - setup_remote_docker:
+          version: default
+          docker_layer_caching: true
+
       - run:
           name: Run make b
           command: make b
