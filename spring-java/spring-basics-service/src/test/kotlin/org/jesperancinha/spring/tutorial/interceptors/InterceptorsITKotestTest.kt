@@ -45,7 +45,7 @@ internal class InterceptorsITKotestTest @Autowired constructor(
             .shouldHaveSize(3)
             .forEach {
                 it.shouldNotBeNull()
-                    .toString() shouldBe "controller.org.jesperancinha.spring.tutorial.WineController#getString()"
+                    .toString() shouldBe "org.jesperancinha.spring.tutorial.controller.WineController#getString()"
             }
     }
 }

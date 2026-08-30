@@ -61,7 +61,7 @@ class InterceptorsITTest {
         final List<Object> allValues = objectArgumentCaptor.getAllValues();
         assertThat(allValues).hasSize(3);
         allValues.forEach(value ->
-                assertThat(value.toString()).isEqualTo("controller.org.jesperancinha.spring.tutorial.WineController#getString()"));
+                assertThat(value.toString()).isEqualTo("org.jesperancinha.spring.tutorial.controller.WineController#getString()"));
         final ModelAndView value = modelAndViewArgumentCaptor.getValue();
         assertThat(value).isNull();
         final Exception exception = exceptionArgumentCaptor.getValue();

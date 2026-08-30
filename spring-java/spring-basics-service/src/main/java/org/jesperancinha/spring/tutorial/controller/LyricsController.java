@@ -5,22 +5,24 @@ import org.jesperancinha.console.consolerizer.console.ConsolerizerGraphs;
 import org.jesperancinha.spring.tutorial.configuration.LyricsTraditionalConfiguration;
 import org.jesperancinha.spring.tutorial.configuration.LyricsTypeSafeConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LyricController {
+@RequestMapping("/lyrics")
+public class LyricsController {
 
     private final LyricsTraditionalConfiguration lyricsTraditionalConfiguration;
     private final LyricsTypeSafeConfiguration lyricsTypeSafeConfiguration;
 
-    public LyricController(final LyricsTraditionalConfiguration lyricsTraditionalConfiguration,
-                           final LyricsTypeSafeConfiguration lyricsTypeSafeConfiguration) {
+    public LyricsController(final LyricsTraditionalConfiguration lyricsTraditionalConfiguration,
+                            final LyricsTypeSafeConfiguration lyricsTypeSafeConfiguration) {
         this.lyricsTraditionalConfiguration = lyricsTraditionalConfiguration;
         this.lyricsTypeSafeConfiguration = lyricsTypeSafeConfiguration;
     }
 
-    @GetMapping("/lyrics")
+    @GetMapping
     public @ResponseBody
     String getResponse() {
         return ConsolerizerGraphs.getUnicorns(10) +

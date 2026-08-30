@@ -5,6 +5,7 @@ import org.jesperancinha.spring.tutorial.configuration.LyricsTypeSafeConfigurati
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -14,7 +15,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@WebMvcTest(controllers = LyricsController.class)
+@ContextConfiguration(classes = {LyricsController.class, LyricsTraditionalConfiguration.class, LyricsTypeSafeConfiguration.class})
 class LyricsControllerTest {
 
     @MockitoBean
