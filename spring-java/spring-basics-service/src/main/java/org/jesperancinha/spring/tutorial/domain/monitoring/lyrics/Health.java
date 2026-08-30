@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash27.monitoring.model;
+package org.jesperancinha.spring.tutorial.domain.monitoring.lyrics;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

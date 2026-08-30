@@ -298,6 +298,43 @@ mvn clean install spring-boot:run
 
 </details>
 
+<details>
+<summary><h2><b>9. Maximizing management endpoints exposure in Spring</b></h2></summary>
+
+## Introduction
+
+Maximizing management endpoints exposure in Spring
+
+Topics
+
+1.  `management.endpoint.health.show-details`, `management.endpoints.enabled-by-default`, `management.endpoints.web.exposure.include`
+
+## Endpoints
+
+1.  [http://localhost:8081](http://localhost:8081)
+2.  [http://localhost:8081/actuator/health](http://localhost:8081/actuator/health)
+
+```bash
+curl http://localhost:8081
+curl http://localhost:8081/actuator/health
+```
+
+## How to run
+
+1.  Test running services
+
+```bash
+lsof -i :8081
+```
+
+2.  Run service
+
+```bash
+mvn clean install spring-boot:run
+```
+
+</details>
+
 ## Resources
 
 ### Books

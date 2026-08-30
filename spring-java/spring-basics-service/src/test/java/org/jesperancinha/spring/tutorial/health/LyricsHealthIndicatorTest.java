@@ -1,20 +1,20 @@
-package org.jesperancinha.spring.flash27.monitoring;
+package org.jesperancinha.spring.tutorial.health;
 
-import tools.jackson.databind.ObjectMapper;
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer;
-import org.jesperancinha.spring.flash27.monitoring.model.Health;
+import org.jesperancinha.spring.tutorial.domain.monitoring.lyrics.Health;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
+import tools.jackson.databind.ObjectMapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class Flash27HealthIndicatorTest {
+class LyricsHealthIndicatorTest {
 
     @Autowired
     private MockMvc mockMvc;

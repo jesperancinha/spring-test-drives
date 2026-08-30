@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash27.monitoring;
+package org.jesperancinha.spring.tutorial.health;
 
 import org.springframework.boot.health.contributor.Health;
 import org.springframework.boot.health.contributor.HealthIndicator;
@@ -6,7 +6,7 @@ import org.springframework.boot.health.contributor.Status;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Flash27HealthIndicator implements HealthIndicator {
+public class LyricsHealthIndicator implements HealthIndicator {
     private static final String[] LYRICS = new String[]{"Oh, not to touch a hair on your head", "Leave you as you are", "If he felt he had to direct you", "Then direct you into my arms"};
     private static final Status[] STATUSES = new Status[]{Status.DOWN, Status.UNKNOWN, Status.UP, Status.OUT_OF_SERVICE};
 

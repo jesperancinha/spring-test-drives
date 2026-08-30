@@ -1,23 +1,23 @@
-package org.jesperancinha.spring.flash27.monitoring
+package org.jesperancinha.spring.tutorial.health
 
-import tools.jackson.databind.ObjectMapper
 import io.kotest.matchers.collections.shouldBeIn
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import org.jesperancinha.console.consolerizer.console.ConsolerizerComposer
-import org.jesperancinha.spring.flash27.monitoring.model.Health
+import org.jesperancinha.spring.tutorial.domain.monitoring.lyrics.Health
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import tools.jackson.databind.ObjectMapper
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureMockMvc
-internal class Flash27HealthIndicatorKotlinTest @Autowired constructor(
+internal class LyricsHealthIndicatorKotlinTest @Autowired constructor(
     private val mockMvc: MockMvc
 ) {
     @Test
