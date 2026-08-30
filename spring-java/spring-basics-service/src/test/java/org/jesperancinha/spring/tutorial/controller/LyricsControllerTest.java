@@ -1,5 +1,7 @@
-package org.jesperancinha.spring.flash15.configuration;
+package org.jesperancinha.spring.tutorial.controller;
 
+import org.jesperancinha.spring.tutorial.configuration.LyricsTraditionalConfiguration;
+import org.jesperancinha.spring.tutorial.configuration.LyricsTypeSafeConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
@@ -13,25 +15,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
-class SpringFlash15LauncherRestTest {
+class LyricsControllerTest {
 
     @MockitoBean
-    private Flash15TypeSafeConfiguration flash15TypeSafeConfiguration;
+    private LyricsTypeSafeConfiguration lyricsTypeSafeConfiguration;
 
     @MockitoBean
-    private Flash15TraditionalConfiguration flash15TraditionalConfiguration;
+    private LyricsTraditionalConfiguration lyricsTraditionalConfiguration;
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     void testGetResponseWhenCallingThenReturnConfiguration() throws Exception {
-        when(flash15TraditionalConfiguration.getLyric1()).thenReturn("got");
-        when(flash15TraditionalConfiguration.getLyric2()).thenReturn("everything");
-        when(flash15TypeSafeConfiguration.getLyric3()).thenReturn("I");
-        when(flash15TypeSafeConfiguration.getLyric4()).thenReturn("wanted");
+        when(lyricsTraditionalConfiguration.getLyric1()).thenReturn("got");
+        when(lyricsTraditionalConfiguration.getLyric2()).thenReturn("everything");
+        when(lyricsTypeSafeConfiguration.getLyric3()).thenReturn("I");
+        when(lyricsTypeSafeConfiguration.getLyric4()).thenReturn("wanted");
 
-        mockMvc.perform(get("/"))
+        mockMvc.perform(get("/lyrics"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
                         "\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84" +
@@ -41,15 +43,15 @@ class SpringFlash15LauncherRestTest {
                                 "<p style=\"margin:0; font-family: monospace; color:#0000aa\"><b>wanted</b></p>" +
                                 "\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84\uD83E\uDD84"));
 
-        verify(flash15TraditionalConfiguration, times(0)).setLyric1(any());
-        verify(flash15TraditionalConfiguration, times(1)).getLyric1();
-        verify(flash15TraditionalConfiguration, times(0)).setLyric2(any());
-        verify(flash15TraditionalConfiguration, times(1)).getLyric2();
-        verify(flash15TypeSafeConfiguration, times(0)).setLyric3(any());
-        verify(flash15TypeSafeConfiguration, times(1)).getLyric3();
-        verify(flash15TypeSafeConfiguration, times(0)).setLyric4(any());
-        verify(flash15TypeSafeConfiguration, times(1)).getLyric4();
-        verifyNoMoreInteractions(flash15TraditionalConfiguration);
-        verifyNoMoreInteractions(flash15TypeSafeConfiguration);
+        verify(lyricsTraditionalConfiguration, times(0)).setLyric1(any());
+        verify(lyricsTraditionalConfiguration, times(1)).getLyric1();
+        verify(lyricsTraditionalConfiguration, times(0)).setLyric2(any());
+        verify(lyricsTraditionalConfiguration, times(1)).getLyric2();
+        verify(lyricsTypeSafeConfiguration, times(0)).setLyric3(any());
+        verify(lyricsTypeSafeConfiguration, times(1)).getLyric3();
+        verify(lyricsTypeSafeConfiguration, times(0)).setLyric4(any());
+        verify(lyricsTypeSafeConfiguration, times(1)).getLyric4();
+        verifyNoMoreInteractions(lyricsTraditionalConfiguration);
+        verifyNoMoreInteractions(lyricsTypeSafeConfiguration);
     }
 }

@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash15.configuration;
+package org.jesperancinha.spring.tutorial.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @PropertySource("classpath:traditional.properties")
-public class Flash15TraditionalConfiguration {
+public class LyricsTraditionalConfiguration {
 
     @Value("${jeorg.flash15.lyrics.lyric1}")
     private String lyric1;

@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash15.configuration;
+package org.jesperancinha.spring.tutorial.configuration;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -9,16 +9,16 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = Flash15TraditionalConfiguration.class)
-class Flash15TraditionalConfigurationTest {
+@ContextConfiguration(classes = LyricsTraditionalConfiguration.class)
+class LyricsTraditionalConfigurationTest {
 
     @Autowired
-    private Flash15TraditionalConfiguration flash15TraditionalConfiguration;
+    private LyricsTraditionalConfiguration lyricsTraditionalConfiguration;
 
     @Test
     public void testConfigurationWhenTraditionalThenCorrectConfiguration() {
-        assertThat(flash15TraditionalConfiguration.getLyric1()).isEqualTo("And you say, \"As long as I'm here");
-        assertThat(flash15TraditionalConfiguration.getLyric2()).isEqualTo("No one can hurt you");
+        assertThat(lyricsTraditionalConfiguration.getLyric1()).isEqualTo("And you say, \"As long as I'm here");
+        assertThat(lyricsTraditionalConfiguration.getLyric2()).isEqualTo("No one can hurt you");
     }
 
 }

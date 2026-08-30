@@ -1,7 +1,6 @@
 package org.jesperancinha.spring.tutorial.controller;
 
 import org.jesperancinha.spring.tutorial.exceptions.*;
-import org.jesperancinha.spring.tutorial.persistence.rest.exceptions.*;
 import org.jesperancinha.spring.tutorial.handlers.ErrorCar;
 import org.jesperancinha.spring.tutorial.handlers.ErrorFlower;
 import org.springframework.http.HttpStatus;

@@ -227,6 +227,42 @@ mvn clean install spring-boot:run
 
 </details>
 
+<details>
+<summary><h2><b>7. ConfigurationProperties</b></h2></summary>
+
+## Introduction
+
+Exploring ConfigurationProperties in Spring
+
+Topics
+
+1.  `ConfigurationProperties`, `@Component`, `@PropertySource`
+
+## Endpoints
+
+1.  [http://localhost:8081/lyrics](http://localhost:8081/lyrics)
+
+```bash
+curl localhost:8081/lyrics
+```
+
+## How to run
+
+1.  Test running services
+
+```bash
+lsof -i :8081
+```
+
+2.  Run service
+
+```bash
+mvn clean install spring-boot:run
+```
+
+</details>
+
+
 ## Resources
 
 ### Books

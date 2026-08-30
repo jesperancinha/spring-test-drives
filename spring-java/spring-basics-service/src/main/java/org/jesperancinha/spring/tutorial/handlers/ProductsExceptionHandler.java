@@ -1,7 +1,6 @@
 package org.jesperancinha.spring.tutorial.handlers;
 
 import org.jesperancinha.spring.tutorial.exceptions.*;
-import org.jesperancinha.spring.tutorial.persistence.rest.exceptions.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

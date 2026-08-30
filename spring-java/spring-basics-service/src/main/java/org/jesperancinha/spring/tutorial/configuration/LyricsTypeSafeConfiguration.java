@@ -1,4 +1,4 @@
-package org.jesperancinha.spring.flash15.configuration;
+package org.jesperancinha.spring.tutorial.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySource("classpath:typesafe.properties")
 @ConfigurationProperties("jeorg.flash15.lyrics")
-public class Flash15TypeSafeConfiguration {
+public class LyricsTypeSafeConfiguration {
 
     private String lyric3;
     private String lyric4;
