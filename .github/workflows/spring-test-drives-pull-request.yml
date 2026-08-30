@@ -1,4 +1,4 @@
-name: JEORG_SPRING_TD spring-test-drives-pull-request
+name: spring-test-drives-pull-request
 
 on:
   push:
