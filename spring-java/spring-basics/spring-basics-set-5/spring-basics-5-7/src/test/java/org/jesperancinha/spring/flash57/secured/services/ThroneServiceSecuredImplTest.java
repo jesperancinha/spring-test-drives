@@ -6,12 +6,15 @@ import org.jesperancinha.spring.flash57.secured.repository.ThroneRepository;
 import org.jesperancinha.spring.flash57.secured.security.Flash57SecuredConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
 import org.mockito.ArgumentCaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -21,9 +24,9 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.jesperancinha.spring.flash57.secured.services.ThroneType.SAVANNAH_WOOD;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.parallel.ExecutionMode.SAME_THREAD;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import org.springframework.test.annotation.DirtiesContext;
 
 @SpringBootTest
 @ActiveProfiles("acc")
@@ -32,6 +35,7 @@ import org.springframework.test.annotation.DirtiesContext;
         ThroneServiceSecuredImpl.class
 })
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@Execution(SAME_THREAD)
 class ThroneServiceSecuredImplTest {
 
     @Autowired
@@ -117,12 +121,8 @@ class ThroneServiceSecuredImplTest {
 
     @Test
     @WithMockUser(username = "intruder")
-    void testGetThroneByIdWhenCreatingWithDefaultUserRoleThenOk() {
-        final var throne = Throne.builder().keeper("test").throneType(SAVANNAH_WOOD).build();
-        when(throneRepository.getOne(1L)).thenReturn(throne);
-
-        final var throneResult = throneService.getThrone(1L);
-        assertThat(throneResult).isEqualTo(throne);
+    void testGetThroneByIdWhenCreatingWithDefaultUserRoleThenFailWithIntruder() {
+       assertThrows(AuthorizationDeniedException.class, () -> throneService.getThrone(1L));
     }
 
     @Test
