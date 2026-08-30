@@ -78,7 +78,7 @@ internal class LyricsHealthIndicatorKotlinTest @Autowired constructor(
                                                 lyric.shouldBeNull()
                                             }
                                     }
-                                flash27.shouldNotBeNull()
+                                lyrics().shouldNotBeNull()
                                     .apply {
                                         status.shouldNotBeNull()
                                             .shouldBeIn("UP", "DOWN", "OUT_OF_SERVICE", "UNKNOWN")

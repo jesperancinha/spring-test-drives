@@ -6,6 +6,6 @@ public record Components(
         @JsonProperty("ssl") Object ssl,
         @JsonProperty("db") DataBaseF27 db,
                          @JsonProperty("diskSpace") DiskSpace diskSpace,
-                         @JsonProperty("flash27") Flash27 flash27,
+                         @JsonProperty("lyrics") Lyrics lyrics,
                          @JsonProperty("ping") Ping ping) {
 }

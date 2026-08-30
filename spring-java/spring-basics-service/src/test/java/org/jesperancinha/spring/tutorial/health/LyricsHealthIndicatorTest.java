@@ -67,7 +67,7 @@ class LyricsHealthIndicatorTest {
         assertThat(diskSpaceDetails.total()).isNotNull();
         assertThat(diskSpaceDetails.free()).isNotNull();
         assertThat(diskSpaceDetails.threshold()).isNotNull();
-        final var flash27 = components.flash27();
+        final var flash27 = components.lyrics();
         assertThat(flash27).isNotNull();
         final var flash27Status = flash27.status();
         assertThat(flash27Status).isNotNull();
